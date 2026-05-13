@@ -555,7 +555,7 @@ window.__XHS_DATA__ = {
 
 <script>
 // ── 状态 ──────────────────────────────────────────────────────────────────
-let products = window.__XHS_DATA__ || [];
+const __data = window.__XHS_DATA__ || {}; let products = Array.isArray(__data) ? __data : (__data.products || []);
 let groups = [];
 let activeGroup = '全部';
 let parsedProduct = null;
@@ -565,7 +565,8 @@ let detailChart = null;
 // ── 初始化 ────────────────────────────────────────────────────────────────
 function init() {
     // 收集所有分组
-    const groupSet = new Set(['默认分组']);
+    const savedGroups = Array.isArray(__data) ? [] : (__data.groups || []);         
+    const groupSet = new Set(['默认分组', ...savedGroups]);
     products.forEach(p => { if (p.group) groupSet.add(p.group); });
     groups = Array.from(groupSet);
 
