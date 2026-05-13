@@ -456,6 +456,25 @@
         }
       ],
       "group": "电子资源"
+    },
+    {
+      "id": "68dead909176f50001fc1c4d",
+      "url": "https://www.xiaohongshu.com/goods-detail/68dead909176f50001fc1c4d",
+      "xsecToken": "XBU8_-nNQeXDesSzqDOz1Gbmka9Ky1pfMSJarB4ZxpKck=",
+      "name": "全场景家校沟通手册（118个实战案例）",
+      "price": 26.8,
+      "shopName": "青林老师的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/6871378082d1a30015cde71b",
+      "shopSalesText": "已售6008",
+      "history": [
+        {
+          "time": "2026/5/13 20:11:37",
+          "date": "2026-05-13",
+          "sales": 183,
+          "salesText": "已售183"
+        }
+      ],
+      "group": "默认分组"
     }
   ]
 }
