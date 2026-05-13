@@ -1095,6 +1095,8 @@ function confirmRenameGroup() {
     closeModal('modal-rename-group');
     renderGroups();
     renderCards();
+    saveProductsToGitHub().catch(err => console.warn('同步失败:', err));
+
 }
 
 // ── 通用 ──────────────────────────────────────────────────────────────────
