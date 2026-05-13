@@ -1,280 +1,277 @@
-{
-  "groups": [],
-  "products": [
-    {
-      "id": "69e4939ce3af990015ac3982",
-      "url": "https://www.xiaohongshu.com/goods-detail/69e4939ce3af990015ac3982",
-      "xsecToken": "XBfattcZ935LshFvyIxU34bp2ffMPdlOhesAWu_dtqDwo=",
-      "name": "自制防近视神器 diy小学生写作业防低头神器写字低头歪头贴桌孩子",
-      "price": 21.9,
-      "shopName": "微胖紫芸的店",
-      "shopUrl": "https://www.xiaohongshu.com/shop/66a1fe78a6d8460016697fb5",
-      "shopSalesText": "已售9791",
-      "history": [
-        {
-          "time": "2026/5/13 14:03:23",
-          "date": "2026-05-13",
-          "sales": 4570,
-          "salesText": "已售4570"
-        },
-        {
-          "time": "2026-05-13 14:44:55",
-          "date": "2026-05-13",
-          "sales": 4576,
-          "salesText": "已售4576"
-        },
-        {
-          "time": "2026-05-13 15:40:21",
-          "date": "2026-05-13",
-          "sales": 4583,
-          "salesText": "已售4583"
-        },
-        {
-          "time": "2026-05-13 16:00:30",
-          "date": "2026-05-13",
-          "sales": 4585,
-          "salesText": "已售4585"
-        },
-        {
-          "time": "2026-05-13 16:15:21",
-          "date": "2026-05-13",
-          "sales": 4588,
-          "salesText": "已售4588"
-        },
-        {
-          "time": "2026-05-13 16:30:21",
-          "date": "2026-05-13",
-          "sales": 4592,
-          "salesText": "已售4592"
-        },
-        {
-          "time": "2026-05-13 16:34:12",
-          "date": "2026-05-13",
-          "sales": 4592,
-          "salesText": "已售4592"
-        },
-        {
-          "time": "2026-05-13 16:45:14",
-          "date": "2026-05-13",
-          "sales": 4594,
-          "salesText": "已售4594"
-        },
-        {
-          "time": "2026-05-13 17:00:25",
-          "date": "2026-05-13",
-          "sales": 4597,
-          "salesText": "已售4597"
-        },
-        {
-          "time": "2026-05-13 17:15:22",
-          "date": "2026-05-13",
-          "sales": 4602,
-          "salesText": "已售4602"
-        },
-        {
-          "time": "2026-05-13 17:25:38",
-          "date": "2026-05-13",
-          "sales": 4604,
-          "salesText": "已售4604"
-        },
-        {
-          "time": "2026-05-13 17:30:27",
-          "date": "2026-05-13",
-          "sales": 4604,
-          "salesText": "已售4604"
-        },
-        {
-          "time": "2026-05-13 17:45:21",
-          "date": "2026-05-13",
-          "sales": 4605,
-          "salesText": "已售4605"
-        },
-        {
-          "time": "2026-05-13 18:00:29",
-          "date": "2026-05-13",
-          "sales": 4605,
-          "salesText": "已售4605"
-        },
-        {
-          "time": "2026-05-13 18:15:23",
-          "date": "2026-05-13",
-          "sales": 4614,
-          "salesText": "已售4614"
-        },
-        {
-          "time": "2026-05-13 18:30:27",
-          "date": "2026-05-13",
-          "sales": 4616,
-          "salesText": "已售4616"
-        }
-      ],
-      "group": "电子资源"
-    },
-    {
-      "id": "68f374ecc67e470001136729",
-      "url": "https://www.xiaohongshu.com/goods-detail/68f374ecc67e470001136729",
-      "xsecToken": "XBMuveo-SkixQM2WgyyuaXvy4IVAMibStV2a71QdghMnw=",
-      "name": "《刺头学生治理手册（含家长）》电子版",
-      "price": 23.9,
-      "shopName": "做有用的人的店",
-      "shopUrl": "https://www.xiaohongshu.com/shop/689c9a809b87160015940860",
-      "shopSalesText": "已售4173",
-      "history": [
-        {
-          "time": "2026/5/13 17:40:05",
-          "date": "2026-05-13",
-          "sales": 3150,
-          "salesText": "已售3150"
-        },
-        {
-          "time": "2026-05-13 17:45:21",
-          "date": "2026-05-13",
-          "sales": 3150,
-          "salesText": "已售3150"
-        },
-        {
-          "time": "2026-05-13 18:00:29",
-          "date": "2026-05-13",
-          "sales": 3150,
-          "salesText": "已售3150"
-        },
-        {
-          "time": "2026-05-13 18:15:23",
-          "date": "2026-05-13",
-          "sales": 3150,
-          "salesText": "已售3150"
-        },
-        {
-          "time": "2026-05-13 18:30:27",
-          "date": "2026-05-13",
-          "sales": 3150,
-          "salesText": "已售3150"
-        }
-      ],
-      "group": "电子资源"
-    },
-    {
-      "id": "68f75dacb8a4f60001b50622",
-      "url": "https://www.xiaohongshu.com/goods-detail/68f75dacb8a4f60001b50622",
-      "xsecToken": "XBD4FeJ_j_CXyITNylno7QxeWJr0lUyZZcm-azAL5246Y=",
-      "name": "一键分析期中期末考试成绩学生成绩报表分析工具（一键导出表格）",
-      "price": 39.9,
-      "shopName": "我是略略老师的店",
-      "shopUrl": "https://www.xiaohongshu.com/shop/6899b047291d38001584c0b3",
-      "shopSalesText": "已售 1.3万",
-      "history": [
-        {
-          "time": "2026/5/13 17:41:16",
-          "date": "2026-05-13",
-          "sales": 1911,
-          "salesText": "已售1911"
-        },
-        {
-          "time": "2026-05-13 17:45:21",
-          "date": "2026-05-13",
-          "sales": 1911,
-          "salesText": "已售1911"
-        },
-        {
-          "time": "2026-05-13 18:00:29",
-          "date": "2026-05-13",
-          "sales": 1912,
-          "salesText": "已售1912"
-        },
-        {
-          "time": "2026-05-13 18:15:23",
-          "date": "2026-05-13",
-          "sales": 1912,
-          "salesText": "已售1912"
-        },
-        {
-          "time": "2026-05-13 18:30:27",
-          "date": "2026-05-13",
-          "sales": 1912,
-          "salesText": "已售1912"
-        }
-      ],
-      "group": "电子资源"
-    },
-    {
-      "id": "6906f2a7dcedc70001244a61",
-      "url": "https://www.xiaohongshu.com/goods-detail/6906f2a7dcedc70001244a61",
-      "xsecToken": "XBEylGxshgMPE2oaJH_3F3BZWdzAlPWquu3TyAqsCUplI=",
-      "name": "原创自制教学游戏 精品课堂趣味网页课件 教室无需联网",
-      "price": 9.0,
-      "shopName": "芝士虾米的店",
-      "shopUrl": "https://www.xiaohongshu.com/shop/676012323a55480015f703b4",
-      "shopSalesText": "已售6306",
-      "history": [
-        {
-          "time": "2026/5/13 17:41:48",
-          "date": "2026-05-13",
-          "sales": 1093,
-          "salesText": "已售1093"
-        },
-        {
-          "time": "2026-05-13 17:45:21",
-          "date": "2026-05-13",
-          "sales": 1093,
-          "salesText": "已售1093"
-        },
-        {
-          "time": "2026-05-13 18:00:29",
-          "date": "2026-05-13",
-          "sales": 1093,
-          "salesText": "已售1093"
-        },
-        {
-          "time": "2026-05-13 18:15:23",
-          "date": "2026-05-13",
-          "sales": 1093,
-          "salesText": "已售1093"
-        },
-        {
-          "time": "2026-05-13 18:30:27",
-          "date": "2026-05-13",
-          "sales": 1093,
-          "salesText": "已售1093"
-        }
-      ],
-      "group": "电子资源"
-    },
-    {
-      "id": "697065d39727930001126a79",
-      "url": "https://www.xiaohongshu.com/goods-detail/697065d39727930001126a79",
-      "xsecToken": "XBwPYloKZCMjiwKo6ZX-0-mL002l85ZCgx3PRYNydu020=",
-      "name": "11.9 bjd玫瑰之剑 金银双色",
-      "price": 11.9,
-      "shopName": "今夜金陵有雪的店",
-      "shopUrl": "https://www.xiaohongshu.com/shop/632efecc5b41a200012ad62c",
-      "shopSalesText": "已售 1.9万",
-      "history": [
-        {
-          "time": "2026/5/13 17:54:00",
-          "date": "2026-05-13",
-          "sales": 1806,
-          "salesText": "已售1806"
-        },
-        {
-          "time": "2026-05-13 18:00:29",
-          "date": "2026-05-13",
-          "sales": 1806,
-          "salesText": "已售1806"
-        },
-        {
-          "time": "2026-05-13 18:15:23",
-          "date": "2026-05-13",
-          "sales": 1806,
-          "salesText": "已售1806"
-        },
-        {
-          "time": "2026-05-13 18:30:27",
-          "date": "2026-05-13",
-          "sales": 1807,
-          "salesText": "已售1807"
-        }
-      ],
-      "group": "默认分组"
-    }
-  ]
-}
+[
+  {
+    "id": "69e4939ce3af990015ac3982",
+    "url": "https://www.xiaohongshu.com/goods-detail/69e4939ce3af990015ac3982",
+    "xsecToken": "XBfattcZ935LshFvyIxU34bp2ffMPdlOhesAWu_dtqDwo=",
+    "name": "自制防近视神器 diy小学生写作业防低头神器写字低头歪头贴桌孩子",
+    "price": 21.9,
+    "shopName": "微胖紫芸的店",
+    "shopUrl": "https://www.xiaohongshu.com/shop/66a1fe78a6d8460016697fb5",
+    "shopSalesText": "已售9791",
+    "history": [
+      {
+        "time": "2026/5/13 14:03:23",
+        "date": "2026-05-13",
+        "sales": 4570,
+        "salesText": "已售4570"
+      },
+      {
+        "time": "2026-05-13 14:44:55",
+        "date": "2026-05-13",
+        "sales": 4576,
+        "salesText": "已售4576"
+      },
+      {
+        "time": "2026-05-13 15:40:21",
+        "date": "2026-05-13",
+        "sales": 4583,
+        "salesText": "已售4583"
+      },
+      {
+        "time": "2026-05-13 16:00:30",
+        "date": "2026-05-13",
+        "sales": 4585,
+        "salesText": "已售4585"
+      },
+      {
+        "time": "2026-05-13 16:15:21",
+        "date": "2026-05-13",
+        "sales": 4588,
+        "salesText": "已售4588"
+      },
+      {
+        "time": "2026-05-13 16:30:21",
+        "date": "2026-05-13",
+        "sales": 4592,
+        "salesText": "已售4592"
+      },
+      {
+        "time": "2026-05-13 16:34:12",
+        "date": "2026-05-13",
+        "sales": 4592,
+        "salesText": "已售4592"
+      },
+      {
+        "time": "2026-05-13 16:45:14",
+        "date": "2026-05-13",
+        "sales": 4594,
+        "salesText": "已售4594"
+      },
+      {
+        "time": "2026-05-13 17:00:25",
+        "date": "2026-05-13",
+        "sales": 4597,
+        "salesText": "已售4597"
+      },
+      {
+        "time": "2026-05-13 17:15:22",
+        "date": "2026-05-13",
+        "sales": 4602,
+        "salesText": "已售4602"
+      },
+      {
+        "time": "2026-05-13 17:25:38",
+        "date": "2026-05-13",
+        "sales": 4604,
+        "salesText": "已售4604"
+      },
+      {
+        "time": "2026-05-13 17:30:27",
+        "date": "2026-05-13",
+        "sales": 4604,
+        "salesText": "已售4604"
+      },
+      {
+        "time": "2026-05-13 17:45:21",
+        "date": "2026-05-13",
+        "sales": 4605,
+        "salesText": "已售4605"
+      },
+      {
+        "time": "2026-05-13 18:00:29",
+        "date": "2026-05-13",
+        "sales": 4605,
+        "salesText": "已售4605"
+      },
+      {
+        "time": "2026-05-13 18:15:23",
+        "date": "2026-05-13",
+        "sales": 4614,
+        "salesText": "已售4614"
+      },
+      {
+        "time": "2026-05-13 18:30:27",
+        "date": "2026-05-13",
+        "sales": 4616,
+        "salesText": "已售4616"
+      }
+    ],
+    "group": "电子资源"
+  },
+  {
+    "id": "68f374ecc67e470001136729",
+    "url": "https://www.xiaohongshu.com/goods-detail/68f374ecc67e470001136729",
+    "xsecToken": "XBMuveo-SkixQM2WgyyuaXvy4IVAMibStV2a71QdghMnw=",
+    "name": "《刺头学生治理手册（含家长）》电子版",
+    "price": 23.9,
+    "shopName": "做有用的人的店",
+    "shopUrl": "https://www.xiaohongshu.com/shop/689c9a809b87160015940860",
+    "shopSalesText": "已售4173",
+    "history": [
+      {
+        "time": "2026/5/13 17:40:05",
+        "date": "2026-05-13",
+        "sales": 3150,
+        "salesText": "已售3150"
+      },
+      {
+        "time": "2026-05-13 17:45:21",
+        "date": "2026-05-13",
+        "sales": 3150,
+        "salesText": "已售3150"
+      },
+      {
+        "time": "2026-05-13 18:00:29",
+        "date": "2026-05-13",
+        "sales": 3150,
+        "salesText": "已售3150"
+      },
+      {
+        "time": "2026-05-13 18:15:23",
+        "date": "2026-05-13",
+        "sales": 3150,
+        "salesText": "已售3150"
+      },
+      {
+        "time": "2026-05-13 18:30:27",
+        "date": "2026-05-13",
+        "sales": 3150,
+        "salesText": "已售3150"
+      }
+    ],
+    "group": "电子资源"
+  },
+  {
+    "id": "68f75dacb8a4f60001b50622",
+    "url": "https://www.xiaohongshu.com/goods-detail/68f75dacb8a4f60001b50622",
+    "xsecToken": "XBD4FeJ_j_CXyITNylno7QxeWJr0lUyZZcm-azAL5246Y=",
+    "name": "一键分析期中期末考试成绩学生成绩报表分析工具（一键导出表格）",
+    "price": 39.9,
+    "shopName": "我是略略老师的店",
+    "shopUrl": "https://www.xiaohongshu.com/shop/6899b047291d38001584c0b3",
+    "shopSalesText": "已售 1.3万",
+    "history": [
+      {
+        "time": "2026/5/13 17:41:16",
+        "date": "2026-05-13",
+        "sales": 1911,
+        "salesText": "已售1911"
+      },
+      {
+        "time": "2026-05-13 17:45:21",
+        "date": "2026-05-13",
+        "sales": 1911,
+        "salesText": "已售1911"
+      },
+      {
+        "time": "2026-05-13 18:00:29",
+        "date": "2026-05-13",
+        "sales": 1912,
+        "salesText": "已售1912"
+      },
+      {
+        "time": "2026-05-13 18:15:23",
+        "date": "2026-05-13",
+        "sales": 1912,
+        "salesText": "已售1912"
+      },
+      {
+        "time": "2026-05-13 18:30:27",
+        "date": "2026-05-13",
+        "sales": 1912,
+        "salesText": "已售1912"
+      }
+    ],
+    "group": "电子资源"
+  },
+  {
+    "id": "6906f2a7dcedc70001244a61",
+    "url": "https://www.xiaohongshu.com/goods-detail/6906f2a7dcedc70001244a61",
+    "xsecToken": "XBEylGxshgMPE2oaJH_3F3BZWdzAlPWquu3TyAqsCUplI=",
+    "name": "原创自制教学游戏 精品课堂趣味网页课件 教室无需联网",
+    "price": 9,
+    "shopName": "芝士虾米的店",
+    "shopUrl": "https://www.xiaohongshu.com/shop/676012323a55480015f703b4",
+    "shopSalesText": "已售6306",
+    "history": [
+      {
+        "time": "2026/5/13 17:41:48",
+        "date": "2026-05-13",
+        "sales": 1093,
+        "salesText": "已售1093"
+      },
+      {
+        "time": "2026-05-13 17:45:21",
+        "date": "2026-05-13",
+        "sales": 1093,
+        "salesText": "已售1093"
+      },
+      {
+        "time": "2026-05-13 18:00:29",
+        "date": "2026-05-13",
+        "sales": 1093,
+        "salesText": "已售1093"
+      },
+      {
+        "time": "2026-05-13 18:15:23",
+        "date": "2026-05-13",
+        "sales": 1093,
+        "salesText": "已售1093"
+      },
+      {
+        "time": "2026-05-13 18:30:27",
+        "date": "2026-05-13",
+        "sales": 1093,
+        "salesText": "已售1093"
+      }
+    ],
+    "group": "电子资源"
+  },
+  {
+    "id": "697065d39727930001126a79",
+    "url": "https://www.xiaohongshu.com/goods-detail/697065d39727930001126a79",
+    "xsecToken": "XBwPYloKZCMjiwKo6ZX-0-mL002l85ZCgx3PRYNydu020=",
+    "name": "11.9 bjd玫瑰之剑 金银双色",
+    "price": 11.9,
+    "shopName": "今夜金陵有雪的店",
+    "shopUrl": "https://www.xiaohongshu.com/shop/632efecc5b41a200012ad62c",
+    "shopSalesText": "已售 1.9万",
+    "history": [
+      {
+        "time": "2026/5/13 17:54:00",
+        "date": "2026-05-13",
+        "sales": 1806,
+        "salesText": "已售1806"
+      },
+      {
+        "time": "2026-05-13 18:00:29",
+        "date": "2026-05-13",
+        "sales": 1806,
+        "salesText": "已售1806"
+      },
+      {
+        "time": "2026-05-13 18:15:23",
+        "date": "2026-05-13",
+        "sales": 1806,
+        "salesText": "已售1806"
+      },
+      {
+        "time": "2026-05-13 18:30:27",
+        "date": "2026-05-13",
+        "sales": 1807,
+        "salesText": "已售1807"
+      }
+    ],
+    "group": "默认分组"
+  }
+]
