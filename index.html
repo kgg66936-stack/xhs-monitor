@@ -938,11 +938,8 @@ function buildDailyStats(p) {
     const dates = Object.keys(byDate).sort();
     let prevSales = null;
     return dates.map(date => {
-        const records = byDate[date].slice().sort((a, b) => {
-            const ta = String(a.time).replace(/\//g, '-');
-            const tb = String(b.time).replace(/\//g, '-');
-            return ta.localeCompare(tb);
-        });
+        const records = byDate[date].slice().sort((a, b) => new Date(String(a.time).replace(/\//g, '-')) - new Date(String(b.time).replace(/\//g, '-')));
+
         const first = records[0];
         const last = records[records.length - 1];
         let increase = null;
