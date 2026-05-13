@@ -187,5 +187,24 @@
       }
     ],
     "group": "默认分组"
+  },
+  {
+    "id": "68f75dacb8a4f60001b50622",
+    "url": "https://www.xiaohongshu.com/goods-detail/68f75dacb8a4f60001b50622",
+    "xsecToken": "XBD4FeJ_j_CXyITNylno7QxeWJr0lUyZZcm-azAL5246Y=",
+    "name": "一键分析期中期末考试成绩学生成绩报表分析工具（一键导出表格）",
+    "price": 39.9,
+    "shopName": "我是略略老师的店",
+    "shopUrl": "https://www.xiaohongshu.com/shop/6899b047291d38001584c0b3",
+    "shopSalesText": "已售 1.3万",
+    "history": [
+      {
+        "time": "2026/5/13 17:41:16",
+        "date": "2026-05-13",
+        "sales": 1911,
+        "salesText": "已售1911"
+      }
+    ],
+    "group": "默认分组"
   }
 ]
