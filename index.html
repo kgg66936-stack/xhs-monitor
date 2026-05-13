@@ -607,11 +607,21 @@ function showParseError(msg) {
     document.getElementById('parse-loading').classList.add('hidden');
 }
 
-const GH_TOKEN = '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';
 const GH_REPO = 'kgg66936-stack/xhs-monitor';
 
+function getGHToken() {
+    let t = localStorage.getItem('gh_token');
+    if (!t) {
+        t = prompt('请输入 GitHub Personal Access Token（只需输入一次，保存在本地）：');
+        if (t) localStorage.setItem('gh_token', t.trim());
+    }
+    return t ? t.trim() : null;
+}
+
 async function saveProductsToGitHub() {
-    const headers = { 'Authorization': `token ${GH_TOKEN}`, 'Content-Type': 'application/json' };
+    const token = getGHToken();
+    if (!token) throw new Error('未提供 GitHub Token');
+    const headers = { 'Authorization': `token ${token}`, 'Content-Type': 'application/json' };
     const base = `https://api.github.com/repos/${GH_REPO}/contents/`;
 
     // 获取 products.json 的 sha
