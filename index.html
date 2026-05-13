@@ -614,32 +614,36 @@ async function saveProductsToGitHub() {
     const headers = { 'Authorization': `token ${GH_TOKEN}`, 'Content-Type': 'application/json' };
     const base = `https://api.github.com/repos/${GH_REPO}/contents/`;
 
-    // 并行获取两个文件的 sha
-    const [pRes, hRes] = await Promise.all([
-        fetch(base + 'products.json', { headers }),
-        fetch(base + 'index.html', { headers }),
-    ]);
-    const [pInfo, hInfo] = await Promise.all([pRes.json(), hRes.json()]);
+    // 获取 products.json 的 sha
+    const pRes = await fetch(base + 'products.json', { headers });
+    const pInfo = await pRes.json();
+    if (!pInfo.sha) throw new Error('获取 products.json sha 失败: ' + JSON.stringify(pInfo));
 
     // 更新 products.json
     const pContent = btoa(unescape(encodeURIComponent(JSON.stringify(products, null, 2))));
-    await fetch(base + 'products.json', {
+    const pPut = await fetch(base + 'products.json', {
         method: 'PUT', headers,
         body: JSON.stringify({ message: 'update products.json', content: pContent, sha: pInfo.sha })
     });
+    if (!pPut.ok) throw new Error('写入 products.json 失败: ' + await pPut.text());
 
-    // 更新 index.html 里的 __XHS_DATA__
-    const htmlRaw = atob(hInfo.content.replace(/\n/g, ''));
+    // 获取 index.html（用 git API 避免大文件 base64 截断问题）
+    const hRes = await fetch(base + 'index.html', { headers });
+    const hInfo = await hRes.json();
+    if (!hInfo.sha) throw new Error('获取 index.html sha 失败: ' + JSON.stringify(hInfo));
+
+    const htmlRaw = decodeURIComponent(escape(atob(hInfo.content.replace(/\n/g, ''))));
     const dataBlock = `window.__XHS_DATA__ = ${JSON.stringify(products, null, 2)};`;
     const newHtml = htmlRaw.replace(
         /(<script id="xhs-data">)([\s\S]*?)(<\/script>)/,
         (_, open, __, close) => open + '\n' + dataBlock + '\n' + close
     );
     const hContent = btoa(unescape(encodeURIComponent(newHtml)));
-    await fetch(base + 'index.html', {
+    const hPut = await fetch(base + 'index.html', {
         method: 'PUT', headers,
         body: JSON.stringify({ message: 'update index.html data', content: hContent, sha: hInfo.sha })
     });
+    if (!hPut.ok) throw new Error('写入 index.html 失败: ' + await hPut.text());
 }
 
 function confirmAddProduct() {
@@ -663,8 +667,8 @@ function confirmAddProduct() {
 
     saveProductsToGitHub().then(() => {
         alert('商品已添加并同步到 GitHub，约30分钟后数据自动更新。');
-    }).catch(() => {
-        alert('商品已添加，但同步 GitHub 失败，请检查网络后重试。');
+    }).catch(err => {
+        alert('同步失败：' + err.message);
     });
 }
 
