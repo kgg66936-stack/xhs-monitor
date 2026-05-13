@@ -4,7 +4,9 @@ import json
 import re
 import urllib.request
 import urllib.error
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
+
+CST = timezone(timedelta(hours=8))
 from pathlib import Path
 
 BASE_DIR = Path(__file__).parent
@@ -97,11 +99,11 @@ def save_products(products):
 
 
 def today_str():
-    return datetime.now().strftime("%Y-%m-%d")
+    return datetime.now(CST).strftime("%Y-%m-%d")
 
 
 def now_str():
-    return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    return datetime.now(CST).strftime("%Y-%m-%d %H:%M:%S")
 
 
 def run_scrape():
