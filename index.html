@@ -55,12 +55,6 @@ window.__XHS_DATA__ = [
         "date": "2026-05-12",
         "sales": 218,
         "salesText": "已售218"
-      },
-      {
-        "time": "2026-05-13 02:32:24",
-        "date": "2026-05-13",
-        "sales": 219,
-        "salesText": "已售219"
       }
     ]
   }
@@ -613,11 +607,29 @@ function showParseError(msg) {
     document.getElementById('parse-loading').classList.add('hidden');
 }
 
+const GH_TOKEN = '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';
+const GH_REPO = 'kgg66936-stack/xhs-monitor';
+
+async function saveProductsToGitHub() {
+    const apiUrl = `https://api.github.com/repos/${GH_REPO}/contents/products.json`;
+    const headers = { 'Authorization': `token ${GH_TOKEN}`, 'Content-Type': 'application/json' };
+
+    // 获取当前文件的 sha
+    const res = await fetch(apiUrl, { headers });
+    const fileInfo = await res.json();
+
+    const content = btoa(unescape(encodeURIComponent(JSON.stringify(products, null, 2))));
+    await fetch(apiUrl, {
+        method: 'PUT',
+        headers,
+        body: JSON.stringify({ message: 'update products.json', content, sha: fileInfo.sha })
+    });
+}
+
 function confirmAddProduct() {
     if (!parsedProduct) return;
     parsedProduct.group = document.getElementById('input-group').value;
 
-    // 检查重复
     if (products.find(p => p.id === parsedProduct.id)) {
         showParseError('该商品已在监控列表中');
         return;
@@ -633,7 +645,11 @@ function confirmAddProduct() {
     renderCards();
     document.getElementById('product-count').textContent = `共 ${products.length} 个商品`;
 
-    alert('商品已添加到监控列表。\n\n请运行 scraper.py 以开始抓取数据，之后重新打开此页面即可看到最新数据。');
+    saveProductsToGitHub().then(() => {
+        alert('商品已添加并同步到 GitHub，约30分钟后数据自动更新。');
+    }).catch(() => {
+        alert('商品已添加，但同步 GitHub 失败，请检查网络后重试。');
+    });
 }
 
 // ── 新建分组 ──────────────────────────────────────────────────────────────
