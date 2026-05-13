@@ -29,7 +29,6 @@ def extract_item_id(url):
 
 
 def parse_sales_number(text):
-    """把 '已售218' 或 '已售 1.5万' 转成整数"""
     if not text:
         return 0
     text = text.replace("已售", "").replace(" ", "").strip()
@@ -88,14 +87,17 @@ def fetch_product(item_id, xsec_token=None):
 
 def load_products():
     if not PRODUCTS_FILE.exists():
-        return []
+        return [], []
     with open(PRODUCTS_FILE, "r", encoding="utf-8") as f:
-        return json.load(f)
+        data = json.load(f)
+    if isinstance(data, list):
+        return data, []
+    return data.get("products", []), data.get("groups", [])
 
 
-def save_products(products):
+def save_products(products, groups):
     with open(PRODUCTS_FILE, "w", encoding="utf-8") as f:
-        json.dump(products, f, ensure_ascii=False, indent=2)
+        json.dump({"groups": groups, "products": products}, f, ensure_ascii=False, indent=2)
 
 
 def today_str():
@@ -107,7 +109,7 @@ def now_str():
 
 
 def run_scrape():
-    products = load_products()
+    products, groups = load_products()
     if not products:
         print("products.json 为空，没有需要抓取的商品")
         return
@@ -125,14 +127,12 @@ def run_scrape():
             print("  跳过（保留旧数据）")
             continue
 
-        # 更新商品基础信息
         p["name"] = result["name"]
         p["price"] = result["price"]
         p["shopName"] = result["shopName"]
         p["shopUrl"] = result["shopUrl"]
         p["shopSalesText"] = result["shopSalesText"]
 
-        # 追加历史记录
         if "history" not in p:
             p["history"] = []
 
@@ -147,21 +147,20 @@ def run_scrape():
         changed = True
 
     if changed:
-        save_products(products)
-        write_to_html(products)
+        save_products(products, groups)
+        write_to_html(products, groups)
         print(f"\n完成，数据已写入 index.html")
 
 
-def write_to_html(products):
+def write_to_html(products, groups):
     if not INDEX_HTML.exists():
         print(f"[警告] {INDEX_HTML} 不存在，跳过写入")
         return
 
     content = INDEX_HTML.read_text(encoding="utf-8")
-    data_block = json.dumps(products, ensure_ascii=False, indent=2)
+    data_block = json.dumps({"groups": groups, "products": products}, ensure_ascii=False, indent=2)
     replacement = f"window.__XHS_DATA__ = {data_block};"
 
-    # 替换 <script id="xhs-data"> 和 </script> 之间的内容
     pattern = r'(<script id="xhs-data">)(.*?)(</script>)'
     new_content = re.sub(
         pattern,
