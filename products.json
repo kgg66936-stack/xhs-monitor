@@ -636,6 +636,25 @@
         }
       ],
       "group": "默认分组"
+    },
+    {
+      "id": "69c50bd2c675dc000156c00f",
+      "url": "https://www.xiaohongshu.com/goods-detail/69c50bd2c675dc000156c00f",
+      "xsecToken": "XBZIG_CgjY985ijjkGZZQR0GuWkYAnrzkx07jQyU7EHy4=",
+      "name": "班级积分养宠物/班级管理神器/ 云宠物兑换/儿童教育教辅课件",
+      "price": 29.9,
+      "shopName": "班级OK萌宠的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/69c15374d0fe7c0015637685",
+      "shopSalesText": "已售974",
+      "history": [
+        {
+          "time": "2026/5/13 20:29:34",
+          "date": "2026-05-13",
+          "sales": 336,
+          "salesText": "已售336"
+        }
+      ],
+      "group": "默认分组"
     }
   ]
 }
