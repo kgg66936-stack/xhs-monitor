@@ -736,7 +736,8 @@ window.__XHS_DATA__ = {
 
 <script>
 // ── 状态 ──────────────────────────────────────────────────────────────────
-const __data = window.__XHS_DATA__ || {}; let products = Array.isArray(__data) ? __data : (__data.products || []);
+const __data = window.__XHS_DATA__ || {}; 
+let products = Array.isArray(__data) ? __data : (__data.products || []);
 let groups = [];
 let activeGroup = '全部';
 let parsedProduct = null;
