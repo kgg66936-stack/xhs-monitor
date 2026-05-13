@@ -422,7 +422,7 @@
       "url": "https://www.xiaohongshu.com/goods-detail/6906f2a7dcedc70001244a61",
       "xsecToken": "XBEylGxshgMPE2oaJH_3F3BZWdzAlPWquu3TyAqsCUplI=",
       "name": "原创自制教学游戏 精品课堂趣味网页课件 教室无需联网",
-      "price": 9.0,
+      "price": 9,
       "shopName": "芝士虾米的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/676012323a55480015f703b4",
       "shopSalesText": "已售6306",
@@ -1074,6 +1074,25 @@
         }
       ],
       "group": "电子资源"
+    },
+    {
+      "id": "69386c8b6911000001237a3c",
+      "url": "https://www.xiaohongshu.com/goods-detail/69386c8b6911000001237a3c",
+      "xsecToken": "XBq4FUg0Q_WVxUISK2a1EAwPO-s5A7SB0lBN_8Be_GR9A=",
+      "name": "教学成绩提升指南实战版",
+      "price": 27.99,
+      "shopName": "情绪巴士的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/68a191b746036d0015517c5a",
+      "shopSalesText": "已售3319",
+      "history": [
+        {
+          "time": "2026/5/13 21:58:24",
+          "date": "2026-05-13",
+          "sales": 1804,
+          "salesText": "已售1804"
+        }
+      ],
+      "group": "默认分组"
     }
   ]
 }
