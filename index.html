@@ -902,7 +902,7 @@ async function saveProductsToGitHub() {
     if (!pInfo.sha) throw new Error('获取 products.json sha 失败: ' + JSON.stringify(pInfo));
 
     // 更新 products.json
-    const pContent = btoa(unescape(encodeURIComponent(JSON.stringify(products, null, 2))));
+    const pContent = btoa(unescape(encodeURIComponent(JSON.stringify({ groups, products }, null, 2))));
     const pPut = await fetch(base + 'products.json', {
         method: 'PUT', headers,
         body: JSON.stringify({ message: 'update products.json', content: pContent, sha: pInfo.sha })
@@ -915,7 +915,7 @@ async function saveProductsToGitHub() {
     if (!hInfo.sha) throw new Error('获取 index.html sha 失败: ' + JSON.stringify(hInfo));
 
     const htmlRaw = decodeURIComponent(escape(atob(hInfo.content.replace(/\n/g, ''))));
-    const dataBlock = `window.__XHS_DATA__ = ${JSON.stringify(products, null, 2)};`;
+    const dataBlock = `window.__XHS_DATA__ = ${JSON.stringify({ groups, products }, null, 2)};`;
     const newHtml = htmlRaw.replace(
         /(<script id="xhs-data">)([\s\S]*?)(<\/script>)/,
         (_, open, __, close) => open + '\n' + dataBlock + '\n' + close
