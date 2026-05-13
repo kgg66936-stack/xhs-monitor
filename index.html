@@ -802,6 +802,7 @@ function confirmAddGroup() {
     if (sel) {
         sel.innerHTML = groups.map(g => `<option value="${g}">${g}</option>`).join('');
     }
+        saveProductsToGitHub().catch(err => console.warn('分组同步失败:', err));
 }
 
 // ── 商品详情 ──────────────────────────────────────────────────────────────
