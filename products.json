@@ -513,6 +513,25 @@
         }
       ],
       "group": "默认分组"
+    },
+    {
+      "id": "69c48e61de0f0700012e1d3f",
+      "url": "https://www.xiaohongshu.com/goods-detail/69c48e61de0f0700012e1d3f",
+      "xsecToken": "XBMOMtlZsYWGNR0TZ_aqp8GfJJWu3tImFFCa08CNxeJJw=",
+      "name": "班级积分打卡养宠物系统课件 教师/家长通用",
+      "price": 19.9,
+      "shopName": "小只猫猫的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/68ba01e555fe1500158b5a0a",
+      "shopSalesText": "已售4111",
+      "history": [
+        {
+          "time": "2026/5/13 20:12:19",
+          "date": "2026-05-13",
+          "sales": 149,
+          "salesText": "已售149"
+        }
+      ],
+      "group": "默认分组"
     }
   ]
 }
