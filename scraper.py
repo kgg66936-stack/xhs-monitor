@@ -167,6 +167,7 @@ def write_to_html(products):
         pattern,
         lambda m: m.group(1) + "\n" + replacement + "\n" + m.group(3),
         content,
+        count=1,
         flags=re.DOTALL,
     )
 
