@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XHS Insight Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .modal-bg { backdrop-filter: blur(4px); }
+    </style>
+</head>
+<body class="bg-[#eff3f8] h-screen overflow-hidden flex">
+
+<!-- 数据注入点，由 scraper.py 自动更新 -->
+<script id="xhs-data">
+window.__XHS_DATA__ = [
+  {
+    "id": "69dca9e2cfc3750001dae68b",
+    "url": "https://www.xiaohongshu.com/goods-detail/69dca9e2cfc3750001dae68b",
+    "xsecToken": "XBygiR0KkvFLsQZkadXIXJXwBK77IoGhjnO5PhsRCwSOU=",
+    "group": "默认分组",
+    "name": "学习打卡|行为习惯|电子宠物-3天试用 · 份",
+    "price": 0.2,
+    "shopName": "Aaron成长记的店",
+    "shopUrl": "https://www.xiaohongshu.com/shop/68be26341d1807001551c829",
+    "shopSalesText": "已售 1.5万",
+    "history": [
+      {
+        "time": "2026-05-12 17:51:08",
+        "date": "2026-05-12",
+        "sales": 218,
+        "salesText": "已售218"
+      },
+      {
+        "time": "2026-05-12 17:53:34",
+        "date": "2026-05-12",
+        "sales": 218,
+        "salesText": "已售218"
+      },
+      {
+        "time": "2026-05-12 17:56:21",
+        "date": "2026-05-12",
+        "sales": 218,
+        "salesText": "已售218"
+      },
+      {
+        "time": "2026-05-12 18:10:21",
+        "date": "2026-05-12",
+        "sales": 218,
+        "salesText": "已售218"
+      }
+    ]
+  }
+];
+</script>
+
+<!-- 侧边栏 -->
+<aside class="w-64 bg-[#1e293b] text-slate-400 flex flex-col shadow-xl z-20 shrink-0">
+    <div class="p-6 flex items-center gap-3">
+        <div class="bg-blue-600 w-10 h-10 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-900/40">
+            <i data-lucide="cpu" size="24"></i>
+        </div>
+        <div class="flex flex-col">
+            <h1 class="text-white font-black text-sm tracking-tight">XHS Insight</h1>
+            <span class="text-[10px] font-bold text-blue-400 tracking-widest uppercase">Pro</span>
+        </div>
+    </div>
+
+    <nav class="flex-1 px-4 space-y-6 mt-2 overflow-y-auto custom-scrollbar pb-6">
+        <!-- 分组列表 -->
+        <div>
+            <div class="flex items-center justify-between px-3 mb-3">
+                <h3 class="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em]">我的分组</h3>
+                <button onclick="openAddGroupModal()" class="p-1 hover:bg-slate-800 rounded-md text-slate-500 hover:text-blue-400 transition-colors" title="新建分组">
+                    <i data-lucide="plus" size="14"></i>
+                </button>
+            </div>
+            <div id="group-list" class="space-y-1">
+                <!-- 由 JS 渲染 -->
+            </div>
+        </div>
+
+        <!-- 添加商品 -->
+        <div class="pt-2 pb-4">
+            <button onclick="openAddProductModal()" class="w-full flex items-center p-4 rounded-2xl border-2 border-dashed border-slate-800/80 text-blue-500 text-sm font-black hover:border-blue-500/50 hover:bg-blue-500/5 transition-all group">
+                <i data-lucide="plus-circle" class="mr-3 group-hover:rotate-90 transition-transform" size="16"></i>
+                <span>粘贴链接添加商品</span>
+            </button>
+        </div>
+    </nav>
+</aside>
+
+<!-- 主内容区 -->
+<main class="flex-1 flex flex-col overflow-hidden">
+    <header class="h-20 bg-white border-b border-slate-200 flex items-center justify-between px-10 shrink-0 z-10">
+        <div class="flex items-center gap-4">
+            <h2 class="text-xl font-black text-slate-900">数据监控看板</h2>
+            <div class="h-6 w-[1px] bg-slate-200"></div>
+            <span id="today-label" class="text-[10px] font-black text-slate-400 uppercase tracking-widest bg-slate-50 px-2 py-1 rounded"></span>
+        </div>
+        <div class="flex items-center gap-3">
+            <span id="last-update" class="text-[10px] text-slate-400 font-bold"></span>
+            <span id="product-count" class="text-[10px] font-black text-slate-500 bg-slate-100 px-2 py-1 rounded"></span>
+        </div>
+    </header>
+
+    <div id="product-grid" class="flex-1 overflow-y-auto p-10 custom-scrollbar">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="cards-container">
+            <!-- 由 JS 渲染 -->
+        </div>
+        <div id="empty-state" class="hidden flex-col items-center justify-center h-full text-center py-32">
+            <i data-lucide="package-open" size="48" class="text-slate-300 mb-4"></i>
+            <p class="text-slate-400 font-bold text-sm">还没有监控商品</p>
+            <p class="text-slate-300 text-xs mt-1">点击左下角"粘贴链接添加商品"开始</p>
+        </div>
+    </div>
+</main>
+
+<!-- 添加商品弹窗 -->
+<div id="modal-add-product" class="hidden fixed inset-0 bg-black/40 modal-bg z-50 flex items-center justify-center">
+    <div class="bg-white rounded-2xl shadow-2xl w-[480px] p-8">
+        <div class="flex items-center justify-between mb-6">
+            <h3 class="font-black text-slate-900 text-lg">添加监控商品</h3>
+            <button onclick="closeModal('modal-add-product')" class="text-slate-400 hover:text-slate-600">
+                <i data-lucide="x" size="20"></i>
+            </button>
+        </div>
+
+        <div class="space-y-4">
+            <div>
+                <label class="text-xs font-black text-slate-500 uppercase tracking-wider block mb-2">商品链接</label>
+                <textarea id="input-url" rows="3"
+                    placeholder="粘贴小红书商品链接，例如：&#10;https://www.xiaohongshu.com/goods-detail/..."
+                    class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 focus:outline-none focus:border-blue-400 resize-none"></textarea>
+            </div>
+
+            <div id="parsed-info" class="hidden bg-slate-50 rounded-xl p-4 space-y-2">
+                <div class="flex items-center gap-2 text-xs text-green-600 font-bold">
+                    <i data-lucide="check-circle" size="14"></i>
+                    <span>解析成功</span>
+                </div>
+                <p id="parsed-name" class="text-sm font-bold text-slate-800"></p>
+                <p id="parsed-shop" class="text-xs text-slate-500"></p>
+                <p id="parsed-sales" class="text-xs text-blue-600 font-bold"></p>
+            </div>
+
+            <div id="parse-error" class="hidden bg-red-50 rounded-xl p-4 text-xs text-red-600 font-bold"></div>
+            <div id="parse-loading" class="hidden bg-blue-50 rounded-xl p-4 text-xs text-blue-600 font-bold flex items-center gap-2">
+                <i data-lucide="loader-2" size="14" class="animate-spin"></i>
+                <span>正在获取商品信息...</span>
+            </div>
+
+            <div>
+                <label class="text-xs font-black text-slate-500 uppercase tracking-wider block mb-2">选择分组</label>
+                <select id="input-group"
+                    class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 focus:outline-none focus:border-blue-400 bg-white">
+                </select>
+            </div>
+        </div>
+
+        <div class="flex gap-3 mt-6">
+            <button onclick="closeModal('modal-add-product')" class="flex-1 border border-slate-200 text-slate-600 font-bold text-sm py-3 rounded-xl hover:bg-slate-50 transition-colors">取消</button>
+            <button id="btn-parse" onclick="parseProduct()" class="flex-1 bg-slate-800 text-white font-bold text-sm py-3 rounded-xl hover:bg-slate-700 transition-colors">解析商品</button>
+            <button id="btn-confirm" onclick="confirmAddProduct()" class="hidden flex-1 bg-blue-600 text-white font-bold text-sm py-3 rounded-xl hover:bg-blue-700 transition-colors">确认添加</button>
+        </div>
+    </div>
+</div>
+
+<!-- 新建分组弹窗 -->
+<div id="modal-add-group" class="hidden fixed inset-0 bg-black/40 modal-bg z-50 flex items-center justify-center">
+    <div class="bg-white rounded-2xl shadow-2xl w-[360px] p-8">
+        <div class="flex items-center justify-between mb-6">
+            <h3 class="font-black text-slate-900 text-lg">新建分组</h3>
+            <button onclick="closeModal('modal-add-group')" class="text-slate-400 hover:text-slate-600">
+                <i data-lucide="x" size="20"></i>
+            </button>
+        </div>
+        <div>
+            <label class="text-xs font-black text-slate-500 uppercase tracking-wider block mb-2">分组名称</label>
+            <input id="input-group-name" type="text" placeholder="例如：学习类、生鲜水果..."
+                class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 focus:outline-none focus:border-blue-400"
+                onkeydown="if(event.key==='Enter') confirmAddGroup()">
+        </div>
+        <div class="flex gap-3 mt-6">
+            <button onclick="closeModal('modal-add-group')" class="flex-1 border border-slate-200 text-slate-600 font-bold text-sm py-3 rounded-xl hover:bg-slate-50">取消</button>
+            <button onclick="confirmAddGroup()" class="flex-1 bg-blue-600 text-white font-bold text-sm py-3 rounded-xl hover:bg-blue-700">创建</button>
+        </div>
+    </div>
+</div>
+
+<!-- 商品详情弹窗 -->
+<div id="modal-detail" class="hidden fixed inset-0 bg-slate-900/45 modal-bg z-50 flex items-center justify-center p-6">
+    <div class="bg-white rounded-[28px] shadow-2xl w-[1240px] max-w-[calc(100vw-48px)] max-h-[calc(100vh-48px)] overflow-y-auto custom-scrollbar p-10 relative">
+        <button onclick="closeModal('modal-detail')" class="absolute right-9 top-8 text-slate-300 hover:text-slate-500 transition-colors">
+            <i data-lucide="x" size="30"></i>
+        </button>
+
+        <!-- 头部 -->
+        <div class="pr-16 mb-8">
+            <div class="flex items-center gap-3 mb-3">
+                <span id="detail-group" class="text-[10px] font-black text-blue-600 bg-blue-50 px-3 py-1.5 rounded-md border border-blue-100"></span>
+                <span id="detail-shop" class="text-xs text-slate-400 font-black italic"><span></span></span>
+            </div>
+            <h3 id="detail-name" class="font-black text-slate-950 text-2xl leading-tight tracking-tight max-w-[760px]"></h3>
+        </div>
+
+        <!-- 统计卡片 -->
+        <div class="grid grid-cols-4 gap-5 mb-8">
+            <div class="bg-slate-50 border border-slate-100 rounded-2xl p-6 h-[108px] flex flex-col justify-center">
+                <p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.14em] mb-3">TOTAL SALES / 累计总量</p>
+                <p id="detail-total" class="text-3xl font-black text-slate-900 tracking-tight"></p>
+            </div>
+            <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-6 h-[108px] flex flex-col justify-center">
+                <p class="text-[10px] font-black text-emerald-500 uppercase tracking-[0.14em] mb-3">7D GROWTH / 7日增长率</p>
+                <p id="detail-growth" class="text-3xl font-black text-emerald-500 tracking-tight"></p>
+            </div>
+            <div class="bg-blue-600 rounded-2xl p-6 h-[108px] flex flex-col justify-center shadow-xl shadow-blue-100">
+                <p class="text-[10px] font-black text-blue-100 uppercase tracking-[0.14em] mb-3">TODAY GAIN / 今日增量</p>
+                <p id="detail-today" class="text-3xl font-black text-white tracking-tight"></p>
+            </div>
+            <div class="bg-slate-950 rounded-2xl p-6 h-[108px] flex flex-col justify-center">
+                <p class="text-[10px] font-black text-slate-500 uppercase tracking-[0.14em] mb-3">YESTERDAY / 昨日全天</p>
+                <p id="detail-yesterday" class="text-3xl font-black text-white tracking-tight"></p>
+            </div>
+        </div>
+
+        <!-- 图表面板 -->
+        <div class="bg-slate-50/80 border border-slate-100 rounded-[28px] p-8">
+            <div class="flex items-center justify-between mb-7">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="chart-no-axes-combined" size="17" class="text-blue-600"></i>
+                    <h4 class="text-sm font-black text-slate-900">销量每日增长趋势（波动分析）</h4>
+                </div>
+                <div class="flex items-center bg-white border border-slate-200 rounded-xl p-1 shadow-sm">
+                    <button onclick="switchDetailRange(this,'30d')" class="detail-range-btn bg-slate-950 text-white px-4 py-2 rounded-lg text-xs font-black">最近30天</button>
+                    <button onclick="switchDetailRange(this,'monthly')" class="detail-range-btn text-slate-700 px-4 py-2 rounded-lg text-xs font-black">月度汇总</button>
+                    <button onclick="switchDetailRange(this,'all')" class="detail-range-btn text-slate-700 px-4 py-2 rounded-lg text-xs font-black">历史全部</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-[1fr_305px] gap-8 items-stretch">
+                <div class="min-h-[360px] flex items-center">
+                    <div id="detail-chart" class="w-full" style="height:330px;"></div>
+                </div>
+
+                <div class="bg-white border border-slate-100 rounded-2xl shadow-sm overflow-hidden h-[420px] flex flex-col">
+                    <div class="grid grid-cols-2 px-5 py-4 border-b border-slate-100 text-[10px] font-black text-slate-400 tracking-wider">
+                        <span>日期</span>
+                        <span class="text-right">新增销量</span>
+                    </div>
+                    <div id="detail-table" class="flex-1 overflow-y-auto custom-scrollbar px-5 py-2 space-y-1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 确认删除弹窗 -->
+<div id="modal-delete" class="hidden fixed inset-0 bg-black/40 modal-bg z-50 flex items-center justify-center">
+    <div class="bg-white rounded-2xl shadow-2xl w-[360px] p-8">
+        <h3 class="font-black text-slate-900 text-lg mb-2">删除商品</h3>
+        <p class="text-sm text-slate-500 mb-6">确定要删除这个商品的监控吗？历史数据也会一并删除。</p>
+        <div class="flex gap-3">
+            <button onclick="closeModal('modal-delete')" class="flex-1 border border-slate-200 text-slate-600 font-bold text-sm py-3 rounded-xl hover:bg-slate-50">取消</button>
+            <button onclick="confirmDelete()" class="flex-1 bg-red-500 text-white font-bold text-sm py-3 rounded-xl hover:bg-red-600">删除</button>
+        </div>
+    </div>
+</div>
+
+<!-- 移动分组弹窗 -->
+<div id="modal-move-group" class="hidden fixed inset-0 bg-black/40 modal-bg z-50 flex items-center justify-center">
+    <div class="bg-white rounded-2xl shadow-2xl w-[360px] p-8">
+        <div class="flex items-center justify-between mb-6">
+            <h3 class="font-black text-slate-900 text-lg">移动到分组</h3>
+            <button onclick="closeModal('modal-move-group')" class="text-slate-400 hover:text-slate-600">
+                <i data-lucide="x" size="20"></i>
+            </button>
+        </div>
+        <div id="move-group-list" class="space-y-2 max-h-[280px] overflow-y-auto custom-scrollbar"></div>
+        <div class="mt-6">
+            <button onclick="closeModal('modal-move-group')" class="w-full border border-slate-200 text-slate-600 font-bold text-sm py-3 rounded-xl hover:bg-slate-50">取消</button>
+        </div>
+    </div>
+</div>
+
+<!-- 重命名分组弹窗 -->
+<div id="modal-rename-group" class="hidden fixed inset-0 bg-black/40 modal-bg z-50 flex items-center justify-center">
+    <div class="bg-white rounded-2xl shadow-2xl w-[360px] p-8">
+        <div class="flex items-center justify-between mb-6">
+            <h3 class="font-black text-slate-900 text-lg">重命名分组</h3>
+            <button onclick="closeModal('modal-rename-group')" class="text-slate-400 hover:text-slate-600">
+                <i data-lucide="x" size="20"></i>
+            </button>
+        </div>
+        <div>
+            <label class="text-xs font-black text-slate-500 uppercase tracking-wider block mb-2">新名称</label>
+            <input id="input-rename-group" type="text"
+                class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 focus:outline-none focus:border-blue-400"
+                onkeydown="if(event.key==='Enter') confirmRenameGroup()">
+        </div>
+        <div class="flex gap-3 mt-6">
+            <button onclick="closeModal('modal-rename-group')" class="flex-1 border border-slate-200 text-slate-600 font-bold text-sm py-3 rounded-xl hover:bg-slate-50">取消</button>
+            <button onclick="confirmRenameGroup()" class="flex-1 bg-blue-600 text-white font-bold text-sm py-3 rounded-xl hover:bg-blue-700">确认</button>
+        </div>
+    </div>
+</div>
+
+<script>
+// ── 状态 ──────────────────────────────────────────────────────────────────
+let products = window.__XHS_DATA__ || [];
+let groups = [];
+let activeGroup = '全部';
+let parsedProduct = null;
+let deleteTargetId = null;
+let detailChart = null;
+
+// ── 初始化 ────────────────────────────────────────────────────────────────
+function init() {
+    // 收集所有分组
+    const groupSet = new Set(['默认分组']);
+    products.forEach(p => { if (p.group) groupSet.add(p.group); });
+    groups = Array.from(groupSet);
+
+    // 渲染日期
+    const now = new Date();
+    document.getElementById('today-label').textContent =
+        `${now.getFullYear()}年${now.getMonth()+1}月${now.getDate()}日`;
+
+    // 最后更新时间
+    let lastTime = '';
+    products.forEach(p => {
+        if (p.history && p.history.length) {
+            const t = p.history[p.history.length - 1].time;
+            if (t > lastTime) lastTime = t;
+        }
+    });
+    document.getElementById('last-update').textContent =
+        lastTime ? `上次更新：${lastTime}` : '';
+
+    document.getElementById('product-count').textContent =
+        `共 ${products.length} 个商品`;
+
+    renderGroups();
+    renderCards();
+    if (window.lucide) lucide.createIcons();
+}
+
+// ── 分组渲染 ──────────────────────────────────────────────────────────────
+function renderGroups() {
+    const container = document.getElementById('group-list');
+    const allGroups = ['全部', ...groups];
+    container.innerHTML = allGroups.map(g => {
+        const count = g === '全部'
+            ? products.length
+            : products.filter(p => p.group === g).length;
+        const isActive = g === activeGroup;
+        const editSvg = `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>`;
+        return `
+        <div class="group-item relative w-full"
+             onmouseenter="this.querySelector('.group-rename-btn')&&(this.querySelector('.group-rename-btn').style.opacity='1')"
+             onmouseleave="this.querySelector('.group-rename-btn')&&(this.querySelector('.group-rename-btn').style.opacity='0')">
+            <div onclick="setActiveGroup('${g.replace(/'/g,"\\'")}');return false;" role="button" tabindex="0"
+                class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-semibold transition-all cursor-pointer
+                       ${isActive ? 'bg-blue-600 text-white shadow-md shadow-blue-600/40' : 'hover:bg-slate-800/60 text-slate-400 hover:text-slate-200'}">
+                <div class="flex items-center gap-2.5 min-w-0">
+                    <div class="w-1.5 h-1.5 rounded-full shrink-0 ${isActive ? 'bg-white' : 'bg-slate-600'}"></div>
+                    <span class="truncate text-[13px]">${g}</span>
+                </div>
+                <div class="flex items-center gap-1.5 shrink-0 ml-2">
+                    <span class="text-[11px] font-bold tabular-nums min-w-[16px] text-center ${isActive ? 'text-blue-100' : 'text-slate-500'}">${count}</span>
+                    ${g !== '全部' ? `<button onclick="event.stopPropagation(); openRenameGroupModal('${g.replace(/'/g,"\\'")}');return false;"
+                        class="group-rename-btn opacity-0 p-1 rounded transition-all
+                               ${isActive ? 'text-blue-200 hover:text-white hover:bg-white/20' : 'text-slate-500 hover:text-slate-200 hover:bg-slate-700'}"
+                        title="重命名分组">${editSvg}</button>` : ''}
+                </div>
+            </div>
+        </div>`;
+    }).join('');
+    if (window.lucide) lucide.createIcons();
+}
+
+function setActiveGroup(g) {
+    activeGroup = g;
+    renderGroups();
+    renderCards();
+}
+
+// ── 卡片渲染 ──────────────────────────────────────────────────────────────
+function renderCards() {
+    const container = document.getElementById('cards-container');
+    const emptyState = document.getElementById('empty-state');
+
+    const filtered = activeGroup === '全部'
+        ? products
+        : products.filter(p => p.group === activeGroup);
+
+    if (!filtered.length) {
+        container.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        emptyState.classList.add('flex');
+        if (window.lucide) lucide.createIcons();
+        return;
+    }
+
+    emptyState.classList.add('hidden');
+    emptyState.classList.remove('flex');
+    try {
+        container.innerHTML = filtered.map(p => buildCard(p)).join('');
+    } catch (err) {
+        container.innerHTML = `<div class="bg-red-50 border border-red-100 text-red-600 rounded-2xl p-5 text-sm font-bold">卡片渲染失败：${err.message}</div>`;
+    }
+    if (window.lucide) lucide.createIcons();
+}
+
+function buildCard(p) {
+    const today = new Date().toISOString().slice(0, 10);
+    const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+
+    const todayHistory = (p.history || []).filter(h => h.date === today);
+    const yesterdayHistory = (p.history || []).filter(h => h.date === yesterday);
+
+    const currentSales = todayHistory.length
+        ? todayHistory[todayHistory.length - 1].sales : (p.history && p.history.length ? p.history[p.history.length - 1].sales : 0);
+
+    const todayIncrease = todayHistory.length >= 2
+        ? todayHistory[todayHistory.length - 1].sales - todayHistory[0].sales
+        : (todayHistory.length === 1 && yesterdayHistory.length
+            ? todayHistory[0].sales - yesterdayHistory[yesterdayHistory.length - 1].sales
+            : null);
+
+    const yesterdayIncrease = yesterdayHistory.length >= 2
+        ? yesterdayHistory[yesterdayHistory.length - 1].sales - yesterdayHistory[0].sales
+        : null;
+
+    const todayText = todayIncrease !== null ? `+${todayIncrease}` : '-';
+    const yesterdayText = yesterdayIncrease !== null ? `+${yesterdayIncrease}` : '-';
+
+    const price = p.price ? `¥${p.price}` : '-';
+    const productUrl = p.url || `https://www.xiaohongshu.com/goods-detail/${p.id}`;
+
+    return `
+    <div onclick="openDetailModal('${p.id}')" class="bg-white p-5 rounded-2xl border border-slate-200 hover:-translate-y-1 hover:border-blue-400 hover:shadow-xl transition-all group flex flex-col cursor-pointer">
+        <div class="flex justify-between items-start mb-3">
+            <span class="text-[9px] font-black text-blue-600 bg-blue-50 px-2 py-1 rounded border border-blue-100">${p.group || '默认分组'}</span>
+            <div class="flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-all">
+                <button onclick="event.stopPropagation(); openMoveGroupModal('${p.id}')" class="text-slate-300 hover:text-blue-400 transition-colors" title="移动分组">
+                    <i data-lucide="folder-symlink" size="13"></i>
+                </button>
+                <button onclick="event.stopPropagation(); openDeleteModal('${p.id}')" class="text-slate-300 hover:text-red-400 transition-colors" title="删除">
+                    <i data-lucide="trash-2" size="13"></i>
+                </button>
+            </div>
+        </div>
+
+        <h3 class="font-bold text-slate-800 text-sm line-clamp-2 mb-2 leading-snug flex-1">${p.name || '商品信息获取中...'}</h3>
+
+        <div class="flex items-center justify-between text-[10px] text-slate-400 font-bold mb-1">
+            <div class="flex items-center gap-1">
+                <i data-lucide="shopping-bag" size="10"></i>
+                <span class="truncate max-w-[120px]">${p.shopName || '-'}</span>
+            </div>
+            <span class="text-blue-600 font-black text-xs">${price}</span>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 space-y-3 mt-2">
+            <div class="flex justify-between items-center">
+                <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Total Sales</span>
+                <span class="text-sm font-black text-slate-900">${currentSales ? currentSales.toLocaleString() : '-'}</span>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+                <div class="bg-slate-50 px-3 py-2 rounded-xl flex flex-col">
+                    <span class="text-[8px] text-slate-400 font-black uppercase">昨日增</span>
+                    <span class="text-[11px] font-black text-slate-600">${yesterdayText}</span>
+                </div>
+                <div class="bg-blue-600 px-3 py-2 rounded-xl shadow-lg shadow-blue-100 flex flex-col">
+                    <span class="text-[8px] text-blue-100 font-black uppercase">今日增</span>
+                    <span class="text-[11px] font-black text-white">${todayText}</span>
+                </div>
+            </div>
+            <!-- 操作按钮 -->
+            <div class="grid grid-cols-2 gap-2 pt-1">
+                <a href="${p.shopUrl || '#'}" target="_blank" onclick="event.stopPropagation()"
+                    class="flex items-center justify-center gap-1 text-[10px] font-black text-slate-500 bg-slate-50 hover:bg-slate-100 py-2 rounded-xl transition-colors">
+                    <i data-lucide="store" size="11"></i>
+                    <span>店铺页面</span>
+                </a>
+                <a href="${productUrl}" target="_blank" onclick="event.stopPropagation()"
+                    class="flex items-center justify-center gap-1 text-[10px] font-black text-blue-600 bg-blue-50 hover:bg-blue-100 py-2 rounded-xl transition-colors">
+                    <i data-lucide="external-link" size="11"></i>
+                    <span>宝贝页面</span>
+                </a>
+            </div>
+        </div>
+    </div>`;
+}
+
+// ── 添加商品 ──────────────────────────────────────────────────────────────
+function openAddProductModal() {
+    parsedProduct = null;
+    document.getElementById('input-url').value = '';
+    document.getElementById('parsed-info').classList.add('hidden');
+    document.getElementById('parse-error').classList.add('hidden');
+    document.getElementById('parse-loading').classList.add('hidden');
+    document.getElementById('btn-confirm').classList.add('hidden');
+    document.getElementById('btn-parse').classList.remove('hidden');
+
+    // 填充分组下拉
+    const sel = document.getElementById('input-group');
+    sel.innerHTML = groups.map(g => `<option value="${g}">${g}</option>`).join('');
+
+    document.getElementById('modal-add-product').classList.remove('hidden');
+    setTimeout(() => document.getElementById('input-url').focus(), 100);
+}
+
+function parseProduct() {
+    const url = document.getElementById('input-url').value.trim();
+    if (!url) return;
+
+    const m = url.match(/\/goods-detail\/([a-f0-9]+)/);
+    if (!m) {
+        showParseError('链接格式不正确，请粘贴小红书商品页面链接');
+        return;
+    }
+
+    const itemId = m[1];
+    const xsecMatch = url.match(/[?&]xsec_token=([^&]+)/);
+    const xsecToken = xsecMatch ? decodeURIComponent(xsecMatch[1]) : '';
+
+    document.getElementById('parse-loading').classList.remove('hidden');
+    document.getElementById('parse-error').classList.add('hidden');
+    document.getElementById('parsed-info').classList.add('hidden');
+    document.getElementById('btn-parse').disabled = true;
+
+    // 通过 fetch 调用接口（本地 HTML 直接 fetch 跨域可能被阻止，使用 no-cors 降级）
+    let apiUrl = `https://mall.xiaohongshu.com/api/store/jpd/edith/detail/h5/toc?version=0.0.5&item_id=${itemId}&xsec_source=app_share`;
+    if (xsecToken) apiUrl += `&xsec_token=${encodeURIComponent(xsecToken)}`;
+
+    fetch(apiUrl, {
+        headers: {
+            'accept': 'application/json, text/plain, */*',
+            'accept-language': 'zh-CN,zh;q=0.9',
+            'detail-host': 'https://www.xiaohongshu.com',
+            'origin': 'https://www.xiaohongshu.com',
+            'referer': 'https://www.xiaohongshu.com/',
+        }
+    })
+    .then(r => r.json())
+    .then(data => {
+        const templateData = data?.data?.template_data;
+        if (!templateData || !templateData.length) throw new Error('接口返回为空');
+
+        const obj = templateData[0];
+        const priceH5 = obj.priceH5 || {};
+        const sellerH5 = obj.sellerH5 || {};
+        const descriptionMain = obj.descriptionMain || {};
+
+        parsedProduct = {
+            id: itemId,
+            url: `https://www.xiaohongshu.com/goods-detail/${itemId}`,
+            xsecToken: xsecToken,
+            name: descriptionMain.name || `商品 ${itemId.slice(-6)}`,
+            price: priceH5.highlightPrice || 0,
+            shopName: sellerH5.name || '',
+            shopUrl: sellerH5.link || '',
+            shopSalesText: sellerH5.salesVolume || '',
+            history: [{
+                time: new Date().toLocaleString('zh-CN'),
+                date: new Date().toISOString().slice(0, 10),
+                sales: parseSalesNumber(priceH5.itemAnalysisDataText || ''),
+                salesText: priceH5.itemAnalysisDataText || '',
+            }],
+        };
+
+        document.getElementById('parsed-name').textContent = parsedProduct.name;
+        document.getElementById('parsed-shop').textContent = `店铺：${parsedProduct.shopName}`;
+        document.getElementById('parsed-sales').textContent = `${priceH5.itemAnalysisDataText || ''}  ¥${parsedProduct.price}`;
+        document.getElementById('parsed-info').classList.remove('hidden');
+        document.getElementById('parse-loading').classList.add('hidden');
+        document.getElementById('btn-parse').classList.add('hidden');
+        document.getElementById('btn-confirm').classList.remove('hidden');
+        document.getElementById('btn-parse').disabled = false;
+        if (window.lucide) lucide.createIcons();
+    })
+    .catch(err => {
+        showParseError(`解析失败：${err.message}。请先运行 scraper.py 添加商品。`);
+        document.getElementById('btn-parse').disabled = false;
+    });
+}
+
+function parseSalesNumber(text) {
+    if (!text) return 0;
+    text = text.replace('已售', '').replace(/\s/g, '');
+    if (text.includes('万')) return Math.round(parseFloat(text) * 10000);
+    return parseInt(text) || 0;
+}
+
+function showParseError(msg) {
+    document.getElementById('parse-error').textContent = msg;
+    document.getElementById('parse-error').classList.remove('hidden');
+    document.getElementById('parse-loading').classList.add('hidden');
+}
+
+function confirmAddProduct() {
+    if (!parsedProduct) return;
+    parsedProduct.group = document.getElementById('input-group').value;
+
+    // 检查重复
+    if (products.find(p => p.id === parsedProduct.id)) {
+        showParseError('该商品已在监控列表中');
+        return;
+    }
+
+    products.push(parsedProduct);
+    if (!groups.includes(parsedProduct.group)) {
+        groups.push(parsedProduct.group);
+    }
+
+    closeModal('modal-add-product');
+    renderGroups();
+    renderCards();
+    document.getElementById('product-count').textContent = `共 ${products.length} 个商品`;
+
+    alert('商品已添加到监控列表。\n\n请运行 scraper.py 以开始抓取数据，之后重新打开此页面即可看到最新数据。');
+}
+
+// ── 新建分组 ──────────────────────────────────────────────────────────────
+function openAddGroupModal() {
+    document.getElementById('input-group-name').value = '';
+    document.getElementById('modal-add-group').classList.remove('hidden');
+    setTimeout(() => document.getElementById('input-group-name').focus(), 100);
+}
+
+function confirmAddGroup() {
+    const name = document.getElementById('input-group-name').value.trim();
+    if (!name) return;
+    if (groups.includes(name)) {
+        alert('分组名称已存在');
+        return;
+    }
+    groups.push(name);
+    closeModal('modal-add-group');
+    renderGroups();
+
+    // 同步更新添加商品弹窗里的分组下拉
+    const sel = document.getElementById('input-group');
+    if (sel) {
+        sel.innerHTML = groups.map(g => `<option value="${g}">${g}</option>`).join('');
+    }
+}
+
+// ── 商品详情 ──────────────────────────────────────────────────────────────
+let _currentDetailDaily = [];
+
+function openDetailModal(id) {
+    const p = products.find(item => item.id === id);
+    if (!p) return;
+
+    const daily = buildDailyStats(p);
+    _currentDetailDaily = daily;
+
+    const current = daily.length ? daily[daily.length - 1] : { sales: 0, increase: null };
+    const yesterday = daily.length >= 2 ? daily[daily.length - 2] : null;
+    const growth7d = calcSevenDayGrowth(daily);
+
+    document.getElementById('detail-group').textContent = p.group || '默认分组';
+    document.getElementById('detail-name').textContent = p.name || '商品信息获取中...';
+    document.querySelector('#detail-shop span').textContent = p.shopName || '-';
+    document.getElementById('detail-total').textContent = current.sales ? current.sales.toLocaleString() : '-';
+    document.getElementById('detail-growth').textContent = growth7d;
+    document.getElementById('detail-today').textContent = current.increase !== null ? `+${current.increase}` : '+0';
+    document.getElementById('detail-yesterday').textContent = yesterday && yesterday.increase !== null ? `+${yesterday.increase}` : '-';
+
+    // reset range buttons to default (最近30天)
+    document.querySelectorAll('.detail-range-btn').forEach((btn, i) => {
+        btn.className = i === 0
+            ? 'detail-range-btn bg-slate-950 text-white px-4 py-2 rounded-lg text-xs font-black'
+            : 'detail-range-btn text-slate-700 px-4 py-2 rounded-lg text-xs font-black';
+    });
+
+    applyDetailRange('30d');
+
+    document.getElementById('modal-detail').classList.remove('hidden');
+    if (window.lucide) lucide.createIcons();
+}
+
+function applyDetailRange(range) {
+    const daily = _currentDetailDaily;
+    let filtered;
+
+    if (range === '30d') {
+        filtered = daily.slice(-30);
+    } else if (range === 'monthly') {
+        // aggregate by month: sum increases, use last sales value
+        const byMonth = {};
+        daily.forEach(d => {
+            const month = d.date.slice(0, 7); // "2026-05"
+            if (!byMonth[month]) byMonth[month] = { date: month, sales: 0, increase: 0 };
+            byMonth[month].sales = d.sales;
+            if (d.increase !== null) byMonth[month].increase += d.increase;
+        });
+        filtered = Object.values(byMonth).sort((a, b) => a.date.localeCompare(b.date));
+    } else {
+        filtered = daily;
+    }
+
+    const table = document.getElementById('detail-table');
+    table.innerHTML = filtered.slice().reverse().map(d => `
+        <div class="grid grid-cols-2 items-center py-3 text-sm border-b border-slate-50 last:border-0">
+            <span class="text-slate-400 font-black">${range === 'monthly' ? d.date : formatDateShort(d.date)}</span>
+            <span class="text-right text-blue-600 font-black">${d.increase !== null && d.increase !== 0 ? '+' + d.increase : (d.increase === 0 ? '0' : '+0')}</span>
+        </div>
+    `).join('');
+
+    setTimeout(() => renderDetailChart(filtered), 50);
+}
+
+function switchDetailRange(btn, range) {
+    document.querySelectorAll('.detail-range-btn').forEach(b => {
+        b.className = 'detail-range-btn text-slate-700 px-4 py-2 rounded-lg text-xs font-black';
+    });
+    btn.className = 'detail-range-btn bg-slate-950 text-white px-4 py-2 rounded-lg text-xs font-black';
+    applyDetailRange(range);
+}
+
+function buildDailyStats(p) {
+    const byDate = {};
+    (p.history || []).forEach(h => {
+        if (!h.date) return;
+        if (!byDate[h.date]) byDate[h.date] = [];
+        byDate[h.date].push(h);
+    });
+
+    const dates = Object.keys(byDate).sort();
+    let prevSales = null;
+    return dates.map(date => {
+        const records = byDate[date].slice().sort((a, b) => String(a.time).localeCompare(String(b.time)));
+        const first = records[0];
+        const last = records[records.length - 1];
+        let increase = null;
+        if (records.length >= 2) {
+            increase = last.sales - first.sales;
+        } else if (prevSales !== null) {
+            increase = last.sales - prevSales;
+        }
+        prevSales = last.sales;
+        return { date, sales: last.sales, increase };
+    });
+}
+
+function renderDetailChart(daily) {
+    const el = document.getElementById('detail-chart');
+    if (!el || !window.echarts) return;
+    if (detailChart) detailChart.dispose();
+    detailChart = echarts.init(el);
+
+    const labels = daily.map(d => formatDateShort(d.date));
+    const values = daily.map(d => d.increase === null ? 0 : d.increase);
+
+    detailChart.setOption({
+        grid: { left: 56, right: 18, top: 20, bottom: 36 },
+        tooltip: {
+            trigger: 'axis',
+            backgroundColor: '#ffffff',
+            borderColor: '#e5e7eb',
+            borderWidth: 1,
+            textStyle: { color: '#0f172a', fontWeight: 700 },
+            formatter: params => {
+                const p = params[0];
+                return `${p.axisValue}<br/>新增销量：<b>${p.data}</b>`;
+            }
+        },
+        xAxis: {
+            type: 'category',
+            data: labels,
+            boundaryGap: false,
+            axisLine: { lineStyle: { color: '#94a3b8' } },
+            axisTick: { show: false },
+            axisLabel: { color: '#64748b', fontSize: 11, margin: 10 },
+        },
+        yAxis: {
+            type: 'value',
+            axisLine: { show: false },
+            axisTick: { show: false },
+            splitLine: { lineStyle: { color: '#e9eef5', type: 'dashed' } },
+            axisLabel: { color: '#64748b', fontSize: 11, margin: 12 },
+        },
+        series: [{
+            data: values,
+            type: 'line',
+            smooth: true,
+            symbol: 'circle',
+            symbolSize: 8,
+            lineStyle: { width: 4, color: '#2f7df6' },
+            itemStyle: { color: '#ffffff', borderColor: '#2f7df6', borderWidth: 3 },
+            areaStyle: {
+                color: {
+                    type: 'linear',
+                    x: 0, y: 0, x2: 0, y2: 1,
+                    colorStops: [
+                        { offset: 0, color: 'rgba(47, 125, 246, 0.18)' },
+                        { offset: 1, color: 'rgba(47, 125, 246, 0.05)' }
+                    ]
+                }
+            },
+        }]
+    });
+}
+
+function calcSevenDayGrowth(daily) {
+    if (daily.length < 2) return '-';
+    const last = daily[daily.length - 1].sales || 0;
+    const start = daily[Math.max(0, daily.length - 8)].sales || 0;
+    if (!start) return '-';
+    const rate = ((last - start) / start) * 100;
+    return `${rate >= 0 ? '+' : ''}${rate.toFixed(2)}%`;
+}
+
+function formatDateShort(date) {
+    const [, m, d] = date.split('-');
+    return `${Number(m)}-${Number(d)}`;
+}
+
+// ── 删除商品 ──────────────────────────────────────────────────────────────
+function openDeleteModal(id) {
+    deleteTargetId = id;
+    document.getElementById('modal-delete').classList.remove('hidden');
+}
+
+function confirmDelete() {
+    if (!deleteTargetId) return;
+    products = products.filter(p => p.id !== deleteTargetId);
+    deleteTargetId = null;
+    closeModal('modal-delete');
+    renderGroups();
+    renderCards();
+    document.getElementById('product-count').textContent = `共 ${products.length} 个商品`;
+    alert('已从列表移除。\n\n注意：下次运行 scraper.py 后该商品不会再被抓取，但 products.json 里需要手动删除对应条目。');
+}
+
+// ── 移动分组 ──────────────────────────────────────────────────────────────
+let moveTargetId = null;
+
+function openMoveGroupModal(id) {
+    moveTargetId = id;
+    const p = products.find(item => item.id === id);
+    const currentGroup = p ? (p.group || '默认分组') : '';
+    const list = document.getElementById('move-group-list');
+    list.innerHTML = groups.map(g => {
+        const isCurrent = g === currentGroup;
+        return `<button onclick="confirmMoveGroup('${g.replace(/'/g,"\\'")}');return false;"
+            class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-bold transition-colors
+                   ${isCurrent ? 'bg-blue-50 border border-blue-200 text-blue-600 cursor-default' : 'hover:bg-slate-50 border border-slate-100 text-slate-700'}">
+            <span>${g}</span>
+            ${isCurrent ? '<span class="text-[10px] text-blue-400 font-black">当前分组</span>' : ''}
+        </button>`;
+    }).join('');
+    document.getElementById('modal-move-group').classList.remove('hidden');
+    if (window.lucide) lucide.createIcons();
+}
+
+function confirmMoveGroup(newGroup) {
+    if (!moveTargetId) return;
+    const p = products.find(item => item.id === moveTargetId);
+    if (p) {
+        p.group = newGroup;
+        if (!groups.includes(newGroup)) groups.push(newGroup);
+    }
+    moveTargetId = null;
+    closeModal('modal-move-group');
+    renderGroups();
+    renderCards();
+}
+
+// ── 重命名分组 ────────────────────────────────────────────────────────────
+let renameTargetGroup = null;
+
+function openRenameGroupModal(groupName) {
+    renameTargetGroup = groupName;
+    const input = document.getElementById('input-rename-group');
+    input.value = groupName;
+    document.getElementById('modal-rename-group').classList.remove('hidden');
+    setTimeout(() => input.focus(), 100);
+}
+
+function confirmRenameGroup() {
+    const newName = document.getElementById('input-rename-group').value.trim();
+    if (!newName) return;
+    if (newName === renameTargetGroup) { closeModal('modal-rename-group'); return; }
+    if (groups.includes(newName)) { alert('该分组名称已存在'); return; }
+
+    const idx = groups.indexOf(renameTargetGroup);
+    if (idx !== -1) groups[idx] = newName;
+
+    products.forEach(p => {
+        if (p.group === renameTargetGroup) p.group = newName;
+    });
+
+    if (activeGroup === renameTargetGroup) activeGroup = newName;
+    renameTargetGroup = null;
+    closeModal('modal-rename-group');
+    renderGroups();
+    renderCards();
+}
+
+// ── 通用 ──────────────────────────────────────────────────────────────────
+function closeModal(id) {
+    document.getElementById(id).classList.add('hidden');
+}
+
+// 点击遮罩关闭弹窗
+document.querySelectorAll('[id^="modal-"]').forEach(modal => {
+    modal.addEventListener('click', e => {
+        if (e.target === modal) closeModal(modal.id);
+    });
+});
+
+init();
+</script>
+</body>
+</html>
