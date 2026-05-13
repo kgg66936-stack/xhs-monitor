@@ -55,6 +55,12 @@ window.__XHS_DATA__ = [
         "date": "2026-05-12",
         "sales": 218,
         "salesText": "已售218"
+      },
+      {
+        "time": "2026-05-13 13:52:18",
+        "date": "2026-05-13",
+        "sales": 219,
+        "salesText": "已售219"
       }
     ]
   },
@@ -73,6 +79,12 @@ window.__XHS_DATA__ = [
         "date": "2026-05-13",
         "sales": 4561,
         "salesText": "已售4561"
+      },
+      {
+        "time": "2026-05-13 13:52:18",
+        "date": "2026-05-13",
+        "sales": 4568,
+        "salesText": "已售4568"
       }
     ],
     "group": "默认分组"
@@ -664,335 +676,77 @@ async function saveProductsToGitHub() {
     const htmlRaw = decodeURIComponent(escape(atob(hInfo.content.replace(/\n/g, ''))));
     const dataBlock = `window.__XHS_DATA__ = ${JSON.stringify(products, null, 2)};`;
     const newHtml = htmlRaw.replace(
-        /(<script id="xhs-data">)([\s\S]*?)(<\/script>)/,
-        (_, open, __, close) => open + '\n' + dataBlock + '\n' + close
-    );
-    const hContent = btoa(unescape(encodeURIComponent(newHtml)));
-    const hPut = await fetch(base + 'index.html', {
-        method: 'PUT', headers,
-        body: JSON.stringify({ message: 'update index.html data', content: hContent, sha: hInfo.sha })
-    });
-    if (!hPut.ok) throw new Error('写入 index.html 失败: ' + await hPut.text());
-}
-
-function confirmAddProduct() {
-    if (!parsedProduct) return;
-    parsedProduct.group = document.getElementById('input-group').value;
-
-    if (products.find(p => p.id === parsedProduct.id)) {
-        showParseError('该商品已在监控列表中');
-        return;
-    }
-
-    products.push(parsedProduct);
-    if (!groups.includes(parsedProduct.group)) {
-        groups.push(parsedProduct.group);
-    }
-
-    closeModal('modal-add-product');
-    renderGroups();
-    renderCards();
-    document.getElementById('product-count').textContent = `共 ${products.length} 个商品`;
-
-    saveProductsToGitHub().then(() => {
-        alert('商品已添加并同步到 GitHub，约30分钟后数据自动更新。');
-    }).catch(err => {
-        alert('同步失败：' + err.message);
-    });
-}
-
-// ── 新建分组 ──────────────────────────────────────────────────────────────
-function openAddGroupModal() {
-    document.getElementById('input-group-name').value = '';
-    document.getElementById('modal-add-group').classList.remove('hidden');
-    setTimeout(() => document.getElementById('input-group-name').focus(), 100);
-}
-
-function confirmAddGroup() {
-    const name = document.getElementById('input-group-name').value.trim();
-    if (!name) return;
-    if (groups.includes(name)) {
-        alert('分组名称已存在');
-        return;
-    }
-    groups.push(name);
-    closeModal('modal-add-group');
-    renderGroups();
-
-    // 同步更新添加商品弹窗里的分组下拉
-    const sel = document.getElementById('input-group');
-    if (sel) {
-        sel.innerHTML = groups.map(g => `<option value="${g}">${g}</option>`).join('');
-    }
-}
-
-// ── 商品详情 ──────────────────────────────────────────────────────────────
-let _currentDetailDaily = [];
-
-function openDetailModal(id) {
-    const p = products.find(item => item.id === id);
-    if (!p) return;
-
-    const daily = buildDailyStats(p);
-    _currentDetailDaily = daily;
-
-    const current = daily.length ? daily[daily.length - 1] : { sales: 0, increase: null };
-    const yesterday = daily.length >= 2 ? daily[daily.length - 2] : null;
-    const growth7d = calcSevenDayGrowth(daily);
-
-    document.getElementById('detail-group').textContent = p.group || '默认分组';
-    document.getElementById('detail-name').textContent = p.name || '商品信息获取中...';
-    document.querySelector('#detail-shop span').textContent = p.shopName || '-';
-    document.getElementById('detail-total').textContent = current.sales ? current.sales.toLocaleString() : '-';
-    document.getElementById('detail-growth').textContent = growth7d;
-    document.getElementById('detail-today').textContent = current.increase !== null ? `+${current.increase}` : '+0';
-    document.getElementById('detail-yesterday').textContent = yesterday && yesterday.increase !== null ? `+${yesterday.increase}` : '-';
-
-    // reset range buttons to default (最近30天)
-    document.querySelectorAll('.detail-range-btn').forEach((btn, i) => {
-        btn.className = i === 0
-            ? 'detail-range-btn bg-slate-950 text-white px-4 py-2 rounded-lg text-xs font-black'
-            : 'detail-range-btn text-slate-700 px-4 py-2 rounded-lg text-xs font-black';
-    });
-
-    applyDetailRange('30d');
-
-    document.getElementById('modal-detail').classList.remove('hidden');
-    if (window.lucide) lucide.createIcons();
-}
-
-function applyDetailRange(range) {
-    const daily = _currentDetailDaily;
-    let filtered;
-
-    if (range === '30d') {
-        filtered = daily.slice(-30);
-    } else if (range === 'monthly') {
-        // aggregate by month: sum increases, use last sales value
-        const byMonth = {};
-        daily.forEach(d => {
-            const month = d.date.slice(0, 7); // "2026-05"
-            if (!byMonth[month]) byMonth[month] = { date: month, sales: 0, increase: 0 };
-            byMonth[month].sales = d.sales;
-            if (d.increase !== null) byMonth[month].increase += d.increase;
-        });
-        filtered = Object.values(byMonth).sort((a, b) => a.date.localeCompare(b.date));
-    } else {
-        filtered = daily;
-    }
-
-    const table = document.getElementById('detail-table');
-    table.innerHTML = filtered.slice().reverse().map(d => `
-        <div class="grid grid-cols-2 items-center py-3 text-sm border-b border-slate-50 last:border-0">
-            <span class="text-slate-400 font-black">${range === 'monthly' ? d.date : formatDateShort(d.date)}</span>
-            <span class="text-right text-blue-600 font-black">${d.increase !== null && d.increase !== 0 ? '+' + d.increase : (d.increase === 0 ? '0' : '+0')}</span>
-        </div>
-    `).join('');
-
-    setTimeout(() => renderDetailChart(filtered), 50);
-}
-
-function switchDetailRange(btn, range) {
-    document.querySelectorAll('.detail-range-btn').forEach(b => {
-        b.className = 'detail-range-btn text-slate-700 px-4 py-2 rounded-lg text-xs font-black';
-    });
-    btn.className = 'detail-range-btn bg-slate-950 text-white px-4 py-2 rounded-lg text-xs font-black';
-    applyDetailRange(range);
-}
-
-function buildDailyStats(p) {
-    const byDate = {};
-    (p.history || []).forEach(h => {
-        if (!h.date) return;
-        if (!byDate[h.date]) byDate[h.date] = [];
-        byDate[h.date].push(h);
-    });
-
-    const dates = Object.keys(byDate).sort();
-    let prevSales = null;
-    return dates.map(date => {
-        const records = byDate[date].slice().sort((a, b) => String(a.time).localeCompare(String(b.time)));
-        const first = records[0];
-        const last = records[records.length - 1];
-        let increase = null;
-        if (records.length >= 2) {
-            increase = last.sales - first.sales;
-        } else if (prevSales !== null) {
-            increase = last.sales - prevSales;
-        }
-        prevSales = last.sales;
-        return { date, sales: last.sales, increase };
-    });
-}
-
-function renderDetailChart(daily) {
-    const el = document.getElementById('detail-chart');
-    if (!el || !window.echarts) return;
-    if (detailChart) detailChart.dispose();
-    detailChart = echarts.init(el);
-
-    const labels = daily.map(d => formatDateShort(d.date));
-    const values = daily.map(d => d.increase === null ? 0 : d.increase);
-
-    detailChart.setOption({
-        grid: { left: 56, right: 18, top: 20, bottom: 36 },
-        tooltip: {
-            trigger: 'axis',
-            backgroundColor: '#ffffff',
-            borderColor: '#e5e7eb',
-            borderWidth: 1,
-            textStyle: { color: '#0f172a', fontWeight: 700 },
-            formatter: params => {
-                const p = params[0];
-                return `${p.axisValue}<br/>新增销量：<b>${p.data}</b>`;
-            }
-        },
-        xAxis: {
-            type: 'category',
-            data: labels,
-            boundaryGap: false,
-            axisLine: { lineStyle: { color: '#94a3b8' } },
-            axisTick: { show: false },
-            axisLabel: { color: '#64748b', fontSize: 11, margin: 10 },
-        },
-        yAxis: {
-            type: 'value',
-            axisLine: { show: false },
-            axisTick: { show: false },
-            splitLine: { lineStyle: { color: '#e9eef5', type: 'dashed' } },
-            axisLabel: { color: '#64748b', fontSize: 11, margin: 12 },
-        },
-        series: [{
-            data: values,
-            type: 'line',
-            smooth: true,
-            symbol: 'circle',
-            symbolSize: 8,
-            lineStyle: { width: 4, color: '#2f7df6' },
-            itemStyle: { color: '#ffffff', borderColor: '#2f7df6', borderWidth: 3 },
-            areaStyle: {
-                color: {
-                    type: 'linear',
-                    x: 0, y: 0, x2: 0, y2: 1,
-                    colorStops: [
-                        { offset: 0, color: 'rgba(47, 125, 246, 0.18)' },
-                        { offset: 1, color: 'rgba(47, 125, 246, 0.05)' }
-                    ]
-                }
-            },
-        }]
-    });
-}
-
-function calcSevenDayGrowth(daily) {
-    if (daily.length < 2) return '-';
-    const last = daily[daily.length - 1].sales || 0;
-    const start = daily[Math.max(0, daily.length - 8)].sales || 0;
-    if (!start) return '-';
-    const rate = ((last - start) / start) * 100;
-    return `${rate >= 0 ? '+' : ''}${rate.toFixed(2)}%`;
-}
-
-function formatDateShort(date) {
-    const [, m, d] = date.split('-');
-    return `${Number(m)}-${Number(d)}`;
-}
-
-// ── 删除商品 ──────────────────────────────────────────────────────────────
-function openDeleteModal(id) {
-    deleteTargetId = id;
-    document.getElementById('modal-delete').classList.remove('hidden');
-}
-
-function confirmDelete() {
-    if (!deleteTargetId) return;
-    products = products.filter(p => p.id !== deleteTargetId);
-    deleteTargetId = null;
-    closeModal('modal-delete');
-    renderGroups();
-    renderCards();
-    document.getElementById('product-count').textContent = `共 ${products.length} 个商品`;
-    alert('已从列表移除。\n\n注意：下次运行 scraper.py 后该商品不会再被抓取，但 products.json 里需要手动删除对应条目。');
-}
-
-// ── 移动分组 ──────────────────────────────────────────────────────────────
-let moveTargetId = null;
-
-function openMoveGroupModal(id) {
-    moveTargetId = id;
-    const p = products.find(item => item.id === id);
-    const currentGroup = p ? (p.group || '默认分组') : '';
-    const list = document.getElementById('move-group-list');
-    list.innerHTML = groups.map(g => {
-        const isCurrent = g === currentGroup;
-        return `<button onclick="confirmMoveGroup('${g.replace(/'/g,"\\'")}');return false;"
-            class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-bold transition-colors
-                   ${isCurrent ? 'bg-blue-50 border border-blue-200 text-blue-600 cursor-default' : 'hover:bg-slate-50 border border-slate-100 text-slate-700'}">
-            <span>${g}</span>
-            ${isCurrent ? '<span class="text-[10px] text-blue-400 font-black">当前分组</span>' : ''}
-        </button>`;
-    }).join('');
-    document.getElementById('modal-move-group').classList.remove('hidden');
-    if (window.lucide) lucide.createIcons();
-}
-
-function confirmMoveGroup(newGroup) {
-    if (!moveTargetId) return;
-    const p = products.find(item => item.id === moveTargetId);
-    if (p) {
-        p.group = newGroup;
-        if (!groups.includes(newGroup)) groups.push(newGroup);
-    }
-    moveTargetId = null;
-    closeModal('modal-move-group');
-    renderGroups();
-    renderCards();
-}
-
-// ── 重命名分组 ────────────────────────────────────────────────────────────
-let renameTargetGroup = null;
-
-function openRenameGroupModal(groupName) {
-    renameTargetGroup = groupName;
-    const input = document.getElementById('input-rename-group');
-    input.value = groupName;
-    document.getElementById('modal-rename-group').classList.remove('hidden');
-    setTimeout(() => input.focus(), 100);
-}
-
-function confirmRenameGroup() {
-    const newName = document.getElementById('input-rename-group').value.trim();
-    if (!newName) return;
-    if (newName === renameTargetGroup) { closeModal('modal-rename-group'); return; }
-    if (groups.includes(newName)) { alert('该分组名称已存在'); return; }
-
-    const idx = groups.indexOf(renameTargetGroup);
-    if (idx !== -1) groups[idx] = newName;
-
-    products.forEach(p => {
-        if (p.group === renameTargetGroup) p.group = newName;
-    });
-
-    if (activeGroup === renameTargetGroup) activeGroup = newName;
-    renameTargetGroup = null;
-    closeModal('modal-rename-group');
-    renderGroups();
-    renderCards();
-}
-
-// ── 通用 ──────────────────────────────────────────────────────────────────
-function closeModal(id) {
-    document.getElementById(id).classList.add('hidden');
-}
-
-// 点击遮罩关闭弹窗
-document.querySelectorAll('[id^="modal-"]').forEach(modal => {
-    modal.addEventListener('click', e => {
-        if (e.target === modal) closeModal(modal.id);
-    });
-});
-
-init();
+        /(<script id="xhs-data">
+window.__XHS_DATA__ = [
+  {
+    "id": "69dca9e2cfc3750001dae68b",
+    "url": "https://www.xiaohongshu.com/goods-detail/69dca9e2cfc3750001dae68b",
+    "xsecToken": "XBygiR0KkvFLsQZkadXIXJXwBK77IoGhjnO5PhsRCwSOU=",
+    "group": "默认分组",
+    "name": "学习打卡|行为习惯|电子宠物-3天试用 · 份",
+    "price": 0.2,
+    "shopName": "Aaron成长记的店",
+    "shopUrl": "https://www.xiaohongshu.com/shop/68be26341d1807001551c829",
+    "shopSalesText": "已售 1.5万",
+    "history": [
+      {
+        "time": "2026-05-12 17:51:08",
+        "date": "2026-05-12",
+        "sales": 218,
+        "salesText": "已售218"
+      },
+      {
+        "time": "2026-05-12 17:53:34",
+        "date": "2026-05-12",
+        "sales": 218,
+        "salesText": "已售218"
+      },
+      {
+        "time": "2026-05-12 17:56:21",
+        "date": "2026-05-12",
+        "sales": 218,
+        "salesText": "已售218"
+      },
+      {
+        "time": "2026-05-12 18:10:21",
+        "date": "2026-05-12",
+        "sales": 218,
+        "salesText": "已售218"
+      },
+      {
+        "time": "2026-05-13 13:52:18",
+        "date": "2026-05-13",
+        "sales": 219,
+        "salesText": "已售219"
+      }
+    ]
+  },
+  {
+    "id": "69e4939ce3af990015ac3982",
+    "url": "https://www.xiaohongshu.com/goods-detail/69e4939ce3af990015ac3982",
+    "xsecToken": "XBfattcZ935LshFvyIxU34bp2ffMPdlOhesAWu_dtqDwo=",
+    "name": "自制防近视神器 diy小学生写作业防低头神器写字低头歪头贴桌孩子",
+    "price": 21.9,
+    "shopName": "微胖紫芸的店",
+    "shopUrl": "https://www.xiaohongshu.com/shop/66a1fe78a6d8460016697fb5",
+    "shopSalesText": "已售9791",
+    "history": [
+      {
+        "time": "2026/5/13 12:44:57",
+        "date": "2026-05-13",
+        "sales": 4561,
+        "salesText": "已售4561"
+      },
+      {
+        "time": "2026-05-13 13:52:18",
+        "date": "2026-05-13",
+        "sales": 4568,
+        "salesText": "已售4568"
+      }
+    ],
+    "group": "默认分组"
+  }
+];
 </script>
 </body>
 </html>
