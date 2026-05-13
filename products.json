@@ -168,5 +168,24 @@
       }
     ],
     "group": "默认分组"
+  },
+  {
+    "id": "68f374ecc67e470001136729",
+    "url": "https://www.xiaohongshu.com/goods-detail/68f374ecc67e470001136729",
+    "xsecToken": "XBMuveo-SkixQM2WgyyuaXvy4IVAMibStV2a71QdghMnw=",
+    "name": "《刺头学生治理手册（含家长）》电子版",
+    "price": 23.9,
+    "shopName": "做有用的人的店",
+    "shopUrl": "https://www.xiaohongshu.com/shop/689c9a809b87160015940860",
+    "shopSalesText": "已售4173",
+    "history": [
+      {
+        "time": "2026/5/13 17:40:05",
+        "date": "2026-05-13",
+        "sales": 3150,
+        "salesText": "已售3150"
+      }
+    ],
+    "group": "默认分组"
   }
 ]
