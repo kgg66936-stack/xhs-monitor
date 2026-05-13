@@ -314,7 +314,7 @@
       "url": "https://www.xiaohongshu.com/goods-detail/6906f2a7dcedc70001244a61",
       "xsecToken": "XBEylGxshgMPE2oaJH_3F3BZWdzAlPWquu3TyAqsCUplI=",
       "name": "原创自制教学游戏 精品课堂趣味网页课件 教室无需联网",
-      "price": 9.0,
+      "price": 9,
       "shopName": "芝士虾米的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/676012323a55480015f703b4",
       "shopSalesText": "已售6306",
@@ -595,6 +595,25 @@
           "date": "2026-05-13",
           "sales": 149,
           "salesText": "已售149"
+        }
+      ],
+      "group": "默认分组"
+    },
+    {
+      "id": "69b4e8faca64b30001024196",
+      "url": "https://www.xiaohongshu.com/goods-detail/69b4e8faca64b30001024196",
+      "xsecToken": "XBhJ3zN4PUkavTJpQjiNKyl60w3QhZPzbHAZIBF2nGg1E=",
+      "name": "班级积分养宠物系统教辅课件",
+      "price": 19.9,
+      "shopName": "小只猫猫的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/68ba01e555fe1500158b5a0a",
+      "shopSalesText": "已售4111",
+      "history": [
+        {
+          "time": "2026/5/13 20:29:11",
+          "date": "2026-05-13",
+          "sales": 3406,
+          "salesText": "已售3406"
         }
       ],
       "group": "默认分组"
