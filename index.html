@@ -611,18 +611,34 @@ const GH_TOKEN = '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';
 const GH_REPO = 'kgg66936-stack/xhs-monitor';
 
 async function saveProductsToGitHub() {
-    const apiUrl = `https://api.github.com/repos/${GH_REPO}/contents/products.json`;
     const headers = { 'Authorization': `token ${GH_TOKEN}`, 'Content-Type': 'application/json' };
+    const base = `https://api.github.com/repos/${GH_REPO}/contents/`;
 
-    // 获取当前文件的 sha
-    const res = await fetch(apiUrl, { headers });
-    const fileInfo = await res.json();
+    // 并行获取两个文件的 sha
+    const [pRes, hRes] = await Promise.all([
+        fetch(base + 'products.json', { headers }),
+        fetch(base + 'index.html', { headers }),
+    ]);
+    const [pInfo, hInfo] = await Promise.all([pRes.json(), hRes.json()]);
 
-    const content = btoa(unescape(encodeURIComponent(JSON.stringify(products, null, 2))));
-    await fetch(apiUrl, {
-        method: 'PUT',
-        headers,
-        body: JSON.stringify({ message: 'update products.json', content, sha: fileInfo.sha })
+    // 更新 products.json
+    const pContent = btoa(unescape(encodeURIComponent(JSON.stringify(products, null, 2))));
+    await fetch(base + 'products.json', {
+        method: 'PUT', headers,
+        body: JSON.stringify({ message: 'update products.json', content: pContent, sha: pInfo.sha })
+    });
+
+    // 更新 index.html 里的 __XHS_DATA__
+    const htmlRaw = atob(hInfo.content.replace(/\n/g, ''));
+    const dataBlock = `window.__XHS_DATA__ = ${JSON.stringify(products, null, 2)};`;
+    const newHtml = htmlRaw.replace(
+        /(<script id="xhs-data">)([\s\S]*?)(<\/script>)/,
+        (_, open, __, close) => open + '\n' + dataBlock + '\n' + close
+    );
+    const hContent = btoa(unescape(encodeURIComponent(newHtml)));
+    await fetch(base + 'index.html', {
+        method: 'PUT', headers,
+        body: JSON.stringify({ message: 'update index.html data', content: hContent, sha: hInfo.sha })
     });
 }
 
