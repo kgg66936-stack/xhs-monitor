@@ -80,6 +80,12 @@
         "date": "2026-05-13",
         "sales": 4604,
         "salesText": "已售4604"
+      },
+      {
+        "time": "2026-05-13 17:45:21",
+        "date": "2026-05-13",
+        "sales": 4605,
+        "salesText": "已售4605"
       }
     ],
     "group": "默认分组"
@@ -96,6 +102,12 @@
     "history": [
       {
         "time": "2026/5/13 17:40:05",
+        "date": "2026-05-13",
+        "sales": 3150,
+        "salesText": "已售3150"
+      },
+      {
+        "time": "2026-05-13 17:45:21",
         "date": "2026-05-13",
         "sales": 3150,
         "salesText": "已售3150"
@@ -118,6 +130,12 @@
         "date": "2026-05-13",
         "sales": 1911,
         "salesText": "已售1911"
+      },
+      {
+        "time": "2026-05-13 17:45:21",
+        "date": "2026-05-13",
+        "sales": 1911,
+        "salesText": "已售1911"
       }
     ],
     "group": "默认分组"
@@ -127,13 +145,19 @@
     "url": "https://www.xiaohongshu.com/goods-detail/6906f2a7dcedc70001244a61",
     "xsecToken": "XBEylGxshgMPE2oaJH_3F3BZWdzAlPWquu3TyAqsCUplI=",
     "name": "原创自制教学游戏 精品课堂趣味网页课件 教室无需联网",
-    "price": 9,
+    "price": 9.0,
     "shopName": "芝士虾米的店",
     "shopUrl": "https://www.xiaohongshu.com/shop/676012323a55480015f703b4",
     "shopSalesText": "已售6306",
     "history": [
       {
         "time": "2026/5/13 17:41:48",
+        "date": "2026-05-13",
+        "sales": 1093,
+        "salesText": "已售1093"
+      },
+      {
+        "time": "2026-05-13 17:45:21",
         "date": "2026-05-13",
         "sales": 1093,
         "salesText": "已售1093"
