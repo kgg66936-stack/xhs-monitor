@@ -1058,7 +1058,7 @@ function confirmDelete() {
     renderGroups();
     renderCards();
     document.getElementById('product-count').textContent = `共 ${products.length} 个商品`;
-    alert('已从列表移除。\n\n注意：下次运行 scraper.py 后该商品不会再被抓取，但 products.json 里需要手动删除对应条目。');
+    saveProductsToGitHub().then(() => { alert('已删除并同步到 GitHub。'); }).catch(err => { alert('已从列表移除，但同步失败：' + err.message); });
 }
 
 // ── 移动分组 ──────────────────────────────────────────────────────────────
