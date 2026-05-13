@@ -164,5 +164,24 @@
       }
     ],
     "group": "电子资源"
+  },
+  {
+    "id": "697065d39727930001126a79",
+    "url": "https://www.xiaohongshu.com/goods-detail/697065d39727930001126a79",
+    "xsecToken": "XBwPYloKZCMjiwKo6ZX-0-mL002l85ZCgx3PRYNydu020=",
+    "name": "11.9 bjd玫瑰之剑 金银双色",
+    "price": 11.9,
+    "shopName": "今夜金陵有雪的店",
+    "shopUrl": "https://www.xiaohongshu.com/shop/632efecc5b41a200012ad62c",
+    "shopSalesText": "已售 1.9万",
+    "history": [
+      {
+        "time": "2026/5/13 17:54:00",
+        "date": "2026-05-13",
+        "sales": 1806,
+        "salesText": "已售1806"
+      }
+    ],
+    "group": "默认分组"
   }
 ]
