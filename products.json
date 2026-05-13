@@ -494,6 +494,25 @@
         }
       ],
       "group": "默认分组"
+    },
+    {
+      "id": "69eed7b0bd8c350001407f00",
+      "url": "https://www.xiaohongshu.com/goods-detail/69eed7b0bd8c350001407f00",
+      "xsecToken": "XBxVWxxXnwfuDn_ssf62wVIfVbOkEMUNFTj0CNGXdpnAs=",
+      "name": "中小学教学成绩提升指南实战版",
+      "price": 29.9,
+      "shopName": "大东老师的素材库的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/69c6819887534900150ab64c",
+      "shopSalesText": "已售46",
+      "history": [
+        {
+          "time": "2026/5/13 20:12:00",
+          "date": "2026-05-13",
+          "sales": 56,
+          "salesText": "已售56"
+        }
+      ],
+      "group": "默认分组"
     }
   ]
 }
