@@ -1039,6 +1039,7 @@ function confirmMoveGroup(newGroup) {
     closeModal('modal-move-group');
     renderGroups();
     renderCards();
+    saveProductsToGitHub().catch(err => console.warn('同步失败:', err));
 }
 
 // ── 重命名分组 ────────────────────────────────────────────────────────────
