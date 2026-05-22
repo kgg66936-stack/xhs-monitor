@@ -8648,7 +8648,7 @@
       "url": "https://www.xiaohongshu.com/goods-detail/6906f2a7dcedc70001244a61",
       "xsecToken": "XBEylGxshgMPE2oaJH_3F3BZWdzAlPWquu3TyAqsCUplI=",
       "name": "原创自制课堂游戏合集 教室无需联网 精品趣味教学网页课件",
-      "price": 9.0,
+      "price": 9,
       "shopName": "芝士虾米的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/676012323a55480015f703b4",
       "shopSalesText": "已售6452",
@@ -51096,6 +51096,25 @@
         }
       ],
       "group": "电子资源"
+    },
+    {
+      "id": "69d8e8a16ba40800019e5755",
+      "url": "https://www.xiaohongshu.com/goods-detail/69d8e8a16ba40800019e5755",
+      "xsecToken": "XBs3pdjTGXGfaMKig4HCjXySm81MdSdyU51S_smiXfsek=",
+      "name": "材料写作实用宝典-PDF版本",
+      "price": 29.9,
+      "shopName": "小伊老师吖的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/69ce0f0b21467c00154b59b2",
+      "shopSalesText": "已售163",
+      "history": [
+        {
+          "time": "2026/5/22 09:16:42",
+          "date": "2026-05-22",
+          "sales": 118,
+          "salesText": "已售118"
+        }
+      ],
+      "group": "默认分组"
     }
   ]
 }
