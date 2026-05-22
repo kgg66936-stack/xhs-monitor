@@ -51700,24 +51700,6 @@ async function saveProductsToGitHub() {
         body: JSON.stringify({ message: 'update products.json', content: pContent, sha: pInfo.sha })
     });
     if (!pPut.ok) throw new Error('写入 products.json 失败: ' + await pPut.text());
-
-    // 获取 index.html（用 git API 避免大文件 base64 截断问题）
-    const hRes = await fetch(base + 'index.html', { headers });
-    const hInfo = await hRes.json();
-    if (!hInfo.sha) throw new Error('获取 index.html sha 失败: ' + JSON.stringify(hInfo));
-
-    const htmlRaw = decodeURIComponent(escape(atob(hInfo.content.replace(/\n/g, ''))));
-    const dataBlock = `window.__XHS_DATA__ = ${JSON.stringify({ groups, products }, null, 2)};`;
-    const newHtml = htmlRaw.replace(
-        /(<script id="xhs-data">)([\s\S]*?)(<\/script>)/,
-        (_, open, __, close) => open + '\n' + dataBlock + '\n' + close
-    );
-    const hContent = btoa(unescape(encodeURIComponent(newHtml)));
-    const hPut = await fetch(base + 'index.html', {
-        method: 'PUT', headers,
-        body: JSON.stringify({ message: 'update index.html data', content: hContent, sha: hInfo.sha })
-    });
-    if (!hPut.ok) throw new Error('写入 index.html 失败: ' + await hPut.text());
 }
 
 function confirmAddProduct() {
