@@ -11402,7 +11402,7 @@
       "url": "https://www.xiaohongshu.com/goods-detail/6906f2a7dcedc70001244a61",
       "xsecToken": "XBEylGxshgMPE2oaJH_3F3BZWdzAlPWquu3TyAqsCUplI=",
       "name": "原创自制课堂游戏合集 教室无需联网 精品趣味教学网页课件",
-      "price": 9.0,
+      "price": 9,
       "shopName": "芝士虾米的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/676012323a55480015f703b4",
       "shopSalesText": "已售6483",
@@ -62385,6 +62385,25 @@
           "date": "2026-05-25",
           "sales": 6,
           "salesText": "已售6"
+        }
+      ],
+      "group": "电子资源"
+    },
+    {
+      "id": "6a11b91de6d02a00015ed8b2",
+      "url": "https://www.xiaohongshu.com/goods-detail/6a11b91de6d02a00015ed8b2",
+      "xsecToken": "XBslIOAtqg6a6wazNL3MyGTDSB-I47gaCTNI3IlJ5sK24=",
+      "name": "智慧校园班级管理系统 学校日常通知软件 数字化班务管理平台",
+      "price": 17.9,
+      "shopName": "清清老师的高效资料馆的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/68fd91c6b92505001542833c",
+      "shopSalesText": "已售5918",
+      "history": [
+        {
+          "time": "2026/5/25 11:16:06",
+          "date": "2026-05-25",
+          "sales": 5,
+          "salesText": "已售5"
         }
       ],
       "group": "电子资源"
