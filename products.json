@@ -68275,6 +68275,25 @@
         }
       ],
       "group": "电子资源"
+    },
+    {
+      "id": "6a1433b248fd3d000148ff05",
+      "url": "https://www.xiaohongshu.com/goods-detail/6a1433b248fd3d000148ff05",
+      "xsecToken": "XB0Ia5EZrmdwbep9PZThXqABn2wd0ekicF3gMcO-7KmA0=",
+      "name": "老师专用班级通知系统",
+      "price": 17.9,
+      "shopName": "清清老师的高效资料馆的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/68fd91c6b92505001542833c",
+      "shopSalesText": "已售5929",
+      "history": [
+        {
+          "time": "2026/5/26 17:42:48",
+          "date": "2026-05-26",
+          "sales": 4,
+          "salesText": "已售4"
+        }
+      ],
+      "group": "默认分组"
     }
   ]
 }
