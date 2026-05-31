@@ -16424,7 +16424,7 @@
       "url": "https://www.xiaohongshu.com/goods-detail/6906f2a7dcedc70001244a61",
       "xsecToken": "XBEylGxshgMPE2oaJH_3F3BZWdzAlPWquu3TyAqsCUplI=",
       "name": "原创自制课堂游戏合集 教室无需联网 精品趣味教学网页课件",
-      "price": 9.0,
+      "price": 9,
       "shopName": "芝士虾米的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/676012323a55480015f703b4",
       "shopSalesText": "已售6546",
@@ -86554,6 +86554,25 @@
           "date": "2026-05-31",
           "sales": 18,
           "salesText": "已售18"
+        }
+      ],
+      "group": "电子资源"
+    },
+    {
+      "id": "692ea5ea14b5260001cd15e7",
+      "url": "https://www.xiaohongshu.com/goods-detail/692ea5ea14b5260001cd15e7",
+      "xsecToken": "XBfUxvSVQNt2tlYO1S9DzLwLhbd-twD7vKIXAKVetkJK0=",
+      "name": "老师送学生的小礼物毕业文字金属徽章励志别针个性配饰勋章B115",
+      "price": 25.9,
+      "shopName": "驿光社文创店的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/67cfe0f485f81a00151a3280",
+      "shopSalesText": "已售6510",
+      "history": [
+        {
+          "time": "2026/5/31 19:52:12",
+          "date": "2026-05-31",
+          "sales": 1599,
+          "salesText": "已售1599"
         }
       ],
       "group": "电子资源"
