@@ -5835,6 +5835,12 @@
           "date": "2026-07-03",
           "sales": 0,
           "salesText": ""
+        },
+        {
+          "time": "2026-07-04 23:40:28",
+          "date": "2026-07-04",
+          "sales": 0,
+          "salesText": ""
         }
       ],
       "group": "电子资源"
@@ -5847,7 +5853,7 @@
       "price": 23.9,
       "shopName": "做有用的人的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/689c9a809b87160015940860",
-      "shopSalesText": "已售4455",
+      "shopSalesText": "已售4462",
       "history": [
         {
           "time": "2026/5/13 17:40:05",
@@ -11602,6 +11608,12 @@
           "date": "2026-07-03",
           "sales": 3430,
           "salesText": "已售3430"
+        },
+        {
+          "time": "2026-07-04 23:40:28",
+          "date": "2026-07-04",
+          "sales": 3431,
+          "salesText": "已售3431"
         }
       ],
       "group": "电子资源"
@@ -17369,6 +17381,12 @@
           "date": "2026-07-03",
           "sales": 2090,
           "salesText": "已售2090"
+        },
+        {
+          "time": "2026-07-04 23:40:28",
+          "date": "2026-07-04",
+          "sales": 2090,
+          "salesText": "已售2090"
         }
       ],
       "group": "电子资源"
@@ -17381,7 +17399,7 @@
       "price": 9.0,
       "shopName": "芝士虾米的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/676012323a55480015f703b4",
-      "shopSalesText": "已售6791",
+      "shopSalesText": "已售6796",
       "history": [
         {
           "time": "2026/5/13 17:41:48",
@@ -23136,6 +23154,12 @@
           "date": "2026-07-03",
           "sales": 1189,
           "salesText": "已售1189"
+        },
+        {
+          "time": "2026-07-04 23:40:28",
+          "date": "2026-07-04",
+          "sales": 1192,
+          "salesText": "已售1192"
         }
       ],
       "group": "电子资源"
@@ -23148,7 +23172,7 @@
       "price": 36.9,
       "shopName": "小天老师爱育苗的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/68c8d772b72c2c00151a51bb",
-      "shopSalesText": "已售5814",
+      "shopSalesText": "已售5835",
       "history": [
         {
           "time": "2026/5/13 19:40:33",
@@ -28855,6 +28879,12 @@
           "date": "2026-07-03",
           "sales": 485,
           "salesText": "已售485"
+        },
+        {
+          "time": "2026-07-04 23:40:28",
+          "date": "2026-07-04",
+          "sales": 486,
+          "salesText": "已售486"
         }
       ],
       "group": "电子资源"
@@ -28867,7 +28897,7 @@
       "price": 33.9,
       "shopName": "小天老师爱育苗的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/68c8d772b72c2c00151a51bb",
-      "shopSalesText": "已售5814",
+      "shopSalesText": "已售5835",
       "history": [
         {
           "time": "2026/5/13 19:41:05",
@@ -34580,6 +34610,12 @@
           "date": "2026-07-03",
           "sales": 2400,
           "salesText": "已售2400"
+        },
+        {
+          "time": "2026-07-04 23:40:28",
+          "date": "2026-07-04",
+          "sales": 2403,
+          "salesText": "已售2403"
         }
       ],
       "group": "电子资源"
@@ -34592,7 +34628,7 @@
       "price": 26.8,
       "shopName": "青林老师的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/6871378082d1a30015cde71b",
-      "shopSalesText": "已售6228",
+      "shopSalesText": "已售6236",
       "history": [
         {
           "time": "2026/5/13 20:11:37",
@@ -40299,6 +40335,12 @@
           "date": "2026-07-03",
           "sales": 234,
           "salesText": "已售234"
+        },
+        {
+          "time": "2026-07-04 23:40:28",
+          "date": "2026-07-04",
+          "sales": 234,
+          "salesText": "已售234"
         }
       ],
       "group": "电子资源"
@@ -40311,7 +40353,7 @@
       "price": 28.8,
       "shopName": "青林老师的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/6871378082d1a30015cde71b",
-      "shopSalesText": "已售6228",
+      "shopSalesText": "已售6236",
       "history": [
         {
           "time": "2026/5/13 20:11:49",
@@ -46018,6 +46060,12 @@
           "date": "2026-07-03",
           "sales": 239,
           "salesText": "已售239"
+        },
+        {
+          "time": "2026-07-04 23:40:28",
+          "date": "2026-07-04",
+          "sales": 239,
+          "salesText": "已售239"
         }
       ],
       "group": "电子资源"
@@ -46030,7 +46078,7 @@
       "price": 19.9,
       "shopName": "小只猫猫的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/68ba01e555fe1500158b5a0a",
-      "shopSalesText": "已售4810",
+      "shopSalesText": "已售4829",
       "history": [
         {
           "time": "2026/5/13 20:29:11",
@@ -51725,6 +51773,12 @@
           "date": "2026-07-03",
           "sales": 3992,
           "salesText": "已售3992"
+        },
+        {
+          "time": "2026-07-04 23:40:28",
+          "date": "2026-07-04",
+          "sales": 4003,
+          "salesText": "已售4003"
         }
       ],
       "group": "电子资源"
@@ -57318,7 +57372,7 @@
       "price": 29.9,
       "shopName": "班级OK萌宠的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/69c15374d0fe7c0015637685",
-      "shopSalesText": "已售2051",
+      "shopSalesText": "已售2076",
       "history": [
         {
           "time": "2026/5/13 20:29:34",
@@ -63019,6 +63073,12 @@
           "date": "2026-07-03",
           "sales": 698,
           "salesText": "已售698"
+        },
+        {
+          "time": "2026-07-04 23:40:28",
+          "date": "2026-07-04",
+          "sales": 711,
+          "salesText": "已售711"
         }
       ],
       "group": "电子资源"
@@ -63031,7 +63091,7 @@
       "price": 27.99,
       "shopName": "情绪巴士的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/68a191b746036d0015517c5a",
-      "shopSalesText": "已售4463",
+      "shopSalesText": "已售4507",
       "history": [
         {
           "time": "2026/5/13 21:58:24",
@@ -68696,6 +68756,12 @@
           "date": "2026-07-03",
           "sales": 2127,
           "salesText": "已售2127"
+        },
+        {
+          "time": "2026-07-04 23:40:28",
+          "date": "2026-07-04",
+          "sales": 2131,
+          "salesText": "已售2131"
         }
       ],
       "group": "电子资源"
@@ -68708,7 +68774,7 @@
       "price": 19.9,
       "shopName": "米老师的AI工具箱的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/6911cd17e7451a0015bda985",
-      "shopSalesText": "已售2075",
+      "shopSalesText": "已售2078",
       "history": [
         {
           "time": "2026/5/14 10:01:06",
@@ -74175,6 +74241,12 @@
           "date": "2026-07-03",
           "sales": 1760,
           "salesText": "已售1760"
+        },
+        {
+          "time": "2026-07-04 23:40:28",
+          "date": "2026-07-04",
+          "sales": 1761,
+          "salesText": "已售1761"
         }
       ],
       "group": "电子资源"
@@ -79648,6 +79720,12 @@
           "date": "2026-07-03",
           "sales": 7691,
           "salesText": "已售7691"
+        },
+        {
+          "time": "2026-07-04 23:40:28",
+          "date": "2026-07-04",
+          "sales": 7704,
+          "salesText": "已售7704"
         }
       ],
       "group": "电子资源"
@@ -79660,7 +79738,7 @@
       "price": 27.99,
       "shopName": "情绪巴士的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/68a191b746036d0015517c5a",
-      "shopSalesText": "已售4463",
+      "shopSalesText": "已售4507",
       "history": [
         {
           "time": "2026/5/17 11:10:33",
@@ -84071,6 +84149,12 @@
           "date": "2026-07-03",
           "sales": 647,
           "salesText": "已售647"
+        },
+        {
+          "time": "2026-07-04 23:40:28",
+          "date": "2026-07-04",
+          "sales": 649,
+          "salesText": "已售649"
         }
       ],
       "group": "电子资源"
@@ -86916,7 +87000,7 @@
       "price": 29.9,
       "shopName": "米老师的AI工具箱的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/6911cd17e7451a0015bda985",
-      "shopSalesText": "已售2075",
+      "shopSalesText": "已售2078",
       "history": [
         {
           "time": "2026/5/25 11:48:09",
@@ -88921,6 +89005,12 @@
           "date": "2026-07-03",
           "sales": 81,
           "salesText": "已售81"
+        },
+        {
+          "time": "2026-07-04 23:40:28",
+          "date": "2026-07-04",
+          "sales": 81,
+          "salesText": "已售81"
         }
       ],
       "group": "电子资源"
@@ -88933,7 +89023,7 @@
       "price": 29.9,
       "shopName": "米老师的AI工具箱的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/6911cd17e7451a0015bda985",
-      "shopSalesText": "已售2075",
+      "shopSalesText": "已售2078",
       "history": [
         {
           "time": "2026/5/27 19:41:53",
@@ -90284,6 +90374,12 @@
           "date": "2026-07-03",
           "sales": 34,
           "salesText": "已售34"
+        },
+        {
+          "time": "2026-07-04 23:40:28",
+          "date": "2026-07-04",
+          "sales": 34,
+          "salesText": "已售34"
         }
       ],
       "group": "电子资源"
@@ -90296,7 +90392,7 @@
       "price": 29.9,
       "shopName": "糖糖老师工具箱的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/689f1c42d86685001560d779",
-      "shopSalesText": "已售2417",
+      "shopSalesText": "已售2421",
       "history": [
         {
           "time": "2026/5/28 09:28:05",
@@ -91485,6 +91581,12 @@
           "date": "2026-07-03",
           "sales": 347,
           "salesText": "已售347"
+        },
+        {
+          "time": "2026-07-04 23:40:28",
+          "date": "2026-07-04",
+          "sales": 349,
+          "salesText": "已售349"
         }
       ],
       "group": "电子资源"
@@ -91497,7 +91599,7 @@
       "price": 29.9,
       "shopName": "糖糖老师工具箱的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/689f1c42d86685001560d779",
-      "shopSalesText": "已售2417",
+      "shopSalesText": "已售2421",
       "history": [
         {
           "time": "2026/5/28 09:29:00",
@@ -92686,6 +92788,12 @@
           "date": "2026-07-03",
           "sales": 30,
           "salesText": "已售30"
+        },
+        {
+          "time": "2026-07-04 23:40:28",
+          "date": "2026-07-04",
+          "sales": 31,
+          "salesText": "已售31"
         }
       ],
       "group": "电子资源"
@@ -92698,7 +92806,7 @@
       "price": 25.9,
       "shopName": "驿光社文创店的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/67cfe0f485f81a00151a3280",
-      "shopSalesText": "已售8062",
+      "shopSalesText": "已售8066",
       "history": [
         {
           "time": "2026/5/31 19:52:12",
@@ -93021,6 +93129,12 @@
         {
           "time": "2026-07-03 23:40:23",
           "date": "2026-07-03",
+          "sales": 2531,
+          "salesText": "已售2531"
+        },
+        {
+          "time": "2026-07-04 23:40:28",
+          "date": "2026-07-04",
           "sales": 2531,
           "salesText": "已售2531"
         }
