@@ -18,7 +18,7 @@
 </head>
 <body class="bg-[#eff3f8] h-screen overflow-hidden flex">
 
-<!-- 鏁版嵁娉ㄥ叆鐐癸紝鐢?scraper.py 鑷姩鏇存柊 -->
+<!-- 数据注入点，由 scraper.py 自动更新 -->
 <script id="xhs-data">
 window.__XHS_DATA__ = {
   "groups": [],
@@ -46,7 +46,7 @@ window.__XHS_DATA__ = {
 };
 </script>
 
-<!-- 渚ц竟鏍?-->
+<!-- 侧边栏 -->
 <aside class="w-64 bg-[#1e293b] text-slate-400 flex flex-col shadow-xl z-20 shrink-0">
     <div class="p-6 flex items-center gap-3">
         <div class="bg-blue-600 w-10 h-10 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-900/40">
@@ -59,34 +59,34 @@ window.__XHS_DATA__ = {
     </div>
 
     <nav class="flex-1 px-4 space-y-6 mt-2 overflow-y-auto custom-scrollbar pb-6">
-        <!-- 鍒嗙粍鍒楄〃 -->
+        <!-- 分组列表 -->
         <div>
             <div class="flex items-center justify-between px-3 mb-3">
-                <h3 class="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em]">鎴戠殑鍒嗙粍</h3>
-                <button onclick="openAddGroupModal()" class="p-1 hover:bg-slate-800 rounded-md text-slate-500 hover:text-blue-400 transition-colors" title="鏂板缓鍒嗙粍">
+                <h3 class="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em]">我的分组</h3>
+                <button onclick="openAddGroupModal()" class="p-1 hover:bg-slate-800 rounded-md text-slate-500 hover:text-blue-400 transition-colors" title="新建分组">
                     <i data-lucide="plus" size="14"></i>
                 </button>
             </div>
             <div id="group-list" class="space-y-1">
-                <!-- 鐢?JS 娓叉煋 -->
+                <!-- 由 JS 渲染 -->
             </div>
         </div>
 
-        <!-- 娣诲姞鍟嗗搧 -->
+        <!-- 添加商品 -->
         <div class="pt-2 pb-4">
             <button onclick="openAddProductModal()" class="w-full flex items-center p-4 rounded-2xl border-2 border-dashed border-slate-800/80 text-blue-500 text-sm font-black hover:border-blue-500/50 hover:bg-blue-500/5 transition-all group">
                 <i data-lucide="plus-circle" class="mr-3 group-hover:rotate-90 transition-transform" size="16"></i>
-                <span>绮樿创閾炬帴娣诲姞鍟嗗搧</span>
+                <span>粘贴链接添加商品</span>
             </button>
         </div>
     </nav>
 </aside>
 
-<!-- 涓诲唴瀹瑰尯 -->
+<!-- 主内容区 -->
 <main class="flex-1 flex flex-col overflow-hidden">
     <header class="h-20 bg-white border-b border-slate-200 flex items-center justify-between px-10 shrink-0 z-10">
         <div class="flex items-center gap-4">
-            <h2 class="text-xl font-black text-slate-900">鏁版嵁鐩戞帶鐪嬫澘</h2>
+            <h2 class="text-xl font-black text-slate-900">数据监控看板</h2>
             <div class="h-6 w-[1px] bg-slate-200"></div>
             <span id="today-label" class="text-[10px] font-black text-slate-400 uppercase tracking-widest bg-slate-50 px-2 py-1 rounded"></span>
         </div>
@@ -98,21 +98,21 @@ window.__XHS_DATA__ = {
 
     <div id="product-grid" class="flex-1 overflow-y-auto p-10 custom-scrollbar">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="cards-container">
-            <!-- 鐢?JS 娓叉煋 -->
+            <!-- 由 JS 渲染 -->
         </div>
         <div id="empty-state" class="hidden flex-col items-center justify-center h-full text-center py-32">
             <i data-lucide="package-open" size="48" class="text-slate-300 mb-4"></i>
-            <p class="text-slate-400 font-bold text-sm">杩樻病鏈夌洃鎺у晢鍝?/p>
-            <p class="text-slate-300 text-xs mt-1">鐐瑰嚮宸︿笅瑙?绮樿创閾炬帴娣诲姞鍟嗗搧"寮€濮?/p>
+            <p class="text-slate-400 font-bold text-sm">还没有监控商品</p>
+            <p class="text-slate-300 text-xs mt-1">点击左侧“粘贴链接添加商品”开始</p>
         </div>
     </div>
 </main>
 
-<!-- 娣诲姞鍟嗗搧寮圭獥 -->
+<!-- 添加商品弹窗 -->
 <div id="modal-add-product" class="hidden fixed inset-0 bg-black/40 modal-bg z-50 flex items-center justify-center">
     <div class="bg-white rounded-2xl shadow-2xl w-[480px] p-8">
         <div class="flex items-center justify-between mb-6">
-            <h3 class="font-black text-slate-900 text-lg">娣诲姞鐩戞帶鍟嗗搧</h3>
+            <h3 class="font-black text-slate-900 text-lg">添加监控商品</h3>
             <button onclick="closeModal('modal-add-product')" class="text-slate-400 hover:text-slate-600">
                 <i data-lucide="x" size="20"></i>
             </button>
@@ -120,16 +120,16 @@ window.__XHS_DATA__ = {
 
         <div class="space-y-4">
             <div>
-                <label class="text-xs font-black text-slate-500 uppercase tracking-wider block mb-2">鍟嗗搧閾炬帴</label>
+                <label class="text-xs font-black text-slate-500 uppercase tracking-wider block mb-2">商品链接</label>
                 <textarea id="input-url" rows="3"
-                    placeholder="绮樿创灏忕孩涔﹀晢鍝侀摼鎺ワ紝渚嬪锛?#10;https://www.xiaohongshu.com/goods-detail/..."
+                    placeholder="粘贴小红书商品链接，例如：&#10;https://www.xiaohongshu.com/goods-detail/..."
                     class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 focus:outline-none focus:border-blue-400 resize-none"></textarea>
             </div>
 
             <div id="parsed-info" class="hidden bg-slate-50 rounded-xl p-4 space-y-2">
                 <div class="flex items-center gap-2 text-xs text-green-600 font-bold">
                     <i data-lucide="check-circle" size="14"></i>
-                    <span>瑙ｆ瀽鎴愬姛</span>
+                    <span>解析成功</span>
                 </div>
                 <p id="parsed-name" class="text-sm font-bold text-slate-800"></p>
                 <p id="parsed-shop" class="text-xs text-slate-500"></p>
@@ -139,11 +139,11 @@ window.__XHS_DATA__ = {
             <div id="parse-error" class="hidden bg-red-50 rounded-xl p-4 text-xs text-red-600 font-bold"></div>
             <div id="parse-loading" class="hidden bg-blue-50 rounded-xl p-4 text-xs text-blue-600 font-bold flex items-center gap-2">
                 <i data-lucide="loader-2" size="14" class="animate-spin"></i>
-                <span>姝ｅ湪鑾峰彇鍟嗗搧淇℃伅...</span>
+                <span>正在获取商品信息...</span>
             </div>
 
             <div>
-                <label class="text-xs font-black text-slate-500 uppercase tracking-wider block mb-2">閫夋嫨鍒嗙粍</label>
+                <label class="text-xs font-black text-slate-500 uppercase tracking-wider block mb-2">选择分组</label>
                 <select id="input-group"
                     class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 focus:outline-none focus:border-blue-400 bg-white">
                 </select>
@@ -151,43 +151,43 @@ window.__XHS_DATA__ = {
         </div>
 
         <div class="flex gap-3 mt-6">
-            <button onclick="closeModal('modal-add-product')" class="flex-1 border border-slate-200 text-slate-600 font-bold text-sm py-3 rounded-xl hover:bg-slate-50 transition-colors">鍙栨秷</button>
-            <button id="btn-parse" onclick="parseProduct()" class="flex-1 bg-slate-800 text-white font-bold text-sm py-3 rounded-xl hover:bg-slate-700 transition-colors">瑙ｆ瀽鍟嗗搧</button>
-            <button id="btn-confirm" onclick="confirmAddProduct()" class="hidden flex-1 bg-blue-600 text-white font-bold text-sm py-3 rounded-xl hover:bg-blue-700 transition-colors">纭娣诲姞</button>
+            <button onclick="closeModal('modal-add-product')" class="flex-1 border border-slate-200 text-slate-600 font-bold text-sm py-3 rounded-xl hover:bg-slate-50 transition-colors">取消</button>
+            <button id="btn-parse" onclick="parseProduct()" class="flex-1 bg-slate-800 text-white font-bold text-sm py-3 rounded-xl hover:bg-slate-700 transition-colors">解析商品</button>
+            <button id="btn-confirm" onclick="confirmAddProduct()" class="hidden flex-1 bg-blue-600 text-white font-bold text-sm py-3 rounded-xl hover:bg-blue-700 transition-colors">确认添加</button>
         </div>
     </div>
 </div>
 
-<!-- 鏂板缓鍒嗙粍寮圭獥 -->
+<!-- 新建分组弹窗 -->
 <div id="modal-add-group" class="hidden fixed inset-0 bg-black/40 modal-bg z-50 flex items-center justify-center">
     <div class="bg-white rounded-2xl shadow-2xl w-[360px] p-8">
         <div class="flex items-center justify-between mb-6">
-            <h3 class="font-black text-slate-900 text-lg">鏂板缓鍒嗙粍</h3>
+            <h3 class="font-black text-slate-900 text-lg">新建分组</h3>
             <button onclick="closeModal('modal-add-group')" class="text-slate-400 hover:text-slate-600">
                 <i data-lucide="x" size="20"></i>
             </button>
         </div>
         <div>
-            <label class="text-xs font-black text-slate-500 uppercase tracking-wider block mb-2">鍒嗙粍鍚嶇О</label>
-            <input id="input-group-name" type="text" placeholder="渚嬪锛氬涔犵被銆佺敓椴滄按鏋?.."
+            <label class="text-xs font-black text-slate-500 uppercase tracking-wider block mb-2">分组名称</label>
+            <input id="input-group-name" type="text" placeholder="例如：学习类、生鲜水果..."
                 class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 focus:outline-none focus:border-blue-400"
                 onkeydown="if(event.key==='Enter') confirmAddGroup()">
         </div>
         <div class="flex gap-3 mt-6">
-            <button onclick="closeModal('modal-add-group')" class="flex-1 border border-slate-200 text-slate-600 font-bold text-sm py-3 rounded-xl hover:bg-slate-50">鍙栨秷</button>
-            <button onclick="confirmAddGroup()" class="flex-1 bg-blue-600 text-white font-bold text-sm py-3 rounded-xl hover:bg-blue-700">鍒涘缓</button>
+            <button onclick="closeModal('modal-add-group')" class="flex-1 border border-slate-200 text-slate-600 font-bold text-sm py-3 rounded-xl hover:bg-slate-50">取消</button>
+            <button onclick="confirmAddGroup()" class="flex-1 bg-blue-600 text-white font-bold text-sm py-3 rounded-xl hover:bg-blue-700">创建</button>
         </div>
     </div>
 </div>
 
-<!-- 鍟嗗搧璇︽儏寮圭獥 -->
+<!-- 商品详情弹窗 -->
 <div id="modal-detail" class="hidden fixed inset-0 bg-slate-900/45 modal-bg z-50 flex items-center justify-center p-6">
     <div class="bg-white rounded-[28px] shadow-2xl w-[1240px] max-w-[calc(100vw-48px)] max-h-[calc(100vh-48px)] overflow-y-auto custom-scrollbar p-10 relative">
         <button onclick="closeModal('modal-detail')" class="absolute right-9 top-8 text-slate-300 hover:text-slate-500 transition-colors">
             <i data-lucide="x" size="30"></i>
         </button>
 
-        <!-- 澶撮儴 -->
+        <!-- 头部 -->
         <div class="pr-16 mb-8">
             <div class="flex items-center gap-3 mb-3">
                 <span id="detail-group" class="text-[10px] font-black text-blue-600 bg-blue-50 px-3 py-1.5 rounded-md border border-blue-100"></span>
@@ -196,37 +196,37 @@ window.__XHS_DATA__ = {
             <h3 id="detail-name" class="font-black text-slate-950 text-2xl leading-tight tracking-tight max-w-[760px]"></h3>
         </div>
 
-        <!-- 缁熻鍗＄墖 -->
+        <!-- 统计卡片 -->
         <div class="grid grid-cols-4 gap-5 mb-8">
             <div class="bg-slate-50 border border-slate-100 rounded-2xl p-6 h-[108px] flex flex-col justify-center">
-                <p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.14em] mb-3">TOTAL SALES / 绱鎬婚噺</p>
+                <p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.14em] mb-3">TOTAL SALES / 累计销量</p>
                 <p id="detail-total" class="text-3xl font-black text-slate-900 tracking-tight"></p>
             </div>
             <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-6 h-[108px] flex flex-col justify-center">
-                <p class="text-[10px] font-black text-emerald-500 uppercase tracking-[0.14em] mb-3">7D GROWTH / 7鏃ュ闀跨巼</p>
+                <p class="text-[10px] font-black text-emerald-500 uppercase tracking-[0.14em] mb-3">7D GROWTH / 7日增长率</p>
                 <p id="detail-growth" class="text-3xl font-black text-emerald-500 tracking-tight"></p>
             </div>
             <div class="bg-blue-600 rounded-2xl p-6 h-[108px] flex flex-col justify-center shadow-xl shadow-blue-100">
-                <p class="text-[10px] font-black text-blue-100 uppercase tracking-[0.14em] mb-3">TODAY GAIN / 浠婃棩澧為噺</p>
+                <p class="text-[10px] font-black text-blue-100 uppercase tracking-[0.14em] mb-3">TODAY GAIN / 今日增量</p>
                 <p id="detail-today" class="text-3xl font-black text-white tracking-tight"></p>
             </div>
             <div class="bg-slate-950 rounded-2xl p-6 h-[108px] flex flex-col justify-center">
-                <p class="text-[10px] font-black text-slate-500 uppercase tracking-[0.14em] mb-3">YESTERDAY / 鏄ㄦ棩鍏ㄥぉ</p>
+                <p class="text-[10px] font-black text-slate-500 uppercase tracking-[0.14em] mb-3">YESTERDAY / 昨日全天</p>
                 <p id="detail-yesterday" class="text-3xl font-black text-white tracking-tight"></p>
             </div>
         </div>
 
-        <!-- 鍥捐〃闈㈡澘 -->
+        <!-- 图表面板 -->
         <div class="bg-slate-50/80 border border-slate-100 rounded-[28px] p-8">
             <div class="flex items-center justify-between mb-7">
                 <div class="flex items-center gap-2">
                     <i data-lucide="chart-no-axes-combined" size="17" class="text-blue-600"></i>
-                    <h4 class="text-sm font-black text-slate-900">閿€閲忔瘡鏃ュ闀胯秼鍔匡紙娉㈠姩鍒嗘瀽锛?/h4>
+                    <h4 class="text-sm font-black text-slate-900">销量每日增长趋势（波动分析）</h4>
                 </div>
                 <div class="flex items-center bg-white border border-slate-200 rounded-xl p-1 shadow-sm">
-                    <button onclick="switchDetailRange(this,'30d')" class="detail-range-btn bg-slate-950 text-white px-4 py-2 rounded-lg text-xs font-black">鏈€杩?0澶?/button>
-                    <button onclick="switchDetailRange(this,'monthly')" class="detail-range-btn text-slate-700 px-4 py-2 rounded-lg text-xs font-black">鏈堝害姹囨€?/button>
-                    <button onclick="switchDetailRange(this,'all')" class="detail-range-btn text-slate-700 px-4 py-2 rounded-lg text-xs font-black">鍘嗗彶鍏ㄩ儴</button>
+                    <button onclick="switchDetailRange(this,'30d')" class="detail-range-btn bg-slate-950 text-white px-4 py-2 rounded-lg text-xs font-black">最近30天</button>
+                    <button onclick="switchDetailRange(this,'monthly')" class="detail-range-btn text-slate-700 px-4 py-2 rounded-lg text-xs font-black">按月汇总</button>
+                    <button onclick="switchDetailRange(this,'all')" class="detail-range-btn text-slate-700 px-4 py-2 rounded-lg text-xs font-black">全部历史</button>
                 </div>
             </div>
 
@@ -237,8 +237,8 @@ window.__XHS_DATA__ = {
 
                 <div class="bg-white border border-slate-100 rounded-2xl shadow-sm overflow-hidden h-[420px] flex flex-col">
                     <div class="grid grid-cols-2 px-5 py-4 border-b border-slate-100 text-[10px] font-black text-slate-400 tracking-wider">
-                        <span>鏃ユ湡</span>
-                        <span class="text-right">鏂板閿€閲?/span>
+                        <span>日期</span>
+                        <span class="text-right">新增销量</span>
                     </div>
                     <div id="detail-table" class="flex-1 overflow-y-auto custom-scrollbar px-5 py-2 space-y-1"></div>
                 </div>
@@ -247,146 +247,154 @@ window.__XHS_DATA__ = {
     </div>
 </div>
 
-<!-- 纭鍒犻櫎寮圭獥 -->
+<!-- 确认删除弹窗 -->
 <div id="modal-delete" class="hidden fixed inset-0 bg-black/40 modal-bg z-50 flex items-center justify-center">
     <div class="bg-white rounded-2xl shadow-2xl w-[360px] p-8">
-        <h3 class="font-black text-slate-900 text-lg mb-2">鍒犻櫎鍟嗗搧</h3>
-        <p class="text-sm text-slate-500 mb-6">纭畾瑕佸垹闄よ繖涓晢鍝佺殑鐩戞帶鍚楋紵鍘嗗彶鏁版嵁涔熶細涓€骞跺垹闄ゃ€?/p>
+        <h3 class="font-black text-slate-900 text-lg mb-2">删除商品</h3>
+        <p class="text-sm text-slate-500 mb-6">确定要删除这个商品的监控吗？历史数据也会一起删除。</p>
         <div class="flex gap-3">
-            <button onclick="closeModal('modal-delete')" class="flex-1 border border-slate-200 text-slate-600 font-bold text-sm py-3 rounded-xl hover:bg-slate-50">鍙栨秷</button>
-            <button onclick="confirmDelete()" class="flex-1 bg-red-500 text-white font-bold text-sm py-3 rounded-xl hover:bg-red-600">鍒犻櫎</button>
+            <button onclick="closeModal('modal-delete')" class="flex-1 border border-slate-200 text-slate-600 font-bold text-sm py-3 rounded-xl hover:bg-slate-50">取消</button>
+            <button onclick="confirmDelete()" class="flex-1 bg-red-500 text-white font-bold text-sm py-3 rounded-xl hover:bg-red-600">删除</button>
         </div>
     </div>
 </div>
 
-<!-- 绉诲姩鍒嗙粍寮圭獥 -->
+<!-- 移动分组弹窗 -->
 <div id="modal-move-group" class="hidden fixed inset-0 bg-black/40 modal-bg z-50 flex items-center justify-center">
     <div class="bg-white rounded-2xl shadow-2xl w-[360px] p-8">
         <div class="flex items-center justify-between mb-6">
-            <h3 class="font-black text-slate-900 text-lg">绉诲姩鍒板垎缁?/h3>
+            <h3 class="font-black text-slate-900 text-lg">移动到分组</h3>
             <button onclick="closeModal('modal-move-group')" class="text-slate-400 hover:text-slate-600">
                 <i data-lucide="x" size="20"></i>
             </button>
         </div>
         <div id="move-group-list" class="space-y-2 max-h-[280px] overflow-y-auto custom-scrollbar"></div>
         <div class="mt-6">
-            <button onclick="closeModal('modal-move-group')" class="w-full border border-slate-200 text-slate-600 font-bold text-sm py-3 rounded-xl hover:bg-slate-50">鍙栨秷</button>
+            <button onclick="closeModal('modal-move-group')" class="w-full border border-slate-200 text-slate-600 font-bold text-sm py-3 rounded-xl hover:bg-slate-50">取消</button>
         </div>
     </div>
 </div>
 
-<!-- 閲嶅懡鍚嶅垎缁勫脊绐?-->
+<!-- 重命名分组弹窗 -->
 <div id="modal-rename-group" class="hidden fixed inset-0 bg-black/40 modal-bg z-50 flex items-center justify-center">
     <div class="bg-white rounded-2xl shadow-2xl w-[360px] p-8">
         <div class="flex items-center justify-between mb-6">
-            <h3 class="font-black text-slate-900 text-lg">閲嶅懡鍚嶅垎缁?/h3>
+            <h3 class="font-black text-slate-900 text-lg">重命名分组</h3>
             <button onclick="closeModal('modal-rename-group')" class="text-slate-400 hover:text-slate-600">
                 <i data-lucide="x" size="20"></i>
             </button>
         </div>
         <div>
-            <label class="text-xs font-black text-slate-500 uppercase tracking-wider block mb-2">鏂板悕绉?/label>
+            <label class="text-xs font-black text-slate-500 uppercase tracking-wider block mb-2">新名称</label>
             <input id="input-rename-group" type="text"
                 class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 focus:outline-none focus:border-blue-400"
                 onkeydown="if(event.key==='Enter') confirmRenameGroup()">
         </div>
         <div class="flex gap-3 mt-6">
-            <button onclick="closeModal('modal-rename-group')" class="flex-1 border border-slate-200 text-slate-600 font-bold text-sm py-3 rounded-xl hover:bg-slate-50">鍙栨秷</button>
-            <button onclick="confirmRenameGroup()" class="flex-1 bg-blue-600 text-white font-bold text-sm py-3 rounded-xl hover:bg-blue-700">纭</button>
+            <button onclick="closeModal('modal-rename-group')" class="flex-1 border border-slate-200 text-slate-600 font-bold text-sm py-3 rounded-xl hover:bg-slate-50">取消</button>
+            <button onclick="confirmRenameGroup()" class="flex-1 bg-blue-600 text-white font-bold text-sm py-3 rounded-xl hover:bg-blue-700">确认</button>
         </div>
     </div>
 </div>
 
 <script>
-// 鈹€鈹€ 鐘舵€?鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 const __data = window.__XHS_DATA__ || {};
 let products = Array.isArray(__data) ? __data : (__data.products || []);
 let groups = [];
-let activeGroup = '鍏ㄩ儴';
+let activeGroup = '全部';
 let parsedProduct = null;
 let deleteTargetId = null;
+let moveTargetId = null;
+let renameTargetGroup = null;
 let detailChart = null;
+let currentDetailDaily = [];
 
-// 鈹€鈹€ 鍒濆鍖?鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
+const GH_REPO = 'kgg66936-stack/xhs-monitor';
+const DEFAULT_GROUP = '默认分组';
+
 function init() {
-    // 鏀堕泦鎵€鏈夊垎缁勶紙浼樺厛鐢ㄥ瓨鍌ㄧ殑鍒嗙粍鍒楄〃锛?
     const savedGroups = Array.isArray(__data) ? [] : (__data.groups || []);
-    const groupSet = new Set(['榛樿鍒嗙粍', ...savedGroups]);
-    products.forEach(p => { if (p.group) groupSet.add(p.group); });
+    const groupSet = new Set([DEFAULT_GROUP, ...savedGroups]);
+    products.forEach(product => {
+        if (product.group) groupSet.add(product.group);
+        else product.group = DEFAULT_GROUP;
+    });
     groups = Array.from(groupSet);
 
-    // 娓叉煋鏃ユ湡
     const now = new Date();
     document.getElementById('today-label').textContent =
-        `${now.getFullYear()}骞?{now.getMonth()+1}鏈?{now.getDate()}鏃;
+        `${now.getFullYear()}年${now.getMonth() + 1}月${now.getDate()}日`;
 
-    // 鏈€鍚庢洿鏂版椂闂?
-    let lastTime = '';
-    products.forEach(p => {
-        if (p.history && p.history.length) {
-            const t = p.history[p.history.length - 1].time;
-            if (t > lastTime) lastTime = t;
-        }
-    });
-    document.getElementById('last-update').textContent =
-        lastTime ? `涓婃鏇存柊锛?{lastTime}` : '';
-
-    document.getElementById('product-count').textContent =
-        `鍏?${products.length} 涓晢鍝乣;
-
+    refreshSummary();
     renderGroups();
     renderCards();
     if (window.lucide) lucide.createIcons();
 }
 
-// 鈹€鈹€ 鍒嗙粍娓叉煋 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
+function refreshSummary() {
+    let lastTime = '';
+    products.forEach(product => {
+        if (product.history && product.history.length) {
+            const time = product.history[product.history.length - 1].time;
+            if (time > lastTime) lastTime = time;
+        }
+    });
+
+    document.getElementById('last-update').textContent =
+        lastTime ? `上次更新：${lastTime}` : '';
+    document.getElementById('product-count').textContent =
+        `共 ${products.length} 个商品`;
+}
+
 function renderGroups() {
     const container = document.getElementById('group-list');
-    const allGroups = ['鍏ㄩ儴', ...groups];
-    container.innerHTML = allGroups.map(g => {
-        const count = g === '鍏ㄩ儴'
+    const allGroups = ['全部', ...groups];
+
+    container.innerHTML = allGroups.map(groupName => {
+        const count = groupName === '全部'
             ? products.length
-            : products.filter(p => p.group === g).length;
-        const isActive = g === activeGroup;
+            : products.filter(product => (product.group || DEFAULT_GROUP) === groupName).length;
+        const isActive = groupName === activeGroup;
         const editSvg = `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>`;
+        const safeGroupName = groupName.replace(/'/g, "\\'");
+
         return `
         <div class="group-item relative w-full"
              onmouseenter="this.querySelector('.group-rename-btn')&&(this.querySelector('.group-rename-btn').style.opacity='1')"
              onmouseleave="this.querySelector('.group-rename-btn')&&(this.querySelector('.group-rename-btn').style.opacity='0')">
-            <div onclick="setActiveGroup('${g.replace(/'/g,"\\'")}');return false;" role="button" tabindex="0"
+            <div onclick="setActiveGroup('${safeGroupName}');return false;" role="button" tabindex="0"
                 class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-semibold transition-all cursor-pointer
                        ${isActive ? 'bg-blue-600 text-white shadow-md shadow-blue-600/40' : 'hover:bg-slate-800/60 text-slate-400 hover:text-slate-200'}">
                 <div class="flex items-center gap-2.5 min-w-0">
                     <div class="w-1.5 h-1.5 rounded-full shrink-0 ${isActive ? 'bg-white' : 'bg-slate-600'}"></div>
-                    <span class="truncate text-[13px]">${g}</span>
+                    <span class="truncate text-[13px]">${groupName}</span>
                 </div>
                 <div class="flex items-center gap-1.5 shrink-0 ml-2">
                     <span class="text-[11px] font-bold tabular-nums min-w-[16px] text-center ${isActive ? 'text-blue-100' : 'text-slate-500'}">${count}</span>
-                    ${g !== '鍏ㄩ儴' ? `<button onclick="event.stopPropagation(); openRenameGroupModal('${g.replace(/'/g,"\\'")}');return false;"
+                    ${groupName !== '全部' ? `<button onclick="event.stopPropagation(); openRenameGroupModal('${safeGroupName}');return false;"
                         class="group-rename-btn opacity-0 p-1 rounded transition-all
                                ${isActive ? 'text-blue-200 hover:text-white hover:bg-white/20' : 'text-slate-500 hover:text-slate-200 hover:bg-slate-700'}"
-                        title="閲嶅懡鍚嶅垎缁?>${editSvg}</button>` : ''}
+                        title="重命名分组">${editSvg}</button>` : ''}
                 </div>
             </div>
         </div>`;
     }).join('');
+
     if (window.lucide) lucide.createIcons();
 }
 
-function setActiveGroup(g) {
-    activeGroup = g;
+function setActiveGroup(groupName) {
+    activeGroup = groupName;
     renderGroups();
     renderCards();
 }
 
-// 鈹€鈹€ 鍗＄墖娓叉煋 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 function renderCards() {
     const container = document.getElementById('cards-container');
     const emptyState = document.getElementById('empty-state');
-
-    const filtered = activeGroup === '鍏ㄩ儴'
+    const filtered = activeGroup === '全部'
         ? products
-        : products.filter(p => p.group === activeGroup);
+        : products.filter(product => (product.group || DEFAULT_GROUP) === activeGroup);
 
     if (!filtered.length) {
         container.innerHTML = '';
@@ -398,46 +406,47 @@ function renderCards() {
 
     emptyState.classList.add('hidden');
     emptyState.classList.remove('flex');
+
     try {
-        container.innerHTML = filtered.map(p => buildCard(p)).join('');
+        container.innerHTML = filtered.map(product => buildCard(product)).join('');
     } catch (err) {
-        container.innerHTML = `<div class="bg-red-50 border border-red-100 text-red-600 rounded-2xl p-5 text-sm font-bold">鍗＄墖娓叉煋澶辫触锛?{err.message}</div>`;
+        container.innerHTML = `<div class="bg-red-50 border border-red-100 text-red-600 rounded-2xl p-5 text-sm font-bold">卡片渲染失败：${err.message}</div>`;
     }
+
     if (window.lucide) lucide.createIcons();
 }
 
-function buildCard(p) {
-    const daily = buildDailyStats(p);
+function buildCard(product) {
+    const daily = buildDailyStats(product);
     const current = daily.length ? daily[daily.length - 1] : { sales: 0, increase: null };
     const previous = daily.length >= 2 ? daily[daily.length - 2] : null;
 
     const currentSales = current.sales || 0;
     const todayText = current.increase !== null ? `+${current.increase}` : '-';
     const yesterdayText = previous && previous.increase !== null ? `+${previous.increase}` : '-';
-
-    const price = p.price ? `楼${p.price}` : '-';
-    const productUrl = p.url || `https://www.xiaohongshu.com/goods-detail/${p.id}`;
+    const price = product.price ? `￥${product.price}` : '-';
+    const productUrl = product.url || `https://www.xiaohongshu.com/goods-detail/${product.id}`;
 
     return `
-    <div onclick="openDetailModal('${p.id}')" class="bg-white p-5 rounded-2xl border border-slate-200 hover:-translate-y-1 hover:border-blue-400 hover:shadow-xl transition-all group flex flex-col cursor-pointer">
+    <div onclick="openDetailModal('${product.id}')" class="bg-white p-5 rounded-2xl border border-slate-200 hover:-translate-y-1 hover:border-blue-400 hover:shadow-xl transition-all group flex flex-col cursor-pointer">
         <div class="flex justify-between items-start mb-3">
-            <span class="text-[9px] font-black text-blue-600 bg-blue-50 px-2 py-1 rounded border border-blue-100">${p.group || '榛樿鍒嗙粍'}</span>
+            <span class="text-[9px] font-black text-blue-600 bg-blue-50 px-2 py-1 rounded border border-blue-100">${product.group || DEFAULT_GROUP}</span>
             <div class="flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-all">
-                <button onclick="event.stopPropagation(); openMoveGroupModal('${p.id}')" class="text-slate-300 hover:text-blue-400 transition-colors" title="绉诲姩鍒嗙粍">
+                <button onclick="event.stopPropagation(); openMoveGroupModal('${product.id}')" class="text-slate-300 hover:text-blue-400 transition-colors" title="移动分组">
                     <i data-lucide="folder-symlink" size="13"></i>
                 </button>
-                <button onclick="event.stopPropagation(); openDeleteModal('${p.id}')" class="text-slate-300 hover:text-red-400 transition-colors" title="鍒犻櫎">
+                <button onclick="event.stopPropagation(); openDeleteModal('${product.id}')" class="text-slate-300 hover:text-red-400 transition-colors" title="删除">
                     <i data-lucide="trash-2" size="13"></i>
                 </button>
             </div>
         </div>
 
-        <h3 class="font-bold text-slate-800 text-sm line-clamp-2 mb-2 leading-snug flex-1">${p.name || '鍟嗗搧淇℃伅鑾峰彇涓?..'}</h3>
+        <h3 class="font-bold text-slate-800 text-sm line-clamp-2 mb-2 leading-snug flex-1">${product.name || '商品信息获取中...'}</h3>
 
         <div class="flex items-center justify-between text-[10px] text-slate-400 font-bold mb-1">
             <div class="flex items-center gap-1">
                 <i data-lucide="shopping-bag" size="10"></i>
-                <span class="truncate max-w-[120px]">${p.shopName || '-'}</span>
+                <span class="truncate max-w-[120px]">${product.shopName || '-'}</span>
             </div>
             <span class="text-blue-600 font-black text-xs">${price}</span>
         </div>
@@ -449,32 +458,30 @@ function buildCard(p) {
             </div>
             <div class="grid grid-cols-2 gap-2">
                 <div class="bg-slate-50 px-3 py-2 rounded-xl flex flex-col">
-                    <span class="text-[8px] text-slate-400 font-black uppercase">鏄ㄦ棩澧?/span>
+                    <span class="text-[8px] text-slate-400 font-black uppercase">昨日增量</span>
                     <span class="text-[11px] font-black text-slate-600">${yesterdayText}</span>
                 </div>
                 <div class="bg-blue-600 px-3 py-2 rounded-xl shadow-lg shadow-blue-100 flex flex-col">
-                    <span class="text-[8px] text-blue-100 font-black uppercase">浠婃棩澧?/span>
+                    <span class="text-[8px] text-blue-100 font-black uppercase">今日增量</span>
                     <span class="text-[11px] font-black text-white">${todayText}</span>
                 </div>
             </div>
-            <!-- 鎿嶄綔鎸夐挳 -->
             <div class="grid grid-cols-2 gap-2 pt-1">
-                <a href="${p.shopUrl || '#'}" target="_blank" onclick="event.stopPropagation()"
+                <a href="${product.shopUrl || '#'}" target="_blank" onclick="event.stopPropagation()"
                     class="flex items-center justify-center gap-1 text-[10px] font-black text-slate-500 bg-slate-50 hover:bg-slate-100 py-2 rounded-xl transition-colors">
                     <i data-lucide="store" size="11"></i>
-                    <span>搴楅摵椤甸潰</span>
+                    <span>店铺页面</span>
                 </a>
                 <a href="${productUrl}" target="_blank" onclick="event.stopPropagation()"
                     class="flex items-center justify-center gap-1 text-[10px] font-black text-blue-600 bg-blue-50 hover:bg-blue-100 py-2 rounded-xl transition-colors">
                     <i data-lucide="external-link" size="11"></i>
-                    <span>瀹濊礉椤甸潰</span>
+                    <span>商品页面</span>
                 </a>
             </div>
         </div>
     </div>`;
 }
 
-// 鈹€鈹€ 娣诲姞鍟嗗搧 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 function openAddProductModal() {
     parsedProduct = null;
     document.getElementById('input-url').value = '';
@@ -483,10 +490,10 @@ function openAddProductModal() {
     document.getElementById('parse-loading').classList.add('hidden');
     document.getElementById('btn-confirm').classList.add('hidden');
     document.getElementById('btn-parse').classList.remove('hidden');
+    document.getElementById('btn-parse').disabled = false;
 
-    // 濉厖鍒嗙粍涓嬫媺
-    const sel = document.getElementById('input-group');
-    sel.innerHTML = groups.map(g => `<option value="${g}">${g}</option>`).join('');
+    const select = document.getElementById('input-group');
+    select.innerHTML = groups.map(groupName => `<option value="${groupName}">${groupName}</option>`).join('');
 
     document.getElementById('modal-add-product').classList.remove('hidden');
     setTimeout(() => document.getElementById('input-url').focus(), 100);
@@ -496,13 +503,13 @@ function parseProduct() {
     const url = document.getElementById('input-url').value.trim();
     if (!url) return;
 
-    const m = url.match(/\/goods-detail\/([a-f0-9]+)/);
-    if (!m) {
-        showParseError('閾炬帴鏍煎紡涓嶆纭紝璇风矘璐村皬绾功鍟嗗搧椤甸潰閾炬帴');
+    const match = url.match(/\/goods-detail\/([a-f0-9]+)/);
+    if (!match) {
+        showParseError('链接格式不正确，请粘贴小红书商品详情页链接。');
         return;
     }
 
-    const itemId = m[1];
+    const itemId = match[1];
     const xsecMatch = url.match(/[?&]xsec_token=([^&]+)/);
     const xsecToken = xsecMatch ? decodeURIComponent(xsecMatch[1]) : '';
 
@@ -511,34 +518,35 @@ function parseProduct() {
     document.getElementById('parsed-info').classList.add('hidden');
     document.getElementById('btn-parse').disabled = true;
 
-    // 閫氳繃 fetch 璋冪敤鎺ュ彛锛堟湰鍦?HTML 鐩存帴 fetch 璺ㄥ煙鍙兘琚樆姝紝浣跨敤 no-cors 闄嶇骇锛?
     let apiUrl = `https://mall.xiaohongshu.com/api/store/jpd/edith/detail/h5/toc?version=0.0.5&item_id=${itemId}&xsec_source=app_share`;
     if (xsecToken) apiUrl += `&xsec_token=${encodeURIComponent(xsecToken)}`;
 
     fetch(apiUrl, {
         headers: {
-            'accept': 'application/json, text/plain, */*',
+            accept: 'application/json, text/plain, */*',
             'accept-language': 'zh-CN,zh;q=0.9',
             'detail-host': 'https://www.xiaohongshu.com',
-            'origin': 'https://www.xiaohongshu.com',
-            'referer': 'https://www.xiaohongshu.com/',
+            origin: 'https://www.xiaohongshu.com',
+            referer: 'https://www.xiaohongshu.com/',
         }
     })
-    .then(r => r.json())
+    .then(response => response.json())
     .then(data => {
         const templateData = data?.data?.template_data;
-        if (!templateData || !templateData.length) throw new Error('鎺ュ彛杩斿洖涓虹┖');
+        if (!templateData || !templateData.length) {
+            throw new Error('接口返回为空');
+        }
 
-        const obj = templateData[0];
-        const priceH5 = obj.priceH5 || {};
-        const sellerH5 = obj.sellerH5 || {};
-        const descriptionMain = obj.descriptionMain || {};
+        const item = templateData[0];
+        const priceH5 = item.priceH5 || {};
+        const sellerH5 = item.sellerH5 || {};
+        const descriptionMain = item.descriptionMain || {};
 
         parsedProduct = {
             id: itemId,
             url: `https://www.xiaohongshu.com/goods-detail/${itemId}`,
-            xsecToken: xsecToken,
-            name: descriptionMain.name || `鍟嗗搧 ${itemId.slice(-6)}`,
+            xsecToken,
+            name: descriptionMain.name || `商品 ${itemId.slice(-6)}`,
             price: priceH5.highlightPrice || 0,
             shopName: sellerH5.name || '',
             shopUrl: sellerH5.link || '',
@@ -552,8 +560,8 @@ function parseProduct() {
         };
 
         document.getElementById('parsed-name').textContent = parsedProduct.name;
-        document.getElementById('parsed-shop').textContent = `搴楅摵锛?{parsedProduct.shopName}`;
-        document.getElementById('parsed-sales').textContent = `${priceH5.itemAnalysisDataText || ''}  楼${parsedProduct.price}`;
+        document.getElementById('parsed-shop').textContent = `店铺：${parsedProduct.shopName || '-'}`;
+        document.getElementById('parsed-sales').textContent = `${priceH5.itemAnalysisDataText || '销量未知'}  ￥${parsedProduct.price}`;
         document.getElementById('parsed-info').classList.remove('hidden');
         document.getElementById('parse-loading').classList.add('hidden');
         document.getElementById('btn-parse').classList.add('hidden');
@@ -562,82 +570,92 @@ function parseProduct() {
         if (window.lucide) lucide.createIcons();
     })
     .catch(err => {
-        showParseError(`瑙ｆ瀽澶辫触锛?{err.message}銆傝鍏堣繍琛?scraper.py 娣诲姞鍟嗗搧銆俙);
+        showParseError(`解析失败：${err.message}。如果网页里无法直接解析，可以继续用本地抓取脚本。`);
         document.getElementById('btn-parse').disabled = false;
     });
 }
 
 function parseSalesNumber(text) {
     if (!text) return 0;
-    text = text.replace('宸插敭', '').replace(/\s/g, '');
-    if (text.includes('涓?)) return Math.round(parseFloat(text) * 10000);
-    return parseInt(text) || 0;
+    const cleaned = String(text).replace('已售', '').replace(/\s/g, '');
+    if (cleaned.includes('万')) return Math.round(parseFloat(cleaned) * 10000);
+    return parseInt(cleaned, 10) || 0;
 }
 
-function showParseError(msg) {
-    document.getElementById('parse-error').textContent = msg;
+function showParseError(message) {
+    document.getElementById('parse-error').textContent = message;
     document.getElementById('parse-error').classList.remove('hidden');
     document.getElementById('parse-loading').classList.add('hidden');
 }
 
-const GH_REPO = 'kgg66936-stack/xhs-monitor';
-
 function getGHToken() {
-    let t = localStorage.getItem('gh_token');
-    if (!t) {
-        t = prompt('璇疯緭鍏?GitHub Personal Access Token锛堝彧闇€杈撳叆涓€娆★紝淇濆瓨鍦ㄦ湰鍦帮級锛?);
-        if (t) localStorage.setItem('gh_token', t.trim());
+    let token = localStorage.getItem('gh_token');
+    if (!token) {
+        token = prompt('请输入 GitHub Personal Access Token。这个 Token 只需要输入一次，会保存在当前浏览器里。');
+        if (token) localStorage.setItem('gh_token', token.trim());
     }
-    return t ? t.trim() : null;
+    return token ? token.trim() : null;
 }
 
 async function saveProductsToGitHub() {
     const token = getGHToken();
-    if (!token) throw new Error('鏈彁渚?GitHub Token');
-    const headers = { 'Authorization': `token ${token}`, 'Content-Type': 'application/json' };
-    const base = `https://api.github.com/repos/${GH_REPO}/contents/`;
+    if (!token) throw new Error('没有提供 GitHub Token');
 
-    // 鍙洿鏂?products.json锛屼笉鍔?index.html锛坕ndex.html 鐢?Actions 鐨?scraper.py 璐熻矗鏇存柊锛?
-    const pRes = await fetch(base + 'products.json', { headers });
-    const pInfo = await pRes.json();
-    if (!pInfo.sha) throw new Error('鑾峰彇 products.json sha 澶辫触: ' + JSON.stringify(pInfo));
+    const headers = {
+        Authorization: `token ${token}`,
+        'Content-Type': 'application/json',
+    };
+    const base = `https://api.github.com/repos/${GH_REPO}/contents/`;
+    const response = await fetch(base + 'products.json', { headers });
+    const fileInfo = await response.json();
+
+    if (!fileInfo.sha) {
+        throw new Error('获取 products.json 版本信息失败：' + JSON.stringify(fileInfo));
+    }
 
     const saveData = { groups, products };
-    const pContent = btoa(unescape(encodeURIComponent(JSON.stringify(saveData, null, 2))));
-    const pPut = await fetch(base + 'products.json', {
-        method: 'PUT', headers,
-        body: JSON.stringify({ message: 'update products.json', content: pContent, sha: pInfo.sha })
+    const content = btoa(unescape(encodeURIComponent(JSON.stringify(saveData, null, 2))));
+    const updateResponse = await fetch(base + 'products.json', {
+        method: 'PUT',
+        headers,
+        body: JSON.stringify({
+            message: 'update products.json',
+            content,
+            sha: fileInfo.sha,
+        }),
     });
-    if (!pPut.ok) throw new Error('鍐欏叆 products.json 澶辫触: ' + await pPut.text());
+
+    if (!updateResponse.ok) {
+        throw new Error('写入 products.json 失败：' + await updateResponse.text());
+    }
 }
 
 function confirmAddProduct() {
     if (!parsedProduct) return;
-    parsedProduct.group = document.getElementById('input-group').value;
 
-    if (products.find(p => p.id === parsedProduct.id)) {
-        showParseError('璇ュ晢鍝佸凡鍦ㄧ洃鎺у垪琛ㄤ腑');
+    parsedProduct.group = document.getElementById('input-group').value || DEFAULT_GROUP;
+    if (products.find(product => product.id === parsedProduct.id)) {
+        showParseError('这个商品已经在监控列表里了。');
         return;
     }
 
     products.push(parsedProduct);
-    if (!groups.includes(parsedProduct.group)) {
-        groups.push(parsedProduct.group);
-    }
+    if (!groups.includes(parsedProduct.group)) groups.push(parsedProduct.group);
 
     closeModal('modal-add-product');
+    refreshSummary();
     renderGroups();
     renderCards();
-    document.getElementById('product-count').textContent = `鍏?${products.length} 涓晢鍝乣;
 
-    saveProductsToGitHub().then(() => {
-        alert('鍟嗗搧宸叉坊鍔犲苟鍚屾鍒?GitHub锛岀害30鍒嗛挓鍚庢暟鎹嚜鍔ㄦ洿鏂般€?);
-    }).catch(err => {
-        alert('鍚屾澶辫触锛? + err.message);
-    });
+    saveProductsToGitHub()
+        .then(() => {
+            alert('商品已添加，并已同步到 GitHub。页面刷新后就能看到最新列表。');
+        })
+        .catch(err => {
+            alert('同步失败：' + err.message);
+        });
 }
 
-// 鈹€鈹€ 鏂板缓鍒嗙粍 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 function openAddGroupModal() {
     document.getElementById('input-group-name').value = '';
     document.getElementById('modal-add-group').classList.remove('hidden');
@@ -648,69 +666,63 @@ function confirmAddGroup() {
     const name = document.getElementById('input-group-name').value.trim();
     if (!name) return;
     if (groups.includes(name)) {
-        alert('鍒嗙粍鍚嶇О宸插瓨鍦?);
+        alert('分组名称已经存在。');
         return;
     }
+
     groups.push(name);
     closeModal('modal-add-group');
     renderGroups();
 
-    // 鍚屾鏇存柊娣诲姞鍟嗗搧寮圭獥閲岀殑鍒嗙粍涓嬫媺
-    const sel = document.getElementById('input-group');
-    if (sel) {
-        sel.innerHTML = groups.map(g => `<option value="${g}">${g}</option>`).join('');
+    const select = document.getElementById('input-group');
+    if (select) {
+        select.innerHTML = groups.map(groupName => `<option value="${groupName}">${groupName}</option>`).join('');
     }
 }
 
-// 鈹€鈹€ 鍟嗗搧璇︽儏 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
-let _currentDetailDaily = [];
-
 function openDetailModal(id) {
-    const p = products.find(item => item.id === id);
-    if (!p) return;
+    const product = products.find(item => item.id === id);
+    if (!product) return;
 
-    const daily = buildDailyStats(p);
-    _currentDetailDaily = daily;
+    const daily = buildDailyStats(product);
+    currentDetailDaily = daily;
 
     const current = daily.length ? daily[daily.length - 1] : { sales: 0, increase: null };
     const yesterday = daily.length >= 2 ? daily[daily.length - 2] : null;
     const growth7d = calcSevenDayGrowth(daily);
 
-    document.getElementById('detail-group').textContent = p.group || '榛樿鍒嗙粍';
-    document.getElementById('detail-name').textContent = p.name || '鍟嗗搧淇℃伅鑾峰彇涓?..';
-    document.querySelector('#detail-shop span').textContent = p.shopName || '-';
+    document.getElementById('detail-group').textContent = product.group || DEFAULT_GROUP;
+    document.getElementById('detail-name').textContent = product.name || '商品信息获取中...';
+    document.querySelector('#detail-shop span').textContent = product.shopName || '-';
     document.getElementById('detail-total').textContent = current.sales ? current.sales.toLocaleString() : '-';
     document.getElementById('detail-growth').textContent = growth7d;
     document.getElementById('detail-today').textContent = current.increase !== null ? `+${current.increase}` : '+0';
     document.getElementById('detail-yesterday').textContent = yesterday && yesterday.increase !== null ? `+${yesterday.increase}` : '-';
 
-    // reset range buttons to default (鏈€杩?0澶?
-    document.querySelectorAll('.detail-range-btn').forEach((btn, i) => {
-        btn.className = i === 0
+    document.querySelectorAll('.detail-range-btn').forEach((button, index) => {
+        button.className = index === 0
             ? 'detail-range-btn bg-slate-950 text-white px-4 py-2 rounded-lg text-xs font-black'
             : 'detail-range-btn text-slate-700 px-4 py-2 rounded-lg text-xs font-black';
     });
 
     applyDetailRange('30d');
-
     document.getElementById('modal-detail').classList.remove('hidden');
     if (window.lucide) lucide.createIcons();
 }
 
 function applyDetailRange(range) {
-    const daily = _currentDetailDaily;
-    let filtered;
+    const daily = currentDetailDaily;
+    let filtered = [];
 
     if (range === '30d') {
         filtered = daily.slice(-30);
     } else if (range === 'monthly') {
-        // aggregate by month: sum increases, use last sales value
         const byMonth = {};
-        daily.forEach(d => {
-            const month = d.date.slice(0, 7); // "2026-05"
+        daily.forEach(item => {
+            const month = item.date.slice(0, 7);
             if (!byMonth[month]) byMonth[month] = { date: month, sales: 0, increase: 0 };
-            byMonth[month].sales = d.sales;
-            if (d.increase !== null) byMonth[month].increase += d.increase;
+            byMonth[month].sales = item.sales;
+            if (item.increase !== null) byMonth[month].increase += item.increase;
         });
         filtered = Object.values(byMonth).sort((a, b) => a.date.localeCompare(b.date));
     } else {
@@ -718,57 +730,63 @@ function applyDetailRange(range) {
     }
 
     const table = document.getElementById('detail-table');
-    table.innerHTML = filtered.slice().reverse().map(d => `
+    table.innerHTML = filtered.slice().reverse().map(item => `
         <div class="grid grid-cols-2 items-center py-3 text-sm border-b border-slate-50 last:border-0">
-            <span class="text-slate-400 font-black">${range === 'monthly' ? d.date : formatDateShort(d.date)}</span>
-            <span class="text-right text-blue-600 font-black">${d.increase !== null && d.increase !== 0 ? '+' + d.increase : (d.increase === 0 ? '0' : '+0')}</span>
+            <span class="text-slate-400 font-black">${range === 'monthly' ? item.date : formatDateShort(item.date)}</span>
+            <span class="text-right text-blue-600 font-black">${item.increase !== null && item.increase !== 0 ? '+' + item.increase : (item.increase === 0 ? '0' : '+0')}</span>
         </div>
     `).join('');
 
-    setTimeout(() => renderDetailChart(filtered), 50);
+    setTimeout(() => renderDetailChart(filtered, range), 50);
 }
 
-function switchDetailRange(btn, range) {
-    document.querySelectorAll('.detail-range-btn').forEach(b => {
-        b.className = 'detail-range-btn text-slate-700 px-4 py-2 rounded-lg text-xs font-black';
+function switchDetailRange(button, range) {
+    document.querySelectorAll('.detail-range-btn').forEach(item => {
+        item.className = 'detail-range-btn text-slate-700 px-4 py-2 rounded-lg text-xs font-black';
     });
-    btn.className = 'detail-range-btn bg-slate-950 text-white px-4 py-2 rounded-lg text-xs font-black';
+    button.className = 'detail-range-btn bg-slate-950 text-white px-4 py-2 rounded-lg text-xs font-black';
     applyDetailRange(range);
 }
 
-function buildDailyStats(p) {
+function buildDailyStats(product) {
     const byDate = {};
-    (p.history || []).forEach(h => {
-        if (!h.date) return;
-        if (!byDate[h.date]) byDate[h.date] = [];
-        byDate[h.date].push(h);
+    (product.history || []).forEach(item => {
+        if (!item.date) return;
+        if (!byDate[item.date]) byDate[item.date] = [];
+        byDate[item.date].push(item);
     });
 
     const dates = Object.keys(byDate).sort();
-    let prevSales = null;
+    let previousSales = null;
+
     return dates.map(date => {
-        const records = byDate[date].slice().sort((a, b) => new Date(String(a.time).replace(/\//g, '-')) - new Date(String(b.time).replace(/\//g, '-')));
+        const records = byDate[date]
+            .slice()
+            .sort((a, b) => new Date(String(a.time).replace(/\//g, '-')) - new Date(String(b.time).replace(/\//g, '-')));
         const first = records[0];
         const last = records[records.length - 1];
         let increase = null;
+
         if (records.length >= 2) {
             increase = last.sales - first.sales;
-        } else if (prevSales !== null) {
-            increase = last.sales - prevSales;
+        } else if (previousSales !== null) {
+            increase = last.sales - previousSales;
         }
-        prevSales = last.sales;
+
+        previousSales = last.sales;
         return { date, sales: last.sales, increase };
     });
 }
 
-function renderDetailChart(daily) {
-    const el = document.getElementById('detail-chart');
-    if (!el || !window.echarts) return;
-    if (detailChart) detailChart.dispose();
-    detailChart = echarts.init(el);
+function renderDetailChart(daily, range) {
+    const element = document.getElementById('detail-chart');
+    if (!element || !window.echarts) return;
 
-    const labels = daily.map(d => formatDateShort(d.date));
-    const values = daily.map(d => d.increase === null ? 0 : d.increase);
+    if (detailChart) detailChart.dispose();
+    detailChart = echarts.init(element);
+
+    const labels = daily.map(item => range === 'monthly' ? item.date : formatDateShort(item.date));
+    const values = daily.map(item => item.increase === null ? 0 : item.increase);
 
     detailChart.setOption({
         grid: { left: 56, right: 18, top: 20, bottom: 36 },
@@ -779,8 +797,8 @@ function renderDetailChart(daily) {
             borderWidth: 1,
             textStyle: { color: '#0f172a', fontWeight: 700 },
             formatter: params => {
-                const p = params[0];
-                return `${p.axisValue}<br/>鏂板閿€閲忥細<b>${p.data}</b>`;
+                const point = params[0];
+                return `${point.axisValue}<br/>新增销量：<b>${point.data}</b>`;
             }
         },
         xAxis: {
@@ -822,19 +840,20 @@ function renderDetailChart(daily) {
 
 function calcSevenDayGrowth(daily) {
     if (daily.length < 2) return '-';
+
     const last = daily[daily.length - 1].sales || 0;
     const start = daily[Math.max(0, daily.length - 8)].sales || 0;
     if (!start) return '-';
+
     const rate = ((last - start) / start) * 100;
     return `${rate >= 0 ? '+' : ''}${rate.toFixed(2)}%`;
 }
 
 function formatDateShort(date) {
-    const [, m, d] = date.split('-');
-    return `${Number(m)}-${Number(d)}`;
+    const [, month, day] = date.split('-');
+    return `${Number(month)}-${Number(day)}`;
 }
 
-// 鈹€鈹€ 鍒犻櫎鍟嗗搧 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 function openDeleteModal(id) {
     deleteTargetId = id;
     document.getElementById('modal-delete').classList.remove('hidden');
@@ -842,56 +861,59 @@ function openDeleteModal(id) {
 
 function confirmDelete() {
     if (!deleteTargetId) return;
-    products = products.filter(p => p.id !== deleteTargetId);
+
+    products = products.filter(product => product.id !== deleteTargetId);
     deleteTargetId = null;
     closeModal('modal-delete');
+    refreshSummary();
     renderGroups();
     renderCards();
-    document.getElementById('product-count').textContent = `鍏?${products.length} 涓晢鍝乣;
-    saveProductsToGitHub().then(() => {
-        alert('宸插垹闄ゅ苟鍚屾鍒?GitHub銆?);
-    }).catch(err => {
-        alert('宸蹭粠鍒楄〃绉婚櫎锛屼絾鍚屾澶辫触锛? + err.message);
-    });
-}
 
-// 鈹€鈹€ 绉诲姩鍒嗙粍 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
-let moveTargetId = null;
+    saveProductsToGitHub()
+        .then(() => {
+            alert('商品已删除，并已同步到 GitHub。');
+        })
+        .catch(err => {
+            alert('商品已从页面移除，但同步失败：' + err.message);
+        });
+}
 
 function openMoveGroupModal(id) {
     moveTargetId = id;
-    const p = products.find(item => item.id === id);
-    const currentGroup = p ? (p.group || '榛樿鍒嗙粍') : '';
+    const product = products.find(item => item.id === id);
+    const currentGroup = product ? (product.group || DEFAULT_GROUP) : '';
     const list = document.getElementById('move-group-list');
-    list.innerHTML = groups.map(g => {
-        const isCurrent = g === currentGroup;
-        return `<button onclick="confirmMoveGroup('${g.replace(/'/g,"\\'")}');return false;"
+
+    list.innerHTML = groups.map(groupName => {
+        const safeGroupName = groupName.replace(/'/g, "\\'");
+        const isCurrent = groupName === currentGroup;
+        return `<button onclick="confirmMoveGroup('${safeGroupName}');return false;"
             class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-bold transition-colors
                    ${isCurrent ? 'bg-blue-50 border border-blue-200 text-blue-600 cursor-default' : 'hover:bg-slate-50 border border-slate-100 text-slate-700'}">
-            <span>${g}</span>
-            ${isCurrent ? '<span class="text-[10px] text-blue-400 font-black">褰撳墠鍒嗙粍</span>' : ''}
+            <span>${groupName}</span>
+            ${isCurrent ? '<span class="text-[10px] text-blue-400 font-black">当前分组</span>' : ''}
         </button>`;
     }).join('');
+
     document.getElementById('modal-move-group').classList.remove('hidden');
     if (window.lucide) lucide.createIcons();
 }
 
 function confirmMoveGroup(newGroup) {
     if (!moveTargetId) return;
-    const p = products.find(item => item.id === moveTargetId);
-    if (p) {
-        p.group = newGroup;
+
+    const product = products.find(item => item.id === moveTargetId);
+    if (product) {
+        product.group = newGroup;
         if (!groups.includes(newGroup)) groups.push(newGroup);
     }
+
     moveTargetId = null;
     closeModal('modal-move-group');
     renderGroups();
     renderCards();
-    saveProductsToGitHub().catch(err => console.warn('鍚屾澶辫触:', err));
+    saveProductsToGitHub().catch(err => console.warn('同步失败：', err));
 }
-
-// 鈹€鈹€ 閲嶅懡鍚嶅垎缁?鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
-let renameTargetGroup = null;
 
 function openRenameGroupModal(groupName) {
     renameTargetGroup = groupName;
@@ -904,33 +926,38 @@ function openRenameGroupModal(groupName) {
 function confirmRenameGroup() {
     const newName = document.getElementById('input-rename-group').value.trim();
     if (!newName) return;
-    if (newName === renameTargetGroup) { closeModal('modal-rename-group'); return; }
-    if (groups.includes(newName)) { alert('璇ュ垎缁勫悕绉板凡瀛樺湪'); return; }
+    if (newName === renameTargetGroup) {
+        closeModal('modal-rename-group');
+        return;
+    }
+    if (groups.includes(newName)) {
+        alert('该分组名称已经存在。');
+        return;
+    }
 
-    const idx = groups.indexOf(renameTargetGroup);
-    if (idx !== -1) groups[idx] = newName;
+    const index = groups.indexOf(renameTargetGroup);
+    if (index !== -1) groups[index] = newName;
 
-    products.forEach(p => {
-        if (p.group === renameTargetGroup) p.group = newName;
+    products.forEach(product => {
+        if (product.group === renameTargetGroup) product.group = newName;
     });
 
     if (activeGroup === renameTargetGroup) activeGroup = newName;
+
     renameTargetGroup = null;
     closeModal('modal-rename-group');
     renderGroups();
     renderCards();
-    saveProductsToGitHub().catch(err => console.warn('鍚屾澶辫触:', err));
+    saveProductsToGitHub().catch(err => console.warn('同步失败：', err));
 }
 
-// 鈹€鈹€ 閫氱敤 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 function closeModal(id) {
     document.getElementById(id).classList.add('hidden');
 }
 
-// 鐐瑰嚮閬僵鍏抽棴寮圭獥
 document.querySelectorAll('[id^="modal-"]').forEach(modal => {
-    modal.addEventListener('click', e => {
-        if (e.target === modal) closeModal(modal.id);
+    modal.addEventListener('click', event => {
+        if (event.target === modal) closeModal(modal.id);
     });
 });
 
