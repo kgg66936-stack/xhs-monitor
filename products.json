@@ -1,11 +1,14 @@
 {
-  "groups": [],
+  "groups": [
+    "默认分组",
+    "语文教学成绩提升"
+  ],
   "products": [
     {
       "id": "6a1b2e8494d5830001d0afe3",
       "url": "https://www.xiaohongshu.com/goods-detail/6a1b2e8494d5830001d0afe3",
       "xsecToken": "XB8G4_2Ai6YJ_LjukXqjj5a211hrZLeVEWtvTxEsu15Jg=",
-      "group": "默认分组",
+      "group": "语文教学成绩提升",
       "name": "中小学语文教学提升实战",
       "price": 47.99,
       "shopName": "情绪巴士的店",
@@ -13,7 +16,7 @@
       "shopSalesText": "已售5268",
       "history": [
         {
-          "time": "2026-07-21 19:35:36",
+          "time": "2026-07-21 19:15:16",
           "date": "2026-07-21",
           "sales": 1069,
           "salesText": "已售1069"
