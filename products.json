@@ -176,6 +176,25 @@
         }
       ],
       "group": "ai工具"
+    },
+    {
+      "id": "6a1ecb62c409510001c9fc92",
+      "url": "https://www.xiaohongshu.com/goods-detail/6a1ecb62c409510001c9fc92",
+      "xsecToken": "XB0Jwf3bCJdX79jLNRdhuycBDD0-GOtUGi2ZemC3EL_0g=",
+      "name": "儿童英语单词短文互动课程·适合3到12岁",
+      "price": 15.9,
+      "shopName": "ABC奇妙屋的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/6614014af0b53500018cd236",
+      "shopSalesText": "已售 2.1万",
+      "history": [
+        {
+          "time": "2026/7/21 21:37:09",
+          "date": "2026-07-21",
+          "sales": 437,
+          "salesText": "已售437"
+        }
+      ],
+      "group": "ai工具"
     }
   ]
 }
