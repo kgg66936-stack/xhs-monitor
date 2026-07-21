@@ -5,5 +5,25 @@
     "ai工具",
     "看看"
   ],
-  "products": []
+  "products": [
+    {
+      "id": "6a1b2e8494d5830001d0afd7",
+      "url": "https://www.xiaohongshu.com/goods-detail/6a1b2e8494d5830001d0afd7",
+      "xsecToken": "XB8G4_2Ai6YJ_LjukXqjj5a211hrZLeVEWtvTxEsu15Jg=",
+      "name": "中小学语文教学提升实战",
+      "price": 27.99,
+      "shopName": "情绪巴士的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/68a191b746036d0015517c5a",
+      "shopSalesText": "已售5268",
+      "history": [
+        {
+          "time": "2026/7/21 21:28:19",
+          "date": "2026-07-21",
+          "sales": 1070,
+          "salesText": "已售1070"
+        }
+      ],
+      "group": "语文教学成绩提升"
+    }
+  ]
 }
