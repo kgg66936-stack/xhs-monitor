@@ -383,11 +383,11 @@ window.__XHS_DATA__ = {
                 <p id="detail-growth" class="text-3xl font-black text-emerald-500 tracking-tight"></p>
             </div>
             <div class="bg-blue-600 rounded-2xl p-6 h-[108px] flex flex-col justify-center shadow-xl shadow-blue-100">
-                <p class="text-[10px] font-black text-blue-100 uppercase tracking-[0.14em] mb-3">TODAY GAIN / 今日增量</p>
+                <p id="detail-latest-label" class="text-[10px] font-black text-blue-100 tracking-[0.14em] mb-3">最新日增量</p>
                 <p id="detail-today" class="text-3xl font-black text-white tracking-tight"></p>
             </div>
             <div class="bg-slate-950 rounded-2xl p-6 h-[108px] flex flex-col justify-center">
-                <p class="text-[10px] font-black text-slate-500 uppercase tracking-[0.14em] mb-3">YESTERDAY / 昨日全天</p>
+                <p id="detail-previous-label" class="text-[10px] font-black text-slate-500 tracking-[0.14em] mb-3">上一日增量</p>
                 <p id="detail-yesterday" class="text-3xl font-black text-white tracking-tight"></p>
             </div>
         </div>
@@ -712,6 +712,8 @@ function buildCard(product) {
     const currentSales = current.sales || 0;
     const todayText = current.increase !== null ? `+${current.increase}` : '-';
     const yesterdayText = previous && previous.increase !== null ? `+${previous.increase}` : '-';
+    const latestLabel = current.date ? `${formatDateMonthDay(current.date)} 增量` : '最新日增量';
+    const previousLabel = previous?.date ? `${formatDateMonthDay(previous.date)} 增量` : '上一日增量';
     const price = product.price ? `￥${product.price}` : '-';
     const productUrl = product.url || `https://www.xiaohongshu.com/goods-detail/${product.id}`;
 
@@ -746,11 +748,11 @@ function buildCard(product) {
             </div>
             <div class="grid grid-cols-2 gap-2">
                 <div class="bg-slate-50 px-3 py-2 rounded-xl flex flex-col">
-                    <span class="text-[8px] text-slate-400 font-black uppercase">昨日增量</span>
+                    <span class="text-[8px] text-slate-400 font-black">${previousLabel}</span>
                     <span class="text-[11px] font-black text-slate-600">${yesterdayText}</span>
                 </div>
                 <div class="bg-blue-600 px-3 py-2 rounded-xl shadow-lg shadow-blue-100 flex flex-col">
-                    <span class="text-[8px] text-blue-100 font-black uppercase">今日增量</span>
+                    <span class="text-[8px] text-blue-100 font-black">${latestLabel}</span>
                     <span class="text-[11px] font-black text-white">${todayText}</span>
                 </div>
             </div>
@@ -993,6 +995,8 @@ function openDetailModal(id) {
     document.querySelector('#detail-shop span').textContent = product.shopName || '-';
     document.getElementById('detail-total').textContent = current.sales ? current.sales.toLocaleString() : '-';
     document.getElementById('detail-growth').textContent = growth7d;
+    document.getElementById('detail-latest-label').textContent = current.date ? `${formatDateMonthDay(current.date)} 增量` : '最新日增量';
+    document.getElementById('detail-previous-label').textContent = yesterday?.date ? `${formatDateMonthDay(yesterday.date)} 增量` : '上一日增量';
     document.getElementById('detail-today').textContent = current.increase !== null ? `+${current.increase}` : '+0';
     document.getElementById('detail-yesterday').textContent = yesterday && yesterday.increase !== null ? `+${yesterday.increase}` : '-';
 
@@ -1149,6 +1153,11 @@ function calcSevenDayGrowth(daily) {
 function formatDateShort(date) {
     const [, month, day] = date.split('-');
     return `${Number(month)}-${Number(day)}`;
+}
+
+function formatDateMonthDay(date) {
+    const [, month, day] = date.split('-');
+    return `${month}-${day}`;
 }
 
 function openDeleteModal(id) {
