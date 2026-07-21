@@ -654,6 +654,18 @@ async function saveProductsToGitHub() {
     }
 }
 
+function saveWithFeedback(successMessage, failedPrefix) {
+    return saveProductsToGitHub()
+        .then(() => {
+            alert(successMessage);
+            return true;
+        })
+        .catch(err => {
+            alert(`${failedPrefix}：${err.message}`);
+            return false;
+        });
+}
+
 function confirmAddProduct() {
     if (!parsedProduct) return;
 
@@ -671,13 +683,7 @@ function confirmAddProduct() {
     renderGroups();
     renderCards();
 
-    saveProductsToGitHub()
-        .then(() => {
-            alert('商品已添加，并已同步到 GitHub。页面刷新后就能看到最新列表。');
-        })
-        .catch(err => {
-            alert('同步失败：' + err.message);
-        });
+    saveWithFeedback('商品已添加，并已同步到 GitHub。页面刷新后就能看到最新列表。', '同步失败');
 }
 
 function openAddGroupModal() {
@@ -703,13 +709,7 @@ function confirmAddGroup() {
         select.innerHTML = groups.map(groupName => `<option value="${groupName}">${groupName}</option>`).join('');
     }
 
-    saveProductsToGitHub()
-        .then(() => {
-            alert('分组已创建，并已同步到 GitHub。');
-        })
-        .catch(err => {
-            alert('分组已创建，但同步失败：' + err.message);
-        });
+    saveWithFeedback('分组已创建，并已同步到 GitHub。', '分组已创建，但同步失败');
 }
 
 function openDetailModal(id) {
@@ -901,13 +901,7 @@ function confirmDelete() {
     renderGroups();
     renderCards();
 
-    saveProductsToGitHub()
-        .then(() => {
-            alert('商品已删除，并已同步到 GitHub。');
-        })
-        .catch(err => {
-            alert('商品已从页面移除，但同步失败：' + err.message);
-        });
+    saveWithFeedback('商品已删除，并已同步到 GitHub。', '商品已从页面移除，但同步失败');
 }
 
 function openMoveGroupModal(id) {
@@ -944,7 +938,7 @@ function confirmMoveGroup(newGroup) {
     closeModal('modal-move-group');
     renderGroups();
     renderCards();
-    saveProductsToGitHub().catch(err => console.warn('同步失败：', err));
+    saveWithFeedback('分组移动成功，并已同步到 GitHub。', '分组移动成功，但同步失败');
 }
 
 function openRenameGroupModal(groupName) {
@@ -980,7 +974,7 @@ function confirmRenameGroup() {
     closeModal('modal-rename-group');
     renderGroups();
     renderCards();
-    saveProductsToGitHub().catch(err => console.warn('同步失败：', err));
+    saveWithFeedback('分组重命名成功，并已同步到 GitHub。', '分组重命名成功，但同步失败');
 }
 
 function closeModal(id) {
