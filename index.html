@@ -311,6 +311,8 @@ let currentDetailDaily = [];
 
 const GH_REPO = 'kgg66936-stack/xhs-monitor';
 const DEFAULT_GROUP = '默认分组';
+const LOCAL_DATA_CACHE_KEY = 'xhs_monitor_recent_data';
+const LOCAL_DATA_CACHE_TTL_MS = 15 * 60 * 1000;
 
 function normalizeData(data) {
     if (Array.isArray(data)) {
@@ -322,15 +324,72 @@ function normalizeData(data) {
     };
 }
 
+function buildCurrentData() {
+    return {
+        groups: [...groups],
+        products,
+    };
+}
+
+function sameData(a, b) {
+    return JSON.stringify(normalizeData(a)) === JSON.stringify(normalizeData(b));
+}
+
+function readLocalDataCache() {
+    try {
+        const raw = localStorage.getItem(LOCAL_DATA_CACHE_KEY);
+        if (!raw) return null;
+        const parsed = JSON.parse(raw);
+        if (!parsed || typeof parsed.savedAt !== 'number' || !parsed.data) return null;
+        return parsed;
+    } catch (err) {
+        console.warn('读取本地临时数据失败：', err);
+        return null;
+    }
+}
+
+function writeLocalDataCache() {
+    try {
+        localStorage.setItem(LOCAL_DATA_CACHE_KEY, JSON.stringify({
+            savedAt: Date.now(),
+            data: buildCurrentData(),
+        }));
+    } catch (err) {
+        console.warn('写入本地临时数据失败：', err);
+    }
+}
+
+function clearLocalDataCache() {
+    localStorage.removeItem(LOCAL_DATA_CACHE_KEY);
+}
+
 async function loadLatestData() {
+    let remoteData;
     try {
         const response = await fetch(`./products.json?t=${Date.now()}`, { cache: 'no-store' });
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        return normalizeData(await response.json());
+        remoteData = normalizeData(await response.json());
     } catch (err) {
         console.warn('读取最新 products.json 失败，回退到页面内置数据：', err);
-        return normalizeData(embeddedData);
+        remoteData = normalizeData(embeddedData);
     }
+
+    const localCache = readLocalDataCache();
+    if (!localCache) return remoteData;
+
+    const cachedData = normalizeData(localCache.data);
+    if (sameData(remoteData, cachedData)) {
+        clearLocalDataCache();
+        return remoteData;
+    }
+
+    if (Date.now() - localCache.savedAt <= LOCAL_DATA_CACHE_TTL_MS) {
+        console.warn('检测到本机刚编辑过的数据，当前优先显示本机临时版本。');
+        return cachedData;
+    }
+
+    clearLocalDataCache();
+    return remoteData;
 }
 
 async function init() {
@@ -657,6 +716,7 @@ async function saveProductsToGitHub() {
 function saveWithFeedback(successMessage, failedPrefix) {
     return saveProductsToGitHub()
         .then(() => {
+            writeLocalDataCache();
             alert(successMessage);
             return true;
         })
