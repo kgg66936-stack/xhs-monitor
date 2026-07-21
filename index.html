@@ -702,6 +702,14 @@ function confirmAddGroup() {
     if (select) {
         select.innerHTML = groups.map(groupName => `<option value="${groupName}">${groupName}</option>`).join('');
     }
+
+    saveProductsToGitHub()
+        .then(() => {
+            alert('分组已创建，并已同步到 GitHub。');
+        })
+        .catch(err => {
+            alert('分组已创建，但同步失败：' + err.message);
+        });
 }
 
 function openDetailModal(id) {
