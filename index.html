@@ -298,8 +298,8 @@ window.__XHS_DATA__ = {
 </div>
 
 <script>
-const __data = window.__XHS_DATA__ || {};
-let products = Array.isArray(__data) ? __data : (__data.products || []);
+const embeddedData = window.__XHS_DATA__ || {};
+let products = Array.isArray(embeddedData) ? embeddedData : (embeddedData.products || []);
 let groups = [];
 let activeGroup = '全部';
 let parsedProduct = null;
@@ -312,8 +312,32 @@ let currentDetailDaily = [];
 const GH_REPO = 'kgg66936-stack/xhs-monitor';
 const DEFAULT_GROUP = '默认分组';
 
-function init() {
-    const savedGroups = Array.isArray(__data) ? [] : (__data.groups || []);
+function normalizeData(data) {
+    if (Array.isArray(data)) {
+        return { groups: [], products: data };
+    }
+    return {
+        groups: Array.isArray(data?.groups) ? data.groups : [],
+        products: Array.isArray(data?.products) ? data.products : [],
+    };
+}
+
+async function loadLatestData() {
+    try {
+        const response = await fetch(`./products.json?t=${Date.now()}`, { cache: 'no-store' });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return normalizeData(await response.json());
+    } catch (err) {
+        console.warn('读取最新 products.json 失败，回退到页面内置数据：', err);
+        return normalizeData(embeddedData);
+    }
+}
+
+async function init() {
+    const latestData = await loadLatestData();
+    products = latestData.products;
+
+    const savedGroups = latestData.groups;
     const groupSet = new Set([DEFAULT_GROUP, ...savedGroups]);
     products.forEach(product => {
         if (product.group) groupSet.add(product.group);
