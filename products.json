@@ -14,7 +14,7 @@
       "price": 27.99,
       "shopName": "情绪巴士的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/68a191b746036d0015517c5a",
-      "shopSalesText": "已售5268",
+      "shopSalesText": "已售5304",
       "history": [
         {
           "time": "2026-07-21 23:00:01",
@@ -27,6 +27,12 @@
           "date": "2026-07-21",
           "sales": 1073,
           "salesText": "已售1073"
+        },
+        {
+          "time": "2026-07-22 09:34:14",
+          "date": "2026-07-22",
+          "sales": 1078,
+          "salesText": "已售1078"
         }
       ],
       "group": "语文教学成绩提升"
@@ -39,7 +45,7 @@
       "price": 33.9,
       "shopName": "小天老师爱育苗的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/68c8d772b72c2c00151a51bb",
-      "shopSalesText": "已售6401",
+      "shopSalesText": "已售6441",
       "history": [
         {
           "time": "2026-07-21 23:00:01",
@@ -52,6 +58,12 @@
           "date": "2026-07-21",
           "sales": 484,
           "salesText": "已售484"
+        },
+        {
+          "time": "2026-07-22 09:34:14",
+          "date": "2026-07-22",
+          "sales": 488,
+          "salesText": "已售488"
         }
       ],
       "group": "语文教学成绩提升"
@@ -64,7 +76,7 @@
       "price": 26.9,
       "shopName": "胖头鱼发发发的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/6807b30e3162e7001533e6bd",
-      "shopSalesText": "已售7918",
+      "shopSalesText": "已售7938",
       "history": [
         {
           "time": "2026-07-21 23:00:01",
@@ -75,6 +87,12 @@
         {
           "time": "2026-07-21 23:40:31",
           "date": "2026-07-21",
+          "sales": 207,
+          "salesText": "已售207"
+        },
+        {
+          "time": "2026-07-22 09:34:14",
+          "date": "2026-07-22",
           "sales": 207,
           "salesText": "已售207"
         }
@@ -89,7 +107,7 @@
       "price": 29.9,
       "shopName": "林林晓的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/69d1ffb6db58800015637cc0",
-      "shopSalesText": "已售1021",
+      "shopSalesText": "已售1030",
       "history": [
         {
           "time": "2026-07-21 23:00:01",
@@ -100,6 +118,12 @@
         {
           "time": "2026-07-21 23:40:31",
           "date": "2026-07-21",
+          "sales": 136,
+          "salesText": "已售136"
+        },
+        {
+          "time": "2026-07-22 09:34:14",
+          "date": "2026-07-22",
           "sales": 136,
           "salesText": "已售136"
         }
@@ -114,7 +138,7 @@
       "price": 35.9,
       "shopName": "小小阿童沐~的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/68b5924a61b11200155e7055",
-      "shopSalesText": "已售2728",
+      "shopSalesText": "已售2733",
       "history": [
         {
           "time": "2026-07-21 23:00:01",
@@ -127,6 +151,12 @@
           "date": "2026-07-21",
           "sales": 268,
           "salesText": "已售268"
+        },
+        {
+          "time": "2026-07-22 09:34:14",
+          "date": "2026-07-22",
+          "sales": 269,
+          "salesText": "已售269"
         }
       ],
       "group": "语文教学成绩提升"
@@ -139,7 +169,7 @@
       "price": 32.9,
       "shopName": "南山小邮差(智聚人合)的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/68b93e54acbd9a0015beb4b7",
-      "shopSalesText": "已售2352",
+      "shopSalesText": "已售2353",
       "history": [
         {
           "time": "2026-07-21 23:00:01",
@@ -150,6 +180,12 @@
         {
           "time": "2026-07-21 23:40:31",
           "date": "2026-07-21",
+          "sales": 226,
+          "salesText": "已售226"
+        },
+        {
+          "time": "2026-07-22 09:34:14",
+          "date": "2026-07-22",
           "sales": 226,
           "salesText": "已售226"
         }
@@ -164,7 +200,7 @@
       "price": 29.9,
       "shopName": "糖糖老师工具箱的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/689f1c42d86685001560d779",
-      "shopSalesText": "已售2458",
+      "shopSalesText": "已售2467",
       "history": [
         {
           "time": "2026-07-21 23:00:01",
@@ -175,6 +211,12 @@
         {
           "time": "2026-07-21 23:40:31",
           "date": "2026-07-21",
+          "sales": 20,
+          "salesText": "已售20"
+        },
+        {
+          "time": "2026-07-22 09:34:14",
+          "date": "2026-07-22",
           "sales": 20,
           "salesText": "已售20"
         }
@@ -189,7 +231,7 @@
       "price": 29.9,
       "shopName": "米老师的AI工具箱的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/6911cd17e7451a0015bda985",
-      "shopSalesText": "已售2106",
+      "shopSalesText": "已售2116",
       "history": [
         {
           "time": "2026-07-21 23:00:01",
@@ -200,6 +242,12 @@
         {
           "time": "2026-07-21 23:40:31",
           "date": "2026-07-21",
+          "sales": 15,
+          "salesText": "已售15"
+        },
+        {
+          "time": "2026-07-22 09:34:14",
+          "date": "2026-07-22",
           "sales": 15,
           "salesText": "已售15"
         }
@@ -227,6 +275,12 @@
           "date": "2026-07-21",
           "sales": 4514,
           "salesText": "已售4514"
+        },
+        {
+          "time": "2026-07-22 09:34:14",
+          "date": "2026-07-22",
+          "sales": 4550,
+          "salesText": "已售4550"
         }
       ],
       "group": "ai工具"
@@ -252,6 +306,12 @@
           "date": "2026-07-21",
           "sales": 438,
           "salesText": "已售438"
+        },
+        {
+          "time": "2026-07-22 09:34:14",
+          "date": "2026-07-22",
+          "sales": 439,
+          "salesText": "已售439"
         }
       ],
       "group": "ai工具"
