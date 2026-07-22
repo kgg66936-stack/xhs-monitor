@@ -380,21 +380,21 @@ window.__XHS_DATA__ = {
 
 <!-- 主内容区 -->
 <main class="flex-1 flex flex-col overflow-hidden">
-    <header class="h-20 bg-white border-b border-slate-200 flex items-center justify-between px-10 shrink-0 z-10">
-        <div class="flex items-center gap-4">
+    <header class="bg-white border-b border-slate-200 flex items-center justify-between px-10 py-4 shrink-0 z-10">
+        <div class="flex items-center gap-4 min-w-0">
             <h2 class="text-xl font-black text-slate-900">数据监控看板</h2>
             <div class="h-6 w-[1px] bg-slate-200"></div>
             <span id="today-label" class="text-[10px] font-black text-slate-400 uppercase tracking-widest bg-slate-50 px-2 py-1 rounded"></span>
+            <span id="product-count" class="text-[10px] font-black text-slate-500 bg-slate-100 px-2 py-1 rounded"></span>
         </div>
         <div class="flex items-center gap-4">
-            <div class="flex flex-col items-end">
-                <button id="local-update-btn" onclick="triggerLocalUpdate()" class="px-3 py-2 rounded-xl text-xs font-black bg-slate-950 text-white hover:bg-slate-800 transition-colors">
-                    本机一键更新
-                </button>
+            <div class="flex flex-col items-end text-right">
+                <span id="last-update" class="text-[10px] text-slate-400 font-bold"></span>
                 <span id="local-update-status" class="mt-1 text-[10px] text-slate-400 font-bold">仅本机可用</span>
             </div>
-            <span id="last-update" class="text-[10px] text-slate-400 font-bold"></span>
-            <span id="product-count" class="text-[10px] font-black text-slate-500 bg-slate-100 px-2 py-1 rounded"></span>
+            <button id="local-update-btn" onclick="triggerLocalUpdate()" class="px-3 py-2 rounded-xl text-xs font-black bg-slate-950 text-white hover:bg-slate-800 transition-colors">
+                本机一键更新
+            </button>
         </div>
     </header>
 
@@ -761,10 +761,10 @@ function setLocalUpdateUi(statusText, mode = 'idle', buttonText = '本机一键�
 
     status.textContent = statusText;
     status.className = mode === 'error'
-        ? 'mt-1 text-[10px] text-red-500 font-bold'
+        ? 'mt-1 text-[10px] text-red-500 font-bold text-right'
         : mode === 'running'
-            ? 'mt-1 text-[10px] text-blue-500 font-bold'
-            : 'mt-1 text-[10px] text-slate-400 font-bold';
+            ? 'mt-1 text-[10px] text-blue-500 font-bold text-right'
+            : 'mt-1 text-[10px] text-slate-400 font-bold text-right';
 }
 
 function formatDateTimeShort(value) {
