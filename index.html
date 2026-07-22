@@ -51,7 +51,7 @@ window.__XHS_DATA__ = {
           "salesText": "已售1073"
         },
         {
-          "time": "2026-07-22 09:34:14",
+          "time": "2026-07-22 09:57:41",
           "date": "2026-07-22",
           "sales": 1078,
           "salesText": "已售1078"
@@ -82,7 +82,7 @@ window.__XHS_DATA__ = {
           "salesText": "已售484"
         },
         {
-          "time": "2026-07-22 09:34:14",
+          "time": "2026-07-22 09:57:41",
           "date": "2026-07-22",
           "sales": 488,
           "salesText": "已售488"
@@ -113,7 +113,7 @@ window.__XHS_DATA__ = {
           "salesText": "已售207"
         },
         {
-          "time": "2026-07-22 09:34:14",
+          "time": "2026-07-22 09:57:41",
           "date": "2026-07-22",
           "sales": 207,
           "salesText": "已售207"
@@ -144,10 +144,10 @@ window.__XHS_DATA__ = {
           "salesText": "已售136"
         },
         {
-          "time": "2026-07-22 09:34:14",
+          "time": "2026-07-22 09:57:41",
           "date": "2026-07-22",
-          "sales": 136,
-          "salesText": "已售136"
+          "sales": 137,
+          "salesText": "已售137"
         }
       ],
       "group": "语文教学成绩提升"
@@ -175,7 +175,7 @@ window.__XHS_DATA__ = {
           "salesText": "已售268"
         },
         {
-          "time": "2026-07-22 09:34:14",
+          "time": "2026-07-22 09:57:41",
           "date": "2026-07-22",
           "sales": 269,
           "salesText": "已售269"
@@ -206,7 +206,7 @@ window.__XHS_DATA__ = {
           "salesText": "已售226"
         },
         {
-          "time": "2026-07-22 09:34:14",
+          "time": "2026-07-22 09:57:41",
           "date": "2026-07-22",
           "sales": 226,
           "salesText": "已售226"
@@ -237,7 +237,7 @@ window.__XHS_DATA__ = {
           "salesText": "已售20"
         },
         {
-          "time": "2026-07-22 09:34:14",
+          "time": "2026-07-22 09:57:41",
           "date": "2026-07-22",
           "sales": 20,
           "salesText": "已售20"
@@ -268,7 +268,7 @@ window.__XHS_DATA__ = {
           "salesText": "已售15"
         },
         {
-          "time": "2026-07-22 09:34:14",
+          "time": "2026-07-22 09:57:41",
           "date": "2026-07-22",
           "sales": 15,
           "salesText": "已售15"
@@ -299,10 +299,10 @@ window.__XHS_DATA__ = {
           "salesText": "已售4514"
         },
         {
-          "time": "2026-07-22 09:34:14",
+          "time": "2026-07-22 09:57:41",
           "date": "2026-07-22",
-          "sales": 4550,
-          "salesText": "已售4550"
+          "sales": 4554,
+          "salesText": "已售4554"
         }
       ],
       "group": "ai工具"
@@ -330,7 +330,7 @@ window.__XHS_DATA__ = {
           "salesText": "已售438"
         },
         {
-          "time": "2026-07-22 09:34:14",
+          "time": "2026-07-22 09:57:41",
           "date": "2026-07-22",
           "sales": 439,
           "salesText": "已售439"
@@ -386,7 +386,13 @@ window.__XHS_DATA__ = {
             <div class="h-6 w-[1px] bg-slate-200"></div>
             <span id="today-label" class="text-[10px] font-black text-slate-400 uppercase tracking-widest bg-slate-50 px-2 py-1 rounded"></span>
         </div>
-        <div class="flex items-center gap-3">
+        <div class="flex items-center gap-4">
+            <div class="flex flex-col items-end">
+                <button id="local-update-btn" onclick="triggerLocalUpdate()" class="px-3 py-2 rounded-xl text-xs font-black bg-slate-950 text-white hover:bg-slate-800 transition-colors">
+                    本机一键更新
+                </button>
+                <span id="local-update-status" class="mt-1 text-[10px] text-slate-400 font-bold">仅本机可用</span>
+            </div>
             <span id="last-update" class="text-[10px] text-slate-400 font-bold"></span>
             <span id="product-count" class="text-[10px] font-black text-slate-500 bg-slate-100 px-2 py-1 rounded"></span>
         </div>
@@ -610,7 +616,9 @@ const DEFAULT_GROUP = '默认分组';
 const LOCAL_DATA_CACHE_KEY = 'xhs_monitor_recent_data';
 const LOCAL_DATA_SYNC_MARK_KEY = 'xhs_monitor_last_synced_cache_ts';
 const LOCAL_DATA_CACHE_TTL_MS = 15 * 60 * 1000;
+const LOCAL_UPDATE_API = 'http://127.0.0.1:8765';
 let pendingLocalCacheSync = null;
+let localUpdatePollingTimer = null;
 
 function normalizeData(data) {
     if (Array.isArray(data)) {
@@ -737,6 +745,101 @@ async function init() {
     renderCards();
     if (window.lucide) lucide.createIcons();
     syncLocalCacheToGitHubIfNeeded();
+    checkLocalUpdateStatus();
+}
+
+function setLocalUpdateUi(statusText, mode = 'idle', buttonText = '本机一键更新') {
+    const btn = document.getElementById('local-update-btn');
+    const status = document.getElementById('local-update-status');
+    if (!btn || !status) return;
+
+    btn.textContent = buttonText;
+    btn.disabled = mode === 'running';
+    btn.className = mode === 'running'
+        ? 'px-3 py-2 rounded-xl text-xs font-black bg-blue-600 text-white cursor-not-allowed'
+        : 'px-3 py-2 rounded-xl text-xs font-black bg-slate-950 text-white hover:bg-slate-800 transition-colors';
+
+    status.textContent = statusText;
+    status.className = mode === 'error'
+        ? 'mt-1 text-[10px] text-red-500 font-bold'
+        : mode === 'running'
+            ? 'mt-1 text-[10px] text-blue-500 font-bold'
+            : 'mt-1 text-[10px] text-slate-400 font-bold';
+}
+
+function formatDateTimeShort(value) {
+    if (!value) return '';
+    return value.replace('T', ' ').slice(0, 16);
+}
+
+function applyLocalUpdateStatus(data) {
+    if (!data?.ok) {
+        setLocalUpdateUi('本机服务未就绪', 'error');
+        return;
+    }
+
+    if (data.running) {
+        setLocalUpdateUi('正在本机抓取，请稍等...', 'running', '更新中...');
+        startLocalUpdatePolling();
+        return;
+    }
+
+    if (data.last_finished_at) {
+        setLocalUpdateUi(`本机服务在线，上次完成：${formatDateTimeShort(data.last_finished_at)}`);
+    } else {
+        setLocalUpdateUi('本机服务在线，可以直接点按钮更新');
+    }
+
+    stopLocalUpdatePolling();
+}
+
+async function checkLocalUpdateStatus() {
+    try {
+        const response = await fetch(`${LOCAL_UPDATE_API}/status?t=${Date.now()}`, {
+            method: 'GET',
+            mode: 'cors',
+            cache: 'no-store',
+        });
+        const data = await response.json();
+        applyLocalUpdateStatus(data);
+    } catch (err) {
+        setLocalUpdateUi('本机服务未启动，别的电脑点这个也没用', 'error');
+        stopLocalUpdatePolling();
+    }
+}
+
+function startLocalUpdatePolling() {
+    if (localUpdatePollingTimer) return;
+    localUpdatePollingTimer = setInterval(checkLocalUpdateStatus, 5000);
+}
+
+function stopLocalUpdatePolling() {
+    if (!localUpdatePollingTimer) return;
+    clearInterval(localUpdatePollingTimer);
+    localUpdatePollingTimer = null;
+}
+
+async function triggerLocalUpdate() {
+    setLocalUpdateUi('正在向本机发送更新请求...', 'running', '请求中...');
+    try {
+        const response = await fetch(`${LOCAL_UPDATE_API}/run`, {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-store',
+            headers: { 'Content-Type': 'application/json' },
+            body: '{}',
+        });
+        const data = await response.json();
+        if (!response.ok) {
+            throw new Error(data?.message || '请求失败');
+        }
+
+        setLocalUpdateUi('本机已经开始抓取，请等 2 到 5 分钟', 'running', '更新中...');
+        startLocalUpdatePolling();
+    } catch (err) {
+        setLocalUpdateUi('本机服务没连上，请先启动本机更新服务', 'error');
+        alert(`本机一键更新没有成功触发。\n\n请先双击 start_local_update_server.bat 启动本机更新服务。\n\n详细原因：${err.message}`);
+    }
 }
 
 function refreshSummary() {
