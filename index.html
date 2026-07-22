@@ -767,11 +767,6 @@ function setLocalUpdateUi(statusText, mode = 'idle', buttonText = '本机一键�
             : 'mt-1 text-[10px] text-slate-400 font-bold text-right';
 }
 
-function formatDateTimeShort(value) {
-    if (!value) return '';
-    return value.replace('T', ' ').slice(0, 16);
-}
-
 function applyLocalUpdateStatus(data) {
     if (!data?.ok) {
         setLocalUpdateUi('本机服务未就绪', 'error');
@@ -784,11 +779,7 @@ function applyLocalUpdateStatus(data) {
         return;
     }
 
-    if (data.last_finished_at) {
-        setLocalUpdateUi(`本机服务在线，上次完成：${formatDateTimeShort(data.last_finished_at)}`);
-    } else {
-        setLocalUpdateUi('本机服务在线，可以直接点按钮更新');
-    }
+    setLocalUpdateUi('本机服务在线');
 
     stopLocalUpdatePolling();
 }
@@ -803,7 +794,7 @@ async function checkLocalUpdateStatus() {
         const data = await response.json();
         applyLocalUpdateStatus(data);
     } catch (err) {
-        setLocalUpdateUi('本机服务未启动，别的电脑点这个也没用', 'error');
+        setLocalUpdateUi('本机服务未启动', 'error');
         stopLocalUpdatePolling();
     }
 }
