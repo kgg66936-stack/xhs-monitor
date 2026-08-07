@@ -1464,6 +1464,25 @@
         }
       ],
       "group": "ai工具"
+    },
+    {
+      "id": "68bba6e47be29900156a2350",
+      "url": "https://www.xiaohongshu.com/goods-detail/68bba6e47be29900156a2350",
+      "xsecToken": "XB22abqA-fQZlxgqCTyLksc0bTHNjbXtmb82hQdAuJzFI=",
+      "name": "2026教师训话逐字稿（120篇实战案例，初中小学教师必备）",
+      "price": 39.9,
+      "shopName": "玉老师的高效资料馆的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/675cf854d80a7700150fcb8a",
+      "shopSalesText": "已售3004",
+      "history": [
+        {
+          "time": "2026/8/7 10:24:56",
+          "date": "2026-08-07",
+          "sales": 1750,
+          "salesText": "已售1750"
+        }
+      ],
+      "group": "教师训话"
     }
   ]
 }
