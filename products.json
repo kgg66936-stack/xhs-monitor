@@ -5110,6 +5110,25 @@
         }
       ],
       "group": "工作台"
+    },
+    {
+      "id": "6a192191818cb80001e7dde0",
+      "url": "https://www.xiaohongshu.com/goods-detail/6a192191818cb80001e7dde0",
+      "xsecToken": "XBJVmjiAQkzFd_aXDORkYwxOAB36OMH4K4X6U4cFhU6wk=",
+      "name": "开学必备教师神器小喇叭远程喊话教室必备日常喊话使用【非实物】",
+      "price": 9.9,
+      "shopName": "暖阳扶木的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/699e65c53def9a0015fd41c3",
+      "shopSalesText": "已售3155",
+      "history": [
+        {
+          "time": "2026/9/1 09:26:41",
+          "date": "2026-09-01",
+          "sales": 2569,
+          "salesText": "已售2569"
+        }
+      ],
+      "group": "ai工具"
     }
   ]
 }
