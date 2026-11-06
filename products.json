@@ -13785,6 +13785,25 @@
         }
       ],
       "group": "ai工具"
+    },
+    {
+      "id": "6a02da265a83230001a7bd03",
+      "url": "https://www.xiaohongshu.com/goods-detail/6a02da265a83230001a7bd03",
+      "xsecToken": "XBo1nOWrEiPeUWXNf0YAtof_I4-vl5hcQ5W_iMAiUlrGo=",
+      "name": "所有视频交互课件合集包含后续更新",
+      "price": 10,
+      "shopName": "徐老师交互课件的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/697c96ffdc83d70015bb5c97",
+      "shopSalesText": "已售4431",
+      "history": [
+        {
+          "time": "2026/11/6 10:50:25",
+          "date": "2026-11-06",
+          "sales": 3321,
+          "salesText": "已售3321"
+        }
+      ],
+      "group": "互动课件"
     }
   ]
 }
