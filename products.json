@@ -14294,6 +14294,25 @@
         }
       ],
       "group": "测试类"
+    },
+    {
+      "id": "6a75be1ca52c1c00018c6079",
+      "url": "https://www.xiaohongshu.com/goods-detail/6a75be1ca52c1c00018c6079",
+      "xsecToken": "XBgK7bVcTwbokw-C9i774JwvgMPnEMTi86xUDZoP9fH0Y=",
+      "name": "暗恋测试TA是否也在偷偷喜欢你",
+      "price": 3.99,
+      "shopName": "小狐狸爱眠的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/69425ac0febf52001582556f",
+      "shopSalesText": "已售6321",
+      "history": [
+        {
+          "time": "2026/11/9 13:50:12",
+          "date": "2026-11-09",
+          "sales": 6217,
+          "salesText": "已售6217"
+        }
+      ],
+      "group": "测试类"
     }
   ]
 }
