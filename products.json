@@ -14427,6 +14427,25 @@
         }
       ],
       "group": "测试类"
+    },
+    {
+      "id": "6ab3e157918e030001b6fecb",
+      "url": "https://www.xiaohongshu.com/goods-detail/6ab3e157918e030001b6fecb",
+      "xsecToken": "XBQYmp-fw-juBt2Px9n14KrZy2Yj5RZ3TMhsSdO2L-D6k=",
+      "name": "性格城市匹配趣味测试",
+      "price": 3.99,
+      "shopName": "汤汤圆圆子~的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/6a656eb6aeaf930015a0b3b0",
+      "shopSalesText": "已售2506",
+      "history": [
+        {
+          "time": "2026/11/9 14:22:45",
+          "date": "2026-11-09",
+          "sales": 1749,
+          "salesText": "已售1749"
+        }
+      ],
+      "group": "测试类"
     }
   ]
 }
