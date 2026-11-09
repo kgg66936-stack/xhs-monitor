@@ -14370,6 +14370,25 @@
         }
       ],
       "group": "测试类"
+    },
+    {
+      "id": "6a6b960ae179b50001fc6640",
+      "url": "https://www.xiaohongshu.com/goods-detail/6a6b960ae179b50001fc6640",
+      "xsecToken": "XBBW_iNsX7Ps6ggTM-w0lqbmc_E-8kc504rnvNbuqE2UE=",
+      "name": "剧本角色测试·如果在你的世界是一个剧本你是什么角色？秒发链接 · 下单手机号可随意填写 | 链接会发在客服信息",
+      "price": 2.99,
+      "shopName": "心灵捕捉站的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/69184051610d320015809ae7",
+      "shopSalesText": "已售 1.8万",
+      "history": [
+        {
+          "time": "2026/11/9 14:22:02",
+          "date": "2026-11-09",
+          "sales": 6773,
+          "salesText": "已售6773"
+        }
+      ],
+      "group": "测试类"
     }
   ]
 }
