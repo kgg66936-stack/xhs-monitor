@@ -14408,6 +14408,25 @@
         }
       ],
       "group": "测试类"
+    },
+    {
+      "id": "6a8976f12fe0cd0001560d0a",
+      "url": "https://www.xiaohongshu.com/goods-detail/6a8976f12fe0cd0001560d0a",
+      "xsecToken": "XBaSlVCxJWNwsrW9VjsG5lJBaIZI26VlR5Py7Dklx0ev0=",
+      "name": "LPI恋爱压力指数情侣压力指数测试情侣压力分析报告社交心理",
+      "price": 3.95,
+      "shopName": "MULI 颜时实验室的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/69cbc39c3f173e0015317550",
+      "shopSalesText": "已售 1.7万",
+      "history": [
+        {
+          "time": "2026/11/9 14:22:32",
+          "date": "2026-11-09",
+          "sales": 4557,
+          "salesText": "已售4557"
+        }
+      ],
+      "group": "测试类"
     }
   ]
 }
