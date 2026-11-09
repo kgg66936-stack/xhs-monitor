@@ -14332,6 +14332,25 @@
         }
       ],
       "group": "测试类"
+    },
+    {
+      "id": "6a3fb702bf15d20001d650de",
+      "url": "https://www.xiaohongshu.com/goods-detail/6a3fb702bf15d20001d650de",
+      "xsecToken": "XBMg1xbhLabHig9LXicbhQBOnuLSHBevQi5oOO6sj9EE8=",
+      "name": "SCL-90 抑郁焦虑专业线上心理测评【自动发货】 · 自动发货客服窗口查收 电话地址可随意填写",
+      "price": 10,
+      "shopName": "桃桃Lucky的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/68eb76f9078e6f001528f54b",
+      "shopSalesText": "已售 6.4万",
+      "history": [
+        {
+          "time": "2026/11/9 14:21:29",
+          "date": "2026-11-09",
+          "sales": 2803,
+          "salesText": "已售2803"
+        }
+      ],
+      "group": "测试类"
     }
   ]
 }
