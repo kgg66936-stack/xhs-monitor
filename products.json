@@ -14389,6 +14389,25 @@
         }
       ],
       "group": "测试类"
+    },
+    {
+      "id": "6a53255905767800016fc825",
+      "url": "https://www.xiaohongshu.com/goods-detail/6a53255905767800016fc825",
+      "xsecToken": "XBuYQhWWBq5L4Y1R5caJbFBUoVOI0RAWcDAFbjBX1tYCk=",
+      "name": "【自动发货】天赋能力测试报告 · 电话号码随便填不重要",
+      "price": 6.99,
+      "shopName": "土象研究生ens的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/6a4a8b70877db80015d95c29",
+      "shopSalesText": "已售 1.8万",
+      "history": [
+        {
+          "time": "2026/11/9 14:22:17",
+          "date": "2026-11-09",
+          "sales": 7920,
+          "salesText": "已售7920"
+        }
+      ],
+      "group": "测试类"
     }
   ]
 }
