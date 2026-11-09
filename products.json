@@ -14446,6 +14446,25 @@
         }
       ],
       "group": "测试类"
+    },
+    {
+      "id": "6ab4d0346996d900014e2bdc",
+      "url": "https://www.xiaohongshu.com/goods-detail/6ab4d0346996d900014e2bdc",
+      "xsecToken": "XBIUyxeewRXUPuzGrF04g5xZTY0ng2o48zhlnOKU3P_24=",
+      "name": "ABO身份测试信息素测试报告",
+      "price": 10.99,
+      "shopName": "潜意识观测所的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/6a50927270f70f00152643c3",
+      "shopSalesText": "已售692",
+      "history": [
+        {
+          "time": "2026/11/9 16:44:13",
+          "date": "2026-11-09",
+          "sales": 589,
+          "salesText": "已售589"
+        }
+      ],
+      "group": "测试类"
     }
   ]
 }
