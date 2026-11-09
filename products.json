@@ -14351,6 +14351,25 @@
         }
       ],
       "group": "测试类"
+    },
+    {
+      "id": "6aca3406fda46c0001847a4e",
+      "url": "https://www.xiaohongshu.com/goods-detail/6aca3406fda46c0001847a4e",
+      "xsecToken": "XBuajumFXfE5PijmRaLBIxJkiVz4YeENc3c3yJnZ_uPi4=",
+      "name": "城市性格匹配测试",
+      "price": 11.99,
+      "shopName": "Nina幻象的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/6aba6895ba01700015d74ff0",
+      "shopSalesText": "已售727",
+      "history": [
+        {
+          "time": "2026/11/9 14:21:47",
+          "date": "2026-11-09",
+          "sales": 887,
+          "salesText": "已售887"
+        }
+      ],
+      "group": "测试类"
     }
   ]
 }
