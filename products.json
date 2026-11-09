@@ -14313,6 +14313,25 @@
         }
       ],
       "group": "测试类"
+    },
+    {
+      "id": "6adecde77675220001cbfa23",
+      "url": "https://www.xiaohongshu.com/goods-detail/6adecde77675220001cbfa23",
+      "xsecToken": "XByyKQqDXM70qMV2Tew5gq9bZLKFSUYosGQRy_MmRNR3c=",
+      "name": "16人格 · 心智阶位测评  高阶 / 中阶 / 低阶 （下单自动发货）",
+      "price": 9.9,
+      "shopName": "一条鱼魚的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/6ad782ea30b58a0015fe7f3e",
+      "shopSalesText": "已售1753",
+      "history": [
+        {
+          "time": "2026/11/9 13:51:14",
+          "date": "2026-11-09",
+          "sales": 1881,
+          "salesText": "已售1881"
+        }
+      ],
+      "group": "测试类"
     }
   ]
 }
