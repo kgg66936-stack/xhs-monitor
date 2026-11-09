@@ -14256,6 +14256,25 @@
         }
       ],
       "group": "互动课件"
+    },
+    {
+      "id": "6a6873dde179b50001b3ad6e",
+      "url": "https://www.xiaohongshu.com/goods-detail/6a6873dde179b50001b3ad6e",
+      "xsecToken": "XBWi1DtSU8VUA8b7xgW0_hCOvOiHQERe82jsfwCEXrlAE=",
+      "name": "相亲市场定位测试-测完才知道自己高估了多少教案模板",
+      "price": 8.9,
+      "shopName": "是玫瑰丫的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/652d098b02186a0001499880",
+      "shopSalesText": "已售 2.1万",
+      "history": [
+        {
+          "time": "2026/11/9 13:47:03",
+          "date": "2026-11-09",
+          "sales": 13000,
+          "salesText": "已售1.3万+"
+        }
+      ],
+      "group": "测试类"
     }
   ]
 }
