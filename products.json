@@ -14275,6 +14275,25 @@
         }
       ],
       "group": "测试类"
+    },
+    {
+      "id": "6ab24834a0b6bb0001c2e8c6",
+      "url": "https://www.xiaohongshu.com/goods-detail/6ab24834a0b6bb0001c2e8c6",
+      "xsecToken": "XBGYvB4SmFrK_WXnmaG7du-OFOfFgUkbb4Qej0qlHvjYg=",
+      "name": "【升级版】2026动物塑测试12种动物原型性格测试挖掘真实色彩 · 动物测评丨自动发货丨手机随便填",
+      "price": 3.96,
+      "shopName": "喵子の心流之旅的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/6aa4e47f0b063e00154c4018",
+      "shopSalesText": "已售8830",
+      "history": [
+        {
+          "time": "2026/11/9 13:47:47",
+          "date": "2026-11-09",
+          "sales": 8380,
+          "salesText": "已售8380"
+        }
+      ],
+      "group": "测试类"
     }
   ]
 }
