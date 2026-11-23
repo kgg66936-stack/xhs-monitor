@@ -737,6 +737,12 @@
           "date": "2026-11-22",
           "sales": 3255,
           "salesText": "已售3255"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 3260,
+          "salesText": "已售3260"
         }
       ],
       "group": "语文教学成绩提升"
@@ -1468,6 +1474,12 @@
         {
           "time": "2026-11-22 23:00:07",
           "date": "2026-11-22",
+          "sales": 897,
+          "salesText": "已售897"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
           "sales": 897,
           "salesText": "已售897"
         }
@@ -2203,6 +2215,12 @@
           "date": "2026-11-22",
           "sales": 690,
           "salesText": "已售690"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 696,
+          "salesText": "已售696"
         }
       ],
       "group": "语文教学成绩提升"
@@ -2934,6 +2952,12 @@
         {
           "time": "2026-11-22 23:00:07",
           "date": "2026-11-22",
+          "sales": 233,
+          "salesText": "已售233"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
           "sales": 233,
           "salesText": "已售233"
         }
@@ -3669,6 +3693,12 @@
           "date": "2026-11-22",
           "sales": 355,
           "salesText": "已售355"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 355,
+          "salesText": "已售355"
         }
       ],
       "group": "语文教学成绩提升"
@@ -4402,6 +4432,12 @@
           "date": "2026-11-22",
           "sales": 370,
           "salesText": "已售370"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 372,
+          "salesText": "已售372"
         }
       ],
       "group": "语文教学成绩提升"
@@ -5133,6 +5169,12 @@
         {
           "time": "2026-11-22 23:00:07",
           "date": "2026-11-22",
+          "sales": 132,
+          "salesText": "已售132"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
           "sales": 132,
           "salesText": "已售132"
         }
@@ -5868,6 +5910,12 @@
           "date": "2026-11-22",
           "sales": 10000,
           "salesText": "已售1万"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 10000,
+          "salesText": "已售1万"
         }
       ],
       "group": "ai工具"
@@ -6595,6 +6643,12 @@
           "date": "2026-11-22",
           "sales": 1093,
           "salesText": "已售1093"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 1093,
+          "salesText": "已售1093"
         }
       ],
       "group": "ai工具"
@@ -7256,6 +7310,12 @@
           "date": "2026-11-22",
           "sales": 1177,
           "salesText": "已售1177"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 1179,
+          "salesText": "已售1179"
         }
       ],
       "group": "语文教学成绩提升"
@@ -7893,6 +7953,12 @@
           "date": "2026-11-22",
           "sales": 1601,
           "salesText": "已售1601"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 1604,
+          "salesText": "已售1604"
         }
       ],
       "group": "英语成绩提升"
@@ -8510,6 +8576,12 @@
         {
           "time": "2026-11-22 23:00:07",
           "date": "2026-11-22",
+          "sales": 517,
+          "salesText": "已售517"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
           "sales": 517,
           "salesText": "已售517"
         }
@@ -9131,6 +9203,12 @@
           "date": "2026-11-22",
           "sales": 493,
           "salesText": "已售493"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 493,
+          "salesText": "已售493"
         }
       ],
       "group": "数学教学成绩提升"
@@ -9748,6 +9826,12 @@
         {
           "time": "2026-11-22 23:00:07",
           "date": "2026-11-22",
+          "sales": 1429,
+          "salesText": "已售1429"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
           "sales": 1429,
           "salesText": "已售1429"
         }
@@ -10369,6 +10453,12 @@
           "date": "2026-11-22",
           "sales": 31,
           "salesText": "已售31"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 31,
+          "salesText": "已售31"
         }
       ],
       "group": "英语成绩提升"
@@ -10982,6 +11072,12 @@
           "date": "2026-11-22",
           "sales": 241,
           "salesText": "已售241"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 241,
+          "salesText": "已售241"
         }
       ],
       "group": "ai工具"
@@ -11589,6 +11685,12 @@
           "date": "2026-11-22",
           "sales": 863,
           "salesText": "已售863"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 865,
+          "salesText": "已售865"
         }
       ],
       "group": "英语成绩提升"
@@ -12190,6 +12292,12 @@
           "date": "2026-11-22",
           "sales": 2257,
           "salesText": "已售2257"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 2260,
+          "salesText": "已售2260"
         }
       ],
       "group": "英语成绩提升"
@@ -12785,6 +12893,12 @@
           "date": "2026-11-22",
           "sales": 1732,
           "salesText": "已售1732"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 1735,
+          "salesText": "已售1735"
         }
       ],
       "group": "英语成绩提升"
@@ -13362,6 +13476,12 @@
           "date": "2026-11-22",
           "sales": 377,
           "salesText": "已售377"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 377,
+          "salesText": "已售377"
         }
       ],
       "group": "教师训话"
@@ -13879,6 +13999,12 @@
           "date": "2026-11-22",
           "sales": 11000,
           "salesText": "已售1.1万"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 11000,
+          "salesText": "已售1.1万"
         }
       ],
       "group": "班级管理"
@@ -14342,6 +14468,12 @@
           "date": "2026-11-22",
           "sales": 12000,
           "salesText": "已售1.2万"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 12000,
+          "salesText": "已售1.2万"
         }
       ],
       "group": "ai工具"
@@ -14709,6 +14841,12 @@
           "date": "2026-11-22",
           "sales": 572,
           "salesText": "已售572"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 574,
+          "salesText": "已售574"
         }
       ],
       "group": "ai工具"
@@ -15040,6 +15178,12 @@
           "date": "2026-11-22",
           "sales": 580,
           "salesText": "已售580"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 584,
+          "salesText": "已售584"
         }
       ],
       "group": "数学教学成绩提升"
@@ -15341,6 +15485,12 @@
           "date": "2026-11-22",
           "sales": 1940,
           "salesText": "已售1940"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 1956,
+          "salesText": "已售1956"
         }
       ],
       "group": "ai工具"
@@ -15594,6 +15744,12 @@
           "date": "2026-11-22",
           "sales": 750,
           "salesText": "已售750"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 753,
+          "salesText": "已售753"
         }
       ],
       "group": "教学成绩提升"
@@ -15841,6 +15997,12 @@
           "date": "2026-11-22",
           "sales": 859,
           "salesText": "已售859"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 861,
+          "salesText": "已售861"
         }
       ],
       "group": "数学教学成绩提升"
@@ -16064,6 +16226,12 @@
           "date": "2026-11-22",
           "sales": 15,
           "salesText": "已售15"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 15,
+          "salesText": "已售15"
         }
       ],
       "group": "数学教学成绩提升"
@@ -16215,6 +16383,12 @@
           "date": "2026-11-22",
           "sales": 14000,
           "salesText": "已售1.4万"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 14000,
+          "salesText": "已售1.4万"
         }
       ],
       "group": "学科资料"
@@ -16224,7 +16398,7 @@
       "url": "https://www.xiaohongshu.com/goods-detail/686fab50cff6260001a62470",
       "xsecToken": "XBnptAWiaOV_E27t2yJ2m-IxCK7QfKzL_PNqlAIQESdWQ=",
       "name": "荔枝地理七八年级知识点总结PDF版复习提纲，人教、湘教等版本",
-      "price": 10,
+      "price": 10.0,
       "shopName": "夏夏生物的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/6784ec899f33e70015865a86",
       "shopSalesText": "已售 1.6万",
@@ -16366,6 +16540,12 @@
           "date": "2026-11-22",
           "sales": 6074,
           "salesText": "已售6074"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 6087,
+          "salesText": "已售6087"
         }
       ],
       "group": "学科资料"
@@ -16375,7 +16555,7 @@
       "url": "https://www.xiaohongshu.com/goods-detail/686faf5f417c3f0001f983b0",
       "xsecToken": "XBqmAhAD1y5_83ZtuKVXIH04zWVfe5sDVuAJ-U9ZYhzl4=",
       "name": "荔枝地理七八年级默写小纸条PDF电子版实时发网盘，人教湘教版等",
-      "price": 10,
+      "price": 10.0,
       "shopName": "夏夏生物的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/6784ec899f33e70015865a86",
       "shopSalesText": "已售 1.6万",
@@ -16523,6 +16703,12 @@
           "date": "2026-11-22",
           "sales": 2845,
           "salesText": "已售2845"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 2850,
+          "salesText": "已售2850"
         }
       ],
       "group": "学科资料"
@@ -16656,6 +16842,12 @@
           "date": "2026-11-22",
           "sales": 73,
           "salesText": "已售73"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 77,
+          "salesText": "已售77"
         }
       ],
       "group": "教师训话"
@@ -16789,6 +16981,12 @@
           "date": "2026-11-22",
           "sales": 913,
           "salesText": "已售913"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 926,
+          "salesText": "已售926"
         }
       ],
       "group": "ai工具"
@@ -16922,6 +17120,12 @@
           "date": "2026-11-22",
           "sales": 44,
           "salesText": "已售44"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 45,
+          "salesText": "已售45"
         }
       ],
       "group": "ai工具"
@@ -16931,7 +17135,7 @@
       "url": "https://www.xiaohongshu.com/goods-detail/6a02da265a83230001a7bd03",
       "xsecToken": "XBo1nOWrEiPeUWXNf0YAtof_I4-vl5hcQ5W_iMAiUlrGo=",
       "name": "所有视频交互课件合集包含后续更新",
-      "price": 10,
+      "price": 10.0,
       "shopName": "徐老师交互课件的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/697c96ffdc83d70015bb5c97",
       "shopSalesText": "已售4431",
@@ -17037,6 +17241,12 @@
           "date": "2026-11-22",
           "sales": 3828,
           "salesText": "已售3828"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 3869,
+          "salesText": "已售3869"
         }
       ],
       "group": "互动课件"
@@ -17152,6 +17362,12 @@
           "date": "2026-11-22",
           "sales": 1410,
           "salesText": "已售1410"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 1419,
+          "salesText": "已售1419"
         }
       ],
       "group": "互动课件"
@@ -17247,6 +17463,12 @@
         {
           "time": "2026-11-22 23:00:07",
           "date": "2026-11-22",
+          "sales": 14000,
+          "salesText": "已售1.4万"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
           "sales": 14000,
           "salesText": "已售1.4万"
         }
@@ -17346,6 +17568,12 @@
           "date": "2026-11-22",
           "sales": 12000,
           "salesText": "已售1.2万"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 12000,
+          "salesText": "已售1.2万"
         }
       ],
       "group": "测试类"
@@ -17443,6 +17671,12 @@
           "date": "2026-11-22",
           "sales": 8283,
           "salesText": "已售8283"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 8396,
+          "salesText": "已售8396"
         }
       ],
       "group": "测试类"
@@ -17540,6 +17774,12 @@
           "date": "2026-11-22",
           "sales": 7240,
           "salesText": "已售7240"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 7428,
+          "salesText": "已售7428"
         }
       ],
       "group": "测试类"
@@ -17637,6 +17877,12 @@
           "date": "2026-11-22",
           "sales": 3467,
           "salesText": "已售3467"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 3530,
+          "salesText": "已售3530"
         }
       ],
       "group": "测试类"
@@ -17734,6 +17980,12 @@
           "date": "2026-11-22",
           "sales": 1955,
           "salesText": "已售1955"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 1956,
+          "salesText": "已售1956"
         }
       ],
       "group": "测试类"
@@ -17829,6 +18081,12 @@
         {
           "time": "2026-11-22 23:00:07",
           "date": "2026-11-22",
+          "sales": 6825,
+          "salesText": "已售6825"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
           "sales": 6825,
           "salesText": "已售6825"
         }
@@ -17928,6 +18186,12 @@
           "date": "2026-11-22",
           "sales": 9002,
           "salesText": "已售9002"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 9089,
+          "salesText": "已售9089"
         }
       ],
       "group": "测试类"
@@ -18025,6 +18289,12 @@
           "date": "2026-11-22",
           "sales": 6587,
           "salesText": "已售6587"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 6682,
+          "salesText": "已售6682"
         }
       ],
       "group": "测试类"
@@ -18122,6 +18392,12 @@
           "date": "2026-11-22",
           "sales": 7235,
           "salesText": "已售7235"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 7541,
+          "salesText": "已售7541"
         }
       ],
       "group": "测试类"
@@ -18219,6 +18495,12 @@
           "date": "2026-11-22",
           "sales": 1823,
           "salesText": "已售1823"
+        },
+        {
+          "time": "2026-11-23 23:00:05",
+          "date": "2026-11-23",
+          "sales": 1840,
+          "salesText": "已售1840"
         }
       ],
       "group": "测试类"
@@ -18228,16 +18510,16 @@
       "url": "https://www.xiaohongshu.com/goods-detail/6adf21466c7a6b0001916f32",
       "xsecToken": "XB5foP8qQBD0pn3sDbzqGCfT8xD9dr1eom91bPU2sPhk8=",
       "name": "2026秋冬新款羊毛缎面流光口罩防风防寒保暖亲肤",
-      "price": 36.8,
+      "price": 15.8,
       "shopName": "幸运小甜菜的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/6adacee09c404300155e40c9",
       "shopSalesText": "已售 3.2万",
       "history": [
         {
-          "time": "2026/11/23 10:03:14",
+          "time": "2026-11-23 23:00:05",
           "date": "2026-11-23",
-          "sales": 33000,
-          "salesText": "已售3.3万+"
+          "sales": 36000,
+          "salesText": "已售3.6万"
         }
       ],
       "group": "实物类"
@@ -18247,16 +18529,16 @@
       "url": "https://www.xiaohongshu.com/goods-detail/6af06abdfa2b78000130b9e6",
       "xsecToken": "XB5Yd7RjGYCzFO5dSC28Sa-luAqb9mPvFMvLPOGQyXQIg=",
       "name": "【玩偶派派】钱钱纸巾袋磁吸创意车载抽纸盒后排毛绒玩偶文化文创",
-      "price": 5,
+      "price": 5.0,
       "shopName": "玩偶派派奇妙物语的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/69bd0f1bdfb5e60015dddcce",
       "shopSalesText": "已售 2.6万",
       "history": [
         {
-          "time": "2026/11/23 10:14:53",
+          "time": "2026-11-23 23:00:05",
           "date": "2026-11-23",
-          "sales": 6913,
-          "salesText": "已售6913"
+          "sales": 6937,
+          "salesText": "已售6937"
         }
       ],
       "group": "实物类"
@@ -18266,16 +18548,16 @@
       "url": "https://www.xiaohongshu.com/goods-detail/6afbedfd74844d0015753e7f",
       "xsecToken": "XBng8BWRfLKcL5HdIOw_kdfbiY09NJhrDZINxDAulcNq8=",
       "name": "【26年新款】钱钱纸巾袋磁吸创意车载抽纸盒后排毛绒玩偶文化文创",
-      "price": 49.9,
+      "price": 22.9,
       "shopName": "女子玩妆好物研究所💋的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/673879408842e0001580259e",
       "shopSalesText": "已售 2.4万",
       "history": [
         {
-          "time": "2026/11/23 10:32:48",
+          "time": "2026-11-23 23:00:05",
           "date": "2026-11-23",
-          "sales": 266,
-          "salesText": "已售266"
+          "sales": 343,
+          "salesText": "已售343"
         }
       ],
       "group": "实物类"
@@ -18285,16 +18567,16 @@
       "url": "https://www.xiaohongshu.com/goods-detail/6ae409cb7f46d50015c53641",
       "xsecToken": "XB9nNqdRTAIUq9BwqDZ20yG2f81tg7TQSWM_pR7eLWsyk=",
       "name": "可爱老吴猫围巾秋冬季卡通保暖加厚学生百搭解压治愈围脖送礼",
-      "price": 46,
+      "price": 29.9,
       "shopName": "微甜小奶酪的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/6acc4ef85810bd00150005ce",
       "shopSalesText": "已售 1.3万",
       "history": [
         {
-          "time": "2026/11/23 10:51:49",
+          "time": "2026-11-23 23:00:05",
           "date": "2026-11-23",
           "sales": 13000,
-          "salesText": "已售1.3万+"
+          "salesText": "已售1.3万"
         }
       ],
       "group": "实物类"
@@ -18304,16 +18586,16 @@
       "url": "https://www.xiaohongshu.com/goods-detail/6afb2e7e6ffb5300017b2f72",
       "xsecToken": "XBMJAwsdV5bg3ls_VSqnIG5q7KlROISGvc9Iy2SID9ewg=",
       "name": "搞怪老吴猫咪围巾冬季保暖围脖加厚围巾学生百搭老吴猫治愈礼物",
-      "price": 52,
+      "price": 29.8,
       "shopName": "好运的栗子🌰的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/691c76cd790002001534d68e",
       "shopSalesText": "已售1516",
       "history": [
         {
-          "time": "2026/11/23 11:06:51",
+          "time": "2026-11-23 23:00:05",
           "date": "2026-11-23",
-          "sales": 1416,
-          "salesText": "已售1416"
+          "sales": 1432,
+          "salesText": "已售1432"
         }
       ],
       "group": "实物类"
@@ -18323,16 +18605,16 @@
       "url": "https://www.xiaohongshu.com/goods-detail/6922c45d2f4b4000015e6aa0",
       "xsecToken": "XBSeI2bsAEwECJr1MlFBaLw9egNdVWtC-J6dfyBrhIx3E=",
       "name": "(材质是静电玻璃贴，不是真布)布艺效果圣诞节布置玻璃贴橱窗装饰",
-      "price": 56,
+      "price": 28.0,
       "shopName": "YOOYOUNG乌托邦的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/66f51085a9bf3400163b026f",
       "shopSalesText": "已售 2.5万",
       "history": [
         {
-          "time": "2026/11/23 11:17:27",
+          "time": "2026-11-23 23:00:05",
           "date": "2026-11-23",
           "sales": 12000,
-          "salesText": "已售1.2万+"
+          "salesText": "已售1.2万"
         }
       ],
       "group": "实物类"
@@ -18342,16 +18624,16 @@
       "url": "https://www.xiaohongshu.com/goods-detail/6abb0e37a20c860015823bc3",
       "xsecToken": "XB7IpbYOItK3AH_haq-L1kBODl4RocKHH9iYqzJO5UH_E=",
       "name": "【前 1000 单 7.9】北京文创冰箱贴故宫天坛飘雪流沙磁吸纪念品",
-      "price": 20.9,
+      "price": 7.9,
       "shopName": "欢喜好运小铺的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/6976d36c020fd10015aef1bb",
       "shopSalesText": "已售5489",
       "history": [
         {
-          "time": "2026/11/23 11:21:29",
+          "time": "2026-11-23 23:00:05",
           "date": "2026-11-23",
-          "sales": 5315,
-          "salesText": "已售5315"
+          "sales": 5371,
+          "salesText": "已售5371"
         }
       ],
       "group": "实物类"
@@ -18361,16 +18643,16 @@
       "url": "https://www.xiaohongshu.com/goods-detail/6ad96a36f1b8d50001b5b4ef",
       "xsecToken": "XB4A1DotqlBD1fp46WA5aXPBxcBwIzecB2ro_UyZuwlHo=",
       "name": "小众五月天卜卜圣诞节装饰贴玻璃贴高颜值圣诞窗户贴静电贴",
-      "price": 20.5,
+      "price": 15.5,
       "shopName": "望舒百汇的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/6820d170608c260015a86278",
       "shopSalesText": "已售3120",
       "history": [
         {
-          "time": "2026/11/23 11:25:18",
+          "time": "2026-11-23 23:00:05",
           "date": "2026-11-23",
-          "sales": 1264,
-          "salesText": "已售1264"
+          "sales": 1303,
+          "salesText": "已售1303"
         }
       ],
       "group": "实物类"
@@ -18380,16 +18662,16 @@
       "url": "https://www.xiaohongshu.com/goods-detail/6a96a7952f0e870001b83212",
       "xsecToken": "XBXKOvvDHiCKSMeGJ3ZGkWh1vxhAlrqOaTWZFxDwg6i04=",
       "name": "【前 10000 单 7.9，粉丝专享】北京文创冰箱贴故宫天坛飘雪流沙",
-      "price": 20.9,
+      "price": 8.9,
       "shopName": "京遇文创的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/69579b14a9e7af0015be9a9c",
       "shopSalesText": "已售 1.2万",
       "history": [
         {
-          "time": "2026/11/23 11:28:22",
+          "time": "2026-11-23 23:00:05",
           "date": "2026-11-23",
-          "sales": 9838,
-          "salesText": "已售9838"
+          "sales": 9935,
+          "salesText": "已售9935"
         }
       ],
       "group": "实物类"
@@ -18399,16 +18681,16 @@
       "url": "https://www.xiaohongshu.com/goods-detail/6ae31a0c3230f50001dc8a26",
       "xsecToken": "XBOhuh046tIMX9LA9A0yBxIntOD4cezLCAW40m4-LLqyg=",
       "name": "小众五月天卜卜圣诞节装饰贴玻璃贴高颜值圣诞窗户贴静电贴",
-      "price": 36.5,
+      "price": 16.5,
       "shopName": "胡萝卜来一根的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/6a2d6dba1cdd4800158c9c3a",
       "shopSalesText": "已售2756",
       "history": [
         {
-          "time": "2026/11/23 11:33:27",
+          "time": "2026-11-23 23:00:05",
           "date": "2026-11-23",
-          "sales": 811,
-          "salesText": "已售811"
+          "sales": 850,
+          "salesText": "已售850"
         }
       ],
       "group": "实物类"
@@ -18424,10 +18706,10 @@
       "shopSalesText": "已售 6.5万",
       "history": [
         {
-          "time": "2026/11/23 11:39:18",
+          "time": "2026-11-23 23:00:05",
           "date": "2026-11-23",
-          "sales": 1480,
-          "salesText": "已售1480"
+          "sales": 1546,
+          "salesText": "已售1546"
         }
       ],
       "group": "实物类"
@@ -18437,16 +18719,16 @@
       "url": "https://www.xiaohongshu.com/goods-detail/6ae989d29c89c10001bbeff6",
       "xsecToken": "XBM1kMxCCQ9VsQ-XDLwfUSEjt7KM7kwyb1hJVh0FVPs7s=",
       "name": "圣诞节松树桌旗装饰桌布桌搭桌垫餐桌装饰书桌装饰桌面布置",
-      "price": 48,
+      "price": 28.0,
       "shopName": "刘好好zai的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/6aa53e0016d4a10015252d8f",
       "shopSalesText": "已售2022",
       "history": [
         {
-          "time": "2026/11/23 11:53:43",
+          "time": "2026-11-23 23:00:05",
           "date": "2026-11-23",
-          "sales": 2055,
-          "salesText": "已售2055"
+          "sales": 2150,
+          "salesText": "已售2150"
         }
       ],
       "group": "实物类"
@@ -18456,16 +18738,16 @@
       "url": "https://www.xiaohongshu.com/goods-detail/6a6959202bf2dc000198ec75",
       "xsecToken": "XBMjxCw24cp3TW0U1LZYh6laH59BE8LLMLD0J_ad75cSA=",
       "name": "儿童叠叠乐积木平衡亲子互动早教益智力桌面玩具2岁3岁玩具推荐",
-      "price": 22.8,
+      "price": 9.9,
       "shopName": "小白的玩具屋的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/656ac3290852060001c9bed8",
       "shopSalesText": "已售 1.3万",
       "history": [
         {
-          "time": "2026/11/23 12:11:40",
+          "time": "2026-11-23 23:00:05",
           "date": "2026-11-23",
           "sales": 12000,
-          "salesText": "已售1.2万+"
+          "salesText": "已售1.2万"
         }
       ],
       "group": "实物类"
@@ -18481,10 +18763,10 @@
       "shopSalesText": "已售3529",
       "history": [
         {
-          "time": "2026/11/23 12:27:26",
+          "time": "2026-11-23 23:00:05",
           "date": "2026-11-23",
-          "sales": 3187,
-          "salesText": "已售3187"
+          "sales": 3241,
+          "salesText": "已售3241"
         }
       ],
       "group": "实物类"
@@ -18494,16 +18776,16 @@
       "url": "https://www.xiaohongshu.com/goods-detail/6afd8362b1d1590015dfe5bd",
       "xsecToken": "XBR08Tb5QfYyc-Qp4rFBYWIUSqfBTzW179EtVNPNkTeyY=",
       "name": "圣诞投影灯家居卧室小夜灯浪漫氛围装饰灯 · 圣诞系列 · 圣诞系列（1个主机6个镜片）",
-      "price": 98.8,
+      "price": 68.8,
       "shopName": "半岛铁盒yzf的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/6af97e32bfe4410015d0a5ab",
       "shopSalesText": "已售2168",
       "history": [
         {
-          "time": "2026/11/23 12:59:10",
+          "time": "2026-11-23 23:00:05",
           "date": "2026-11-23",
-          "sales": 2495,
-          "salesText": "已售2495"
+          "sales": 2937,
+          "salesText": "已售2937"
         }
       ],
       "group": "实物类"
@@ -18513,13 +18795,13 @@
       "url": "https://www.xiaohongshu.com/goods-detail/6b0087656eb7b10001560ba6",
       "xsecToken": "XB7vXe1HJe430gQIkEqDPMhiWuyPYUyLR_1Ym8Mx1GOTU=",
       "name": "圣诞树桌旗装饰新年餐桌布节日摆件圣诞节装饰用品",
-      "price": 72,
+      "price": 52.0,
       "shopName": "ssski的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/6ae87fd7c1274e001575124b",
       "shopSalesText": "已售121",
       "history": [
         {
-          "time": "2026/11/23 16:37:31",
+          "time": "2026-11-23 23:00:05",
           "date": "2026-11-23",
           "sales": 121,
           "salesText": "已售121"
@@ -18532,16 +18814,16 @@
       "url": "https://www.xiaohongshu.com/goods-detail/6afbf9336eb7b10001fce1c8",
       "xsecToken": "XB6Z21Sqj5lW6qsUBTxVUfH36w9Vr_hzFVnBCUg6SWeQA=",
       "name": "圣诞树桌旗节日餐垫新年餐桌装饰圣诞氛围摆件圣诞餐桌布置",
-      "price": 47.8,
+      "price": 27.8,
       "shopName": "空里的店",
       "shopUrl": "https://www.xiaohongshu.com/shop/69830c198ab5a80015f610ba",
       "shopSalesText": "已售391",
       "history": [
         {
-          "time": "2026/11/23 20:03:27",
+          "time": "2026-11-23 23:00:05",
           "date": "2026-11-23",
-          "sales": 45,
-          "salesText": "已售45"
+          "sales": 47,
+          "salesText": "已售47"
         }
       ],
       "group": "实物类"
