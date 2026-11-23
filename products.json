@@ -18222,6 +18222,25 @@
         }
       ],
       "group": "测试类"
+    },
+    {
+      "id": "6adf21466c7a6b0001916f32",
+      "url": "https://www.xiaohongshu.com/goods-detail/6adf21466c7a6b0001916f32",
+      "xsecToken": "XB5foP8qQBD0pn3sDbzqGCfT8xD9dr1eom91bPU2sPhk8=",
+      "name": "2026秋冬新款羊毛缎面流光口罩防风防寒保暖亲肤",
+      "price": 36.8,
+      "shopName": "幸运小甜菜的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/6adacee09c404300155e40c9",
+      "shopSalesText": "已售 3.2万",
+      "history": [
+        {
+          "time": "2026/11/23 10:03:14",
+          "date": "2026-11-23",
+          "sales": 33000,
+          "salesText": "已售3.3万+"
+        }
+      ],
+      "group": "实物类"
     }
   ]
 }
