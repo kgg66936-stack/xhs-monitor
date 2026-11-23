@@ -18374,6 +18374,25 @@
         }
       ],
       "group": "实物类"
+    },
+    {
+      "id": "6a96a7952f0e870001b83212",
+      "url": "https://www.xiaohongshu.com/goods-detail/6a96a7952f0e870001b83212",
+      "xsecToken": "XBXKOvvDHiCKSMeGJ3ZGkWh1vxhAlrqOaTWZFxDwg6i04=",
+      "name": "【前 10000 单 7.9，粉丝专享】北京文创冰箱贴故宫天坛飘雪流沙",
+      "price": 20.9,
+      "shopName": "京遇文创的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/69579b14a9e7af0015be9a9c",
+      "shopSalesText": "已售 1.2万",
+      "history": [
+        {
+          "time": "2026/11/23 11:28:22",
+          "date": "2026-11-23",
+          "sales": 9838,
+          "salesText": "已售9838"
+        }
+      ],
+      "group": "实物类"
     }
   ]
 }
