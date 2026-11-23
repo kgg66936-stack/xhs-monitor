@@ -18336,6 +18336,25 @@
         }
       ],
       "group": "实物类"
+    },
+    {
+      "id": "6abb0e37a20c860015823bc3",
+      "url": "https://www.xiaohongshu.com/goods-detail/6abb0e37a20c860015823bc3",
+      "xsecToken": "XB7IpbYOItK3AH_haq-L1kBODl4RocKHH9iYqzJO5UH_E=",
+      "name": "【前 1000 单 7.9】北京文创冰箱贴故宫天坛飘雪流沙磁吸纪念品",
+      "price": 20.9,
+      "shopName": "欢喜好运小铺的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/6976d36c020fd10015aef1bb",
+      "shopSalesText": "已售5489",
+      "history": [
+        {
+          "time": "2026/11/23 11:21:29",
+          "date": "2026-11-23",
+          "sales": 5315,
+          "salesText": "已售5315"
+        }
+      ],
+      "group": "实物类"
     }
   ]
 }
