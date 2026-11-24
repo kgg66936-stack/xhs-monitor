@@ -17190,6 +17190,25 @@
         }
       ],
       "group": "实物类"
+    },
+    {
+      "id": "6a100a8de6f8790001350f19",
+      "url": "https://www.xiaohongshu.com/goods-detail/6a100a8de6f8790001350f19",
+      "xsecToken": "XB4O4Mk8AQczSAObZC2hyL6AIqVdLxu_SbAV7FL7BBlvA=",
+      "name": "表达能力训练打卡，提升口才表达",
+      "price": 29,
+      "shopName": "琪琪练表达的店",
+      "shopUrl": "https://www.xiaohongshu.com/shop/691beb37cda0b5001554ce2e",
+      "shopSalesText": "已售3557",
+      "history": [
+        {
+          "time": "2026/11/24 17:39:50",
+          "date": "2026-11-24",
+          "sales": 1855,
+          "salesText": "已售1855"
+        }
+      ],
+      "group": "口语表达"
     }
   ]
 }
